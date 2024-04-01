@@ -1,0 +1,158 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--font-family-default);
+  color: var(--color-foreground-body);
+}
+
+.heading-display {
+  font-size: clamp(4rem, 2vw + 3rem, 6.4rem);
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  padding: var(--space-base);
+}
+
+.heading-l {
+  font-size: clamp(3.2rem, 2vw + 2rem, 4rem);
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+.heading-m {
+  font-size: clamp(2.4rem, 2vw + 1.6rem, 3.2rem);
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+.heading-s {
+  font-size: clamp(2rem, 2vw + 1.6rem, 2.4rem);
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.heading-xs {
+  font-size: clamp(1.6rem, 2vw, 1.8rem);
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.text-body-l {
+  font-size: 1.8rem;
+  font-weight: normal;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.text-body-l-bold {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.text-body-m {
+  font-size: 1.6rem;
+  font-weight: normal;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.text-body-m-bold {
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.text-body-s {
+  font-size: 1.4rem;
+  font-weight: normal;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.text-body-s-bold {
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.text-label-l {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.text-label-m {
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.text-label-s {
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.text-label-xs {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.text-caption {
+  font-size: 1.2rem;
+  font-weight: normal;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.text-caption-bold {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.text-button {
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .heading-display {
+    font-size: 4rem;
+  }
+
+  .heading-l {
+    font-size: 3.2rem;
+  }
+
+  .heading-m {
+    font-size: 2.4rem;
+  }
+
+  .heading-s {
+    font-size: 2rem;
+  }
+
+  .heading-xs {
+    font-size: 1.6rem;
+  }
+}
