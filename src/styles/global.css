@@ -24,14 +24,14 @@ body {
 }
 
 .heading-m {
-  font-size: clamp(2.4rem, 2vw + 1.6rem, 3.2rem);
+  font-size: clamp(2.4rem, 2vw + 1.2rem, 3.2rem);
   font-weight: bold;
   line-height: 1.4;
   letter-spacing: 0.04em;
 }
 
 .heading-s {
-  font-size: clamp(2rem, 2vw + 1.6rem, 2.4rem);
+  font-size: clamp(2rem, 2vw + 0.6rem, 2.4rem);
   font-weight: bold;
   line-height: 1.6;
   letter-spacing: 0.04em;
@@ -133,6 +133,12 @@ body {
   font-weight: bold;
   line-height: 1.6;
   letter-spacing: 0.04em;
+}
+
+.icon {
+  width: auto;
+  height: auto;
+  fill: currentColor;
 }
 
 @media (max-width: 768px) {
