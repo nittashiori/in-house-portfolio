@@ -1,0 +1,79 @@
+---
+import Slot from './icons/Slot.astro'
+import ArrowDown from './icons/ArrowDown.astro'
+import ArrowDownS from './icons/ArrowDownS.astro'
+import ArrowLeft from './icons/ArrowLeft.astro'
+import ArrowLeftS from './icons/ArrowLeftS.astro'
+import ArrowRight from './icons/ArrowRight.astro'
+import ArrowRightS from './icons/ArrowRightS.astro'
+import ArrowUp from './icons/ArrowUp.astro'
+import ArrowUpS from './icons/ArrowUpS.astro'
+import Add from './icons/Add.astro'
+import Heart from './icons/Heart.astro'
+import Bookmark from './icons/Bookmark.astro'
+import Check from './icons/Check.astro'
+import Close from './icons/Close.astro'
+import Trash from './icons/Trash.astro'
+import Global from './icons/Global.astro'
+import Home from './icons/Home.astro'
+import Information from './icons/Information.astro'
+import Question from './icons/Question.astro'
+import Alert from './icons/Alert.astro'
+import History from './icons/History.astro'
+import Mail from './icons/Mail.astro'
+import Loop from './icons/Loop.astro'
+import MapPin from './icons/MapPin.astro'
+import Message from './icons/Message.astro'
+import More from './icons/More.astro'
+import Notification from './icons/Notification.astro'
+import Phone from './icons/Phone.astro'
+import Settings from './icons/Settings.astro'
+import ShareBox from './icons/ShareBox.astro'
+import ShoppingCart from './icons/ShoppingCart.astro'
+import User from './icons/User.astro'
+import Search from './icons/Search.astro'
+import Sun from './icons/Sun.astro'
+import Moon from './icons/Moon.astro'
+import Comment from './icons/Comment.astro'
+import Good from './icons/Good.astro'
+
+const { type, fill } = Astro.props
+---
+{type === 'slot' ? (fill ? <Slot fill /> : <Slot />) : 
+  type === 'add' ? (fill ? <Add fill /> : <Add />) : 
+  type === 'arrow-down' ? (fill ? <ArrowDown fill /> : <ArrowDown />) :
+  type === 'arrow-down-s' ? (fill ? <ArrowDownS fill /> : <ArrowDownS />) :
+  type === 'arrow-left' ? (fill ? <ArrowLeft fill /> : <ArrowLeft />) :
+  type === 'arrow-left-s' ? (fill ? <ArrowLeftS fill /> : <ArrowLeftS />) :
+  type === 'arrow-right' ? (fill ? <ArrowRight fill /> : <ArrowRight />) :
+  type === 'arrow-right-s' ? (fill ? <ArrowRightS fill /> : <ArrowRightS />) :
+  type === 'arrow-up' ? (fill ? <ArrowUp fill /> : <ArrowUp />) :
+  type === 'arrow-up-s' ? (fill ? <ArrowUpS fill /> : <ArrowUpS />) :
+  type === 'add' ? (fill ? <Add fill /> : <Add />) :
+  type === 'heart' ? (fill ? <Heart fill /> : <Heart />) :
+  type === 'bookmark' ? (fill ? <Bookmark fill /> : <Bookmark />) :
+  type === 'check' ? (fill ? <Check fill /> : <Check />) :
+  type === 'close' ? (fill ? <Close fill /> : <Close />) :
+  type === 'trash' ? (fill ? <Trash fill /> : <Trash />) :
+  type === 'global' ? (fill ? <Global fill /> : <Global />) :
+  type === 'home' ? (fill ? <Home fill /> : <Home />) :
+  type === 'information' ? (fill ? <Information fill /> : <Information />) :
+  type === 'question' ? (fill ? <Question fill /> : <Question />) :
+  type === 'alert' ? (fill ? <Alert fill /> : <Alert />) :
+  type === 'history' ? (fill ? <History fill /> : <History />) :
+  type === 'mail' ? (fill ? <Mail fill /> : <Mail />) :
+  type === 'loop' ? (fill ? <Loop fill /> : <Loop />) :
+  type === 'map-pin' ? (fill ? <MapPin fill /> : <MapPin />) :
+  type === 'message' ? (fill ? <Message fill /> : <Message />) :
+  type === 'more' ? (fill ? <More fill /> : <More />) :
+  type === 'notification' ? (fill ? <Notification fill /> : <Notification />) :
+  type === 'phone' ? (fill ? <Phone fill /> : <Phone />) :
+  type === 'settings' ? (fill ? <Settings fill /> : <Settings />) :
+  type === 'share-box' ? (fill ? <ShareBox fill /> : <ShareBox />) :
+  type === 'shopping-cart' ? (fill ? <ShoppingCart fill /> : <ShoppingCart />) :
+  type === 'user' ? (fill ? <User fill /> : <User />) :
+  type === 'search' ? (fill ? <Search fill /> : <Search />) :
+  type === 'sun' ? (fill ? <Sun fill /> : <Sun />) :
+  type === 'moon' ? (fill ? <Moon fill /> : <Moon />) :
+  type === 'comment' ? (fill ? <Comment fill /> : <Comment />) :
+  type === 'good' ? (fill ? <Good fill /> : <Good />) : null}

@@ -1,206 +1,172 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import Slot from '../components/Icon/Slot.astro'
-import ArrowDown from '../components/Icon/ArrowDown.astro'
-import ArrowDownS from '../components/Icon/ArrowDownS.astro'
-import ArrowLeft from '../components/Icon/ArrowLeft.astro'
-import ArrowLeftS from '../components/Icon/ArrowLeftS.astro'
-import ArrowRight from '../components/Icon/ArrowRight.astro'
-import ArrowRightS from '../components/Icon/ArrowRightS.astro'
-import ArrowUp from '../components/Icon/ArrowUp.astro'
-import ArrowUpS from '../components/Icon/ArrowUpS.astro'
-import Add from '../components/Icon/Add.astro'
-import Heart from '../components/Icon/Heart.astro'
-import Bookmark from '../components/Icon/Bookmark.astro'
-import Check from '../components/Icon/Check.astro'
-import Close from '../components/Icon/Close.astro'
-import Trash from '../components/Icon/Trash.astro'
-import Global from '../components/Icon/Global.astro'
-import Home from '../components/Icon/Home.astro'
-import Information from '../components/Icon/Information.astro'
-import Question from '../components/Icon/Question.astro'
-import Alert from '../components/Icon/Alert.astro'
-import History from '../components/Icon/History.astro'
-import Mail from '../components/Icon/Mail.astro'
-import Loop from '../components/Icon/Loop.astro'
-import MapPin from '../components/Icon/MapPin.astro'
-import Message from '../components/Icon/Message.astro'
-import More from '../components/Icon/More.astro'
-import Notification from '../components/Icon/Notification.astro'
-import Phone from '../components/Icon/Phone.astro'
-import Settings from '../components/Icon/Settings.astro'
-import ShareBox from '../components/Icon/ShareBox.astro'
-import ShoppingCart from '../components/Icon/ShoppingCart.astro'
-import User from '../components/Icon/User.astro'
-import Search from '../components/Icon/Search.astro'
-import Sun from '../components/Icon/Sun.astro'
-import Moon from '../components/Icon/Moon.astro'
-import Comment from '../components/Icon/Comment.astro'
-import Good from '../components/Icon/Good.astro'
+import Icon from '../components/Icon/Icon.astro'
+import Button from '../components/Button.astro'
 ---
 <Layout title="Welcome to Astro.">
+  <h1 class="heading-m">スタイル・UIライブラリ</h1>
   <section>
-    <div class="heading-s">Icon</div>
+    <h2 class="heading-s">Icon</h2>
     <ul class="icon-list">
       <li>
-        <Slot />
-        <Slot fill />
+        <Icon type="slot" />
+        <Icon type="slot" fill />
       </li>
       <li>
-        <ArrowDown />
-        <ArrowDown fill />
+        <Icon type="arrow-down" />
+        <Icon type="arrow-down" fill />
       </li>
       <li>
-        <ArrowDownS />
-        <ArrowDownS fill />
+        <Icon type="arrow-down-s" />
+        <Icon type="arrow-down-s" fill />
       </li>
       <li>
-        <ArrowLeft />
-        <ArrowLeft fill />
+        <Icon type="arrow-left" />
+        <Icon type="arrow-left" fill />
       </li>
       <li>
-        <ArrowLeftS />
-        <ArrowLeftS fill />
+        <Icon type="arrow-left-s" />
+        <Icon type="arrow-left-s" fill />
       </li>
       <li>
-        <ArrowRight />
-        <ArrowRight fill />
+        <Icon type="arrow-right" />
+        <Icon type="arrow-right" fill />
       </li>
       <li>
-        <ArrowRightS />
-        <ArrowRightS fill />
+        <Icon type="arrow-right-s" />
+        <Icon type="arrow-right-s" fill />
       </li>
       <li>
-        <ArrowUp />
-        <ArrowUp fill />
+        <Icon type="arrow-up" />
+        <Icon type="arrow-up" fill />
       </li>
       <li>
-        <ArrowUpS />
-        <ArrowUpS fill />
+        <Icon type="arrow-up-s" />
+        <Icon type="arrow-up-s" fill />
       </li>
       <li>
-        <Add />
-        <Add fill />
+        <Icon type="add" />
+        <Icon type="add" fill />
       </li>
       <li>
-        <Heart />
-        <Heart fill />
+        <Icon type="heart" />
+        <Icon type="heart" fill />
       </li>
       <li>
-        <Bookmark />
-        <Bookmark fill />
+        <Icon type="bookmark" />
+        <Icon type="bookmark" fill />
       </li>
       <li>
-        <Check />
-        <Check fill />
+        <Icon type="check" />
+        <Icon type="check" fill />
       </li>
       <li>
-        <Close />
-        <Close fill />
+        <Icon type="close" />
+        <Icon type="close" fill />
       </li>
       <li>
-        <Trash />
-        <Trash fill />
+        <Icon type="trash" />
+        <Icon type="trash" fill />
       </li>
       <li>
-        <Global />
-        <Global fill />
+        <Icon type="global" />
+        <Icon type="global" fill />
       </li>
       <li>
-        <Home />
-        <Home fill />
+        <Icon type="home" />
+        <Icon type="home" fill />
       </li>
       <li>
-        <Information />
-        <Information fill />
+        <Icon type="information" />
+        <Icon type="information" fill />
       </li>
       <li>
-        <Question />
-        <Question fill />
+        <Icon type="question" />
+        <Icon type="question" fill />
       </li>
       <li>
-        <Alert />
-        <Alert fill />
+        <Icon type="alert" />
+        <Icon type="alert" fill />
       </li>
       <li>
-        <History />
-        <History fill />
+        <Icon type="history" />
+        <Icon type="history" fill />
       </li>
       <li>
-        <Mail />
-        <Mail fill />
+        <Icon type="mail" />
+        <Icon type="mail" fill />
       </li>
       <li>
-        <Loop />
-        <Loop fill />
+        <Icon type="loop" />
+        <Icon type="loop" fill />
       </li>
       <li>
-        <MapPin />
-        <MapPin fill />
+        <Icon type="map-pin" />
+        <Icon type="map-pin" fill />
       </li>
       <li>
-        <Message />
-        <Message fill />
+        <Icon type="message" />
+        <Icon type="message" fill />
       </li>
       <li>
-        <More />
-        <More fill />
+        <Icon type="more" />
+        <Icon type="more" fill />
       </li>
       <li>
-        <Notification />
-        <Notification fill />
+        <Icon type="notification" />
+        <Icon type="notification" fill />
       </li>
       <li>
-        <Phone />
-        <Phone fill />
+        <Icon type="phone" />
+        <Icon type="phone" fill />
       </li>
       <li>
-        <Settings />
-        <Settings fill />
+        <Icon type="settings" />
+        <Icon type="settings" fill />
       </li>
       <li>
-        <ShareBox />
-        <ShareBox fill />
+        <Icon type="share-box" />
+        <Icon type="share-box" fill />
       </li>
       <li>
-        <ShoppingCart />
-        <ShoppingCart fill />
+        <Icon type="shopping-cart" />
+        <Icon type="shopping-cart" fill />
       </li>
       <li>
-        <User />
-        <User fill />
+        <Icon type="user" />
+        <Icon type="user" fill />
       </li>
       <li>
-        <Search />
-        <Search fill />
+        <Icon type="search" />
+        <Icon type="search" fill />
       </li>
       <li>
-        <Sun />
-        <Sun fill />
+        <Icon type="sun" />
+        <Icon type="sun" fill />
       </li>
       <li>
-        <Moon />
-        <Moon fill />
+        <Icon type="moon" />
+        <Icon type="moon" fill />
       </li>
       <li>
-        <Comment />
-        <Comment fill />
+        <Icon type="comment" />
+        <Icon type="comment" fill />
       </li>
       <li>
-        <Good />
-        <Good fill />
+        <Icon type="good" />
+        <Icon type="good" fill />
       </li>
     </ul>
   </section>
 </Layout>
 
 <style>
+  .heading-m {
+    padding: var(--space-s);
+  }
   section {
     padding: var(--space-s);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
   }
   .icon-list {
     display: flex;
