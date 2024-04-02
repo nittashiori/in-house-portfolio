@@ -135,6 +135,12 @@ body {
   letter-spacing: 0.04em;
 }
 
+.icon {
+  width: auto;
+  height: auto;
+  fill: currentColor;
+}
+
 @media (max-width: 768px) {
   .heading-display {
     font-size: 4rem;
