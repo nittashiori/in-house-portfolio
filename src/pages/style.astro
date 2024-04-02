@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+import Slot from '../components/Icon/Slot.astro'
 import ArrowDown from '../components/Icon/ArrowDown.astro'
 import ArrowDownS from '../components/Icon/ArrowDownS.astro'
 import ArrowLeft from '../components/Icon/ArrowLeft.astro'
@@ -42,6 +43,10 @@ import Good from '../components/Icon/Good.astro'
   <section>
     <div class="heading-s">Icon</div>
     <ul class="icon-list">
+      <li>
+        <Slot />
+        <Slot fill />
+      </li>
       <li>
         <ArrowDown />
         <ArrowDown fill />
