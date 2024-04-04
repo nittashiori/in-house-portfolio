@@ -12,23 +12,25 @@ import Button from '../../components/Button.astro'
     Default（デフォルト）、Primary（重要・決定）、Success（成功）、Warning（注意喚起）、Alert（警告）<br>
     初期値はDefault（デフォルト）です。
   </p>
-  <div class="list-horizon">
-    <Button variants="default">
-      Default
-    </Button>
-    <Button variants="primary">
-      Primary
-    </Button>
-    <Button variants="success">
-      Success
-    </Button>
-    <Button variants="warning">
-      Warning
-    </Button>
-    <Button variants="alert">
-      Alert
-    </Button>
-  </div>
+  <ul class="list-vertical">
+    <li>
+      <Button variants="default">
+        Default
+      </Button>
+      <Button variants="primary">
+        Primary
+      </Button>
+      <Button variants="success">
+        Success
+      </Button>
+      <Button variants="warning">
+        Warning
+      </Button>
+      <Button variants="alert">
+        Alert
+      </Button>
+    </li>
+  </ul>
 </section>
 <section>
   <h3 class="heading-s">スタイル</h3>
@@ -37,76 +39,78 @@ import Button from '../../components/Button.astro'
     Solid（塗り）、Outline（ボーダー）、Ghost（背景なし）、Link（背景なし+リンク）<br>
     初期値はSolid（塗り）です。
   </p>
-  <div class="list-horizon">
-    <Button style="solid">
-      Default Solid
-    </Button>
-    <Button style="outline">
-      Default Outline
-    </Button>
-    <Button style="ghost">
-      Default Ghost
-    </Button>
-    <Button style="link">
-      Default Link
-    </Button>
-  </div>
-  <div class="list-horizon">
-    <Button variants="primary" style="solid">
-      Priamry Solid
-    </Button>
-    <Button variants="primary" style="outline">
-      Priamry Outline
-    </Button>
-    <Button variants="primary" style="ghost">
-      Priamry Ghost
-    </Button>
-    <Button variants="primary" style="link">
-      Priamry Link
-    </Button>
-  </div>
-  <div class="list-horizon">
-    <Button variants="success" style="solid">
-      Success Solid
-    </Button>
-    <Button variants="success" style="outline">
-      Success Outline
-    </Button>
-    <Button variants="success" style="ghost">
-      Success Ghost
-    </Button>
-    <Button variants="success" style="link">
-      Success Link
-    </Button>
-  </div>
-  <div class="list-horizon">
-    <Button variants="warning" style="solid">
-      Warning Solid
-    </Button>
-    <Button variants="warning" style="outline">
-      Warning Outline
-    </Button>
-    <Button variants="warning" style="ghost">
-      Warning Ghost
-    </Button>
-    <Button variants="warning" style="link">
-      Warning Link
-    </Button>
-  </div>
-  <div class="list-horizon">
-    <Button variants="alert" style="solid">
-      Alert Solid
-    </Button>
-    <Button variants="alert" style="outline">
-      Alert Outline
-    </Button>
-    <Button variants="alert" style="ghost">
-      Alert Ghost
-    </Button>
-    <Button variants="alert" style="link">
-      Alert Link
-    </Button>
-  </div>
+  <ul class="list-vertical">
+    <li>
+      <Button style="solid">
+        Default Solid
+      </Button>
+      <Button style="outline">
+        Default Outline
+      </Button>
+      <Button style="ghost">
+        Default Ghost
+      </Button>
+      <Button style="link">
+        Default Link
+      </Button>
+    </li>
+    <li>
+      <Button variants="primary" style="solid">
+        Priamry Solid
+      </Button>
+      <Button variants="primary" style="outline">
+        Priamry Outline
+      </Button>
+      <Button variants="primary" style="ghost">
+        Priamry Ghost
+      </Button>
+      <Button variants="primary" style="link">
+        Priamry Link
+      </Button>
+    </li>
+    <li>
+      <Button variants="success" style="solid">
+        Success Solid
+      </Button>
+      <Button variants="success" style="outline">
+        Success Outline
+      </Button>
+      <Button variants="success" style="ghost">
+        Success Ghost
+      </Button>
+      <Button variants="success" style="link">
+        Success Link
+      </Button>
+    </li>
+    <li>
+      <Button variants="warning" style="solid">
+        Warning Solid
+      </Button>
+      <Button variants="warning" style="outline">
+        Warning Outline
+      </Button>
+      <Button variants="warning" style="ghost">
+        Warning Ghost
+      </Button>
+      <Button variants="warning" style="link">
+        Warning Link
+      </Button>
+    </li>
+    <li>
+      <Button variants="alert" style="solid">
+        Alert Solid
+      </Button>
+      <Button variants="alert" style="outline">
+        Alert Outline
+      </Button>
+      <Button variants="alert" style="ghost">
+        Alert Ghost
+      </Button>
+      <Button variants="alert" style="link">
+        Alert Link
+      </Button>
+    </li>
+  </ul>
 </section>
 <section>
   <h3 class="heading-s">ステート</h3>
@@ -114,20 +118,22 @@ import Button from '../../components/Button.astro'
     ボタンの状態は5種類あります。<br>
     Default（デフォルト）、Hover（マウスオーバー）、Focus（タブでフォーカス時）、Active（ボタン押下時）、Disable（非活性）
   </p>
-  <div class="list-horizon">
-    <Button disabled>
-      Disabled Solid
-    </Button>
-    <Button style="outline" disabled>
-      Disabled Outline
-    </Button>
-    <Button style="ghost" disabled>
-      Disabled Ghost
-    </Button>
-    <Button style="link" disabled>
-      Disabled Link
-    </Button>
-  </div>
+  <ul class="list-vertical">
+    <li>
+      <Button disabled>
+        Disabled Solid
+      </Button>
+      <Button style="outline" disabled>
+        Disabled Outline
+      </Button>
+      <Button style="ghost" disabled>
+        Disabled Ghost
+      </Button>
+      <Button style="link" disabled>
+        Disabled Link
+      </Button>
+    </li>
+  </ul>
 </section>
 <section>
   <h3 class="heading-s">サイズ</h3>
@@ -141,28 +147,30 @@ import Button from '../../components/Button.astro'
     <br>
     コンテンツの幅に合わせてボタンの横幅を広げることもできます。<br>
   </p>
-  <div class="list-horizon">
-    <Button size="large">
-      <Icon type="share-box" />
-      Large
-    </Button>
-    <Button size="medium">
-      <Icon type="share-box" />
-      Medium
-    </Button>
-    <Button size="small">
-      <Icon type="share-box" />
-      Small
-    </Button>
-    <Button size="xsmall">
-      <Icon type="share-box" />
-      XSmall
-    </Button>
-    <Button size="full">
-      <Icon type="share-box" />
-      Full
-    </Button>
-  </div>
+  <ul class="list-vertical" style="width: 100%">
+    <li style="width: 100%">
+      <Button size="large">
+        <Icon type="share-box" />
+        Large
+      </Button>
+      <Button size="medium">
+        <Icon type="share-box" />
+        Medium
+      </Button>
+      <Button size="small">
+        <Icon type="share-box" />
+        Small
+      </Button>
+      <Button size="xsmall">
+        <Icon type="share-box" />
+        XSmall
+      </Button>
+      <Button size="full">
+        <Icon type="share-box" />
+        Full
+      </Button>
+    </li>
+  </ul>
 </section>
 <section>
   <h3 class="heading-s">アイコン</h3>
@@ -172,18 +180,20 @@ import Button from '../../components/Button.astro'
     <br>
     アイコンは<a href="c-icon">Icon</a>を参照してください。
   </p>
-  <div class="list-horizon">
-    <Button>
-      <Icon type="share-box" />
-      外部リンク
-    </Button>
-    <Button>
-      次へ
-      <Icon type="arrow-right-s" />
-    </Button>
-    <Button>
-      <Icon type="notification" />
-    </Button>
-  </div>
+  <ul class="list-vertical">
+    <li>
+      <Button>
+        <Icon type="share-box" />
+        外部リンク
+      </Button>
+      <Button>
+        次へ
+        <Icon type="arrow-right-s" />
+      </Button>
+      <Button>
+        <Icon type="notification" />
+      </Button>
+    </li>
+  </ul>
 </section>
 </ComponentGuideLayout>

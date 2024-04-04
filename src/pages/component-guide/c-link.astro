@@ -17,8 +17,10 @@ import Link from '../../components/Link.astro'
       ボタンの状態は6種類あります。<br>
       Default（デフォルト）、Hover（マウスオーバー）、Focus（タブでフォーカス時）、Active（ボタン押下時）、Visited（訪問済み）、Disable（非活性）
     </p>
-    <div class="list-horizon">
-      <Link href="#" disabled>非活性リンク</Link>
+    <ul class="list-horizon">
+      <li>
+        <Link href="#" disabled>非活性リンク</Link>
+      </li>
     </div>
   </section>
   <section>
@@ -27,11 +29,13 @@ import Link from '../../components/Link.astro'
       リンクのサイズは3種類あります。
       Large、Medium（デフォルト）、Small
     </p>
-    <div class="list-horizon">
-      <Link href="#" size="large">Large</Link>
-      <Link href="#" size="medium">Medium</Link>
-      <Link href="#" size="small">Small</Link>
-    </div>
+    <ul class="list-vertical">
+      <li>
+        <Link href="#" size="large">Large</Link>
+        <Link href="#" size="medium">Medium</Link>
+        <Link href="#" size="small">Small</Link>
+      </li>
+    </ul>
   </section>
   <section>
     <h3 class="heading-s">アイコン付きリンク</h3>
@@ -40,10 +44,14 @@ import Link from '../../components/Link.astro'
       <br>
       アイコンは<a href="c-icon">Icon</a>を参照してください。
     </p>
-    <Link href="#" target="_blank">
-      リンクテキスト
-      <Icon type="share-box" />
-    </Link>
+    <ul class="list-vertical">
+      <li>
+        <Link href="#">
+          リンクテキスト
+          <Icon type="share-box" />
+        </Link>
+      </li>
+    </ul>
   </section>
   
 </ComponentGuideLayout>
