@@ -6,8 +6,12 @@ import Button from '../../components/Button.astro'
 ---
 <ComponentGuideLayout title="Button">
 <section>
-  <h3 class="heading-s">Variants</h3>
-  <p>初期値はdefaultです。</p>
+  <h3 class="heading-s">バリエーション</h3>
+  <p>
+    ボタンのバリエーション（状態）は4種類あります。<br>
+    Default（デフォルト）、Primary（重要・決定）、Success（成功）、Warning（注意喚起）、Alert（警告）<br>
+    初期値はDefault（デフォルト）です。
+  </p>
   <div class="list-horizon">
     <Button variants="default">
       Default
@@ -27,8 +31,12 @@ import Button from '../../components/Button.astro'
   </div>
 </section>
 <section>
-  <h3 class="heading-s">Style</h3>
-  <p>初期値はsolidです。</p>
+  <h3 class="heading-s">スタイル</h3>
+  <p>
+    ボタンの視覚スタイルは4種類あります。<br>
+    Solid（塗り）、Outline（ボーダー）、Ghost（背景なし）、Link（背景なし+リンク）<br>
+    初期値はSolid（塗り）です。
+  </p>
   <div class="list-horizon">
     <Button style="solid">
       Default Solid
@@ -101,7 +109,11 @@ import Button from '../../components/Button.astro'
   </div>
 </section>
 <section>
-  <h3 class="heading-s">State</h3>
+  <h3 class="heading-s">ステート</h3>
+  <p>
+    ボタンの状態は5種類あります。<br>
+    Default（デフォルト）、Hover（マウスオーバー）、Focus（タブでフォーカス時）、Active（ボタン押下時）、Disable（非活性）
+  </p>
   <div class="list-horizon">
     <Button disabled>
       Disabled Solid
@@ -118,8 +130,17 @@ import Button from '../../components/Button.astro'
   </div>
 </section>
 <section>
-  <h3 class="heading-s">Size</h3>
-  <p>初期値はmediumです。</p>
+  <h3 class="heading-s">サイズ</h3>
+  <p>
+    ボタンサイズは4種類あります。<br>
+    Large、Medium（デフォルト）、Small、XSmall<br>
+    初期値はMediumです。<br>
+    <br>
+    文字数によってボタンの幅は可変します。<br>
+    最小幅は44pxです。<br>
+    <br>
+    コンテンツの幅に合わせてボタンの横幅を広げることもできます。<br>
+  </p>
   <div class="list-horizon">
     <Button size="large">
       <Icon type="share-box" />
@@ -144,10 +165,12 @@ import Button from '../../components/Button.astro'
   </div>
 </section>
 <section>
-  <h3 class="heading-s">Icon</h3>
+  <h3 class="heading-s">アイコン</h3>
   <p>
     アイコンはラベルの前と後ろに追加できます。<br>
-    または、アイコンだけでボタンとして使えます。
+    または、アイコンだけでボタンとして使えます。<br>
+    <br>
+    アイコンは<a href="c-icon">Icon</a>を参照してください。
   </p>
   <div class="list-horizon">
     <Button>
