@@ -1,0 +1,38 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Icon from '../../components/Icon/Icon.astro'
+import Link from '../../components/Link.astro'
+---
+
+<ComponentGuideLayout title="Link">
+  <section>
+    <div>
+      <Link href="#">リンクが入ります</Link>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">ステート</h3>
+    <div class="list-horizon">
+      <Link href="#" disabled>非活性リンク</Link>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">サイズ</h3>
+    <p>初期値はmediumです。</p>
+    <div class="list-horizon">
+      <Link href="#" size="large">Large</Link>
+      <Link href="#" size="medium">Medium</Link>
+      <Link href="#" size="small">Small</Link>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">アイコン付きリンク</h3>
+    <p>リンクの右側にアイコンを表示します。</p>
+    <Link href="#" target="_blank">
+      リンクテキスト
+      <Icon type="share-box" />
+    </Link>
+  </section>
+  
+</ComponentGuideLayout>
