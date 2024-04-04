@@ -1,0 +1,39 @@
+---
+import '../styles/destyle.css';
+import '../styles/vars.css';
+import '../styles/global.css';
+import '../styles/styleguide.css';
+
+const { componentTitle } = Astro.props;
+
+const path = '/component-guide';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>コンポーネントガイド</title>
+	</head>
+	<body>
+    <header class="page-header">
+      <h1><a href={path}>コンポーネントガイド</a></h1>
+    </header>
+    <div class="content">
+      <nav class="sidevar">
+        <ul>
+          <li><a href={`${path}/icon`}>Icon</a></li>
+          <li><a href={`${path}/button`}>Button</a></li>
+        </ul>
+      </nav>
+      <main class="main">
+        { componentTitle ? <h2 class="heading-m">{componentTitle}</h2>: '' }
+        <slot />
+      </main>
+    </div>
+	</body>
+</html>

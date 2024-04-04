@@ -1,0 +1,166 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Icon from '../../components/Icon/Icon.astro'
+import Button from '../../components/Button.astro'
+---
+<ComponentGuideLayout componentTitle="Button">
+<section>
+  <h3 class="heading-s">Variants</h3>
+  <p>初期値はdefaultです。</p>
+  <div class="list-horizon">
+    <Button variants="default">
+      Default
+    </Button>
+    <Button variants="primary">
+      Primary
+    </Button>
+    <Button variants="success">
+      Success
+    </Button>
+    <Button variants="warning">
+      Warning
+    </Button>
+    <Button variants="alert">
+      Alert
+    </Button>
+  </div>
+</section>
+<section>
+  <h3 class="heading-s">Style</h3>
+  <p>初期値はsolidです。</p>
+  <div class="list-horizon">
+    <Button style="solid">
+      Default Solid
+    </Button>
+    <Button style="outline">
+      Default Outline
+    </Button>
+    <Button style="ghost">
+      Default Ghost
+    </Button>
+    <Button style="link">
+      Default Link
+    </Button>
+  </div>
+  <div class="list-horizon">
+    <Button variants="primary" style="solid">
+      Priamry Solid
+    </Button>
+    <Button variants="primary" style="outline">
+      Priamry Outline
+    </Button>
+    <Button variants="primary" style="ghost">
+      Priamry Ghost
+    </Button>
+    <Button variants="primary" style="link">
+      Priamry Link
+    </Button>
+  </div>
+  <div class="list-horizon">
+    <Button variants="success" style="solid">
+      Success Solid
+    </Button>
+    <Button variants="success" style="outline">
+      Success Outline
+    </Button>
+    <Button variants="success" style="ghost">
+      Success Ghost
+    </Button>
+    <Button variants="success" style="link">
+      Success Link
+    </Button>
+  </div>
+  <div class="list-horizon">
+    <Button variants="warning" style="solid">
+      Warning Solid
+    </Button>
+    <Button variants="warning" style="outline">
+      Warning Outline
+    </Button>
+    <Button variants="warning" style="ghost">
+      Warning Ghost
+    </Button>
+    <Button variants="warning" style="link">
+      Warning Link
+    </Button>
+  </div>
+  <div class="list-horizon">
+    <Button variants="alert" style="solid">
+      Alert Solid
+    </Button>
+    <Button variants="alert" style="outline">
+      Alert Outline
+    </Button>
+    <Button variants="alert" style="ghost">
+      Alert Ghost
+    </Button>
+    <Button variants="alert" style="link">
+      Alert Link
+    </Button>
+  </div>
+</section>
+<section>
+  <h3 class="heading-s">State</h3>
+  <div class="list-horizon">
+    <Button disabled>
+      Disabled Solid
+    </Button>
+    <Button style="outline" disabled>
+      Disabled Outline
+    </Button>
+    <Button style="ghost" disabled>
+      Disabled Ghost
+    </Button>
+    <Button style="link" disabled>
+      Disabled Link
+    </Button>
+  </div>
+</section>
+<section>
+  <h3 class="heading-s">Size</h3>
+  <p>初期値はmediumです。</p>
+  <div class="list-horizon">
+    <Button size="large">
+      <Icon type="share-box" />
+      Large
+    </Button>
+    <Button size="medium">
+      <Icon type="share-box" />
+      Medium
+    </Button>
+    <Button size="small">
+      <Icon type="share-box" />
+      Small
+    </Button>
+    <Button size="xsmall">
+      <Icon type="share-box" />
+      XSmall
+    </Button>
+    <Button size="full">
+      <Icon type="share-box" />
+      Full
+    </Button>
+  </div>
+</section>
+<section>
+  <h3 class="heading-s">Icon</h3>
+  <p>
+    アイコンはラベルの前と後ろに追加できます。<br>
+    または、アイコンだけでボタンとして使えます。
+  </p>
+  <div class="list-horizon">
+    <Button>
+      <Icon type="share-box" />
+      外部リンク
+    </Button>
+    <Button>
+      次へ
+      <Icon type="arrow-right-s" />
+    </Button>
+    <Button>
+      <Icon type="notification" />
+    </Button>
+  </div>
+</section>
+</ComponentGuideLayout>
