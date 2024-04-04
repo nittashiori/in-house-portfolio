@@ -13,13 +13,20 @@ import Link from '../../components/Link.astro'
   </section>
   <section>
     <h3 class="heading-s">ステート</h3>
+    <p>
+      ボタンの状態は6種類あります。<br>
+      Default（デフォルト）、Hover（マウスオーバー）、Focus（タブでフォーカス時）、Active（ボタン押下時）、Visited（訪問済み）、Disable（非活性）
+    </p>
     <div class="list-horizon">
       <Link href="#" disabled>非活性リンク</Link>
     </div>
   </section>
   <section>
     <h3 class="heading-s">サイズ</h3>
-    <p>初期値はmediumです。</p>
+    <p>
+      リンクのサイズは3種類あります。
+      Large、Medium（デフォルト）、Small
+    </p>
     <div class="list-horizon">
       <Link href="#" size="large">Large</Link>
       <Link href="#" size="medium">Medium</Link>
@@ -28,7 +35,11 @@ import Link from '../../components/Link.astro'
   </section>
   <section>
     <h3 class="heading-s">アイコン付きリンク</h3>
-    <p>リンクの右側にアイコンを表示します。</p>
+    <p>
+      リンクの右側にアイコンを表示します。<br>
+      <br>
+      アイコンは<a href="c-icon">Icon</a>を参照してください。
+    </p>
     <Link href="#" target="_blank">
       リンクテキスト
       <Icon type="share-box" />
