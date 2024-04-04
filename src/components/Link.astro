@@ -1,0 +1,83 @@
+---
+interface Props {
+  href: string;
+  disabled?: boolean;
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'full';
+  target?: '_blank' | '_self' | '_parent' | '_top';
+  rel?: string;
+}
+
+const {
+  href = '#',
+  disabled = false,
+  size = 'medium',
+  target = '_self',
+  rel = 'noopener noreferrer',
+} = Astro.props;
+---
+{ target === '_blank' ?
+  <a
+    href={href}
+    class={`c-link ${size} ${disabled ? 'disabled' : ''}`}
+    target={target}
+    rel={rel}
+  >
+    <slot></slot>
+  </a>
+  :
+  <a
+    href={href}
+    class={`c-link ${size} ${disabled ? 'disabled' : ''}`}
+  >
+    <slot></slot>
+  </a>
+}
+
+<style>
+  .c-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-foreground-link);
+    text-decoration: underline;
+    border-radius: var(--round-s);
+
+    &:hover {
+      color: var(--color-foreground-hover);
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: var(--shadow-focus);
+    }
+
+    &:active {
+      color: var(--color-foreground-active);
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: var(--color-foreground-visited);
+    }
+
+    .icon {
+      width: 1em;
+      height: auto;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      color: var(--color-foreground-disabled);
+    }
+
+    /* Size */
+    &.large {
+      font-size: calc(1em * 1.125); /* 18px */
+    }
+
+    &.small {
+      font-size: calc(1em * 0.875); /* 14px */
+    }
+  }
+</style>

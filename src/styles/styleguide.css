@@ -95,18 +95,31 @@ h2 {
   margin-bottom: 64px;
 }
 
-.list-horizon {
+.list-horizon,
+.list-vertical {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 20px;
 }
 
-.list-horizon li {
+.list-vertical > * {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: var(--space-s);
+  border: 1px dashed var(--color-grape-6);
+  border-radius: var(--round-s);
+}
+
+.list-horizon > * {
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  gap: 10px;
-  padding: var(--space-xs);
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: var(--space-s);
   border: 1px dashed var(--color-grape-6);
   border-radius: var(--round-s);
 }

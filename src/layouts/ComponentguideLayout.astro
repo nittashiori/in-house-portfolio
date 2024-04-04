@@ -4,7 +4,7 @@ import '../styles/vars.css';
 import '../styles/global.css';
 import '../styles/styleguide.css';
 
-const { componentTitle } = Astro.props;
+const { title } = Astro.props;
 
 const path = '/component-guide';
 ---
@@ -28,10 +28,11 @@ const path = '/component-guide';
         <ul>
           <li><a href={`${path}/c-icon`}>Icon</a></li>
           <li><a href={`${path}/c-button`}>Button</a></li>
+          <li><a href={`${path}/c-link`}>Link</a></li>
         </ul>
       </nav>
       <main class="main">
-        { componentTitle ? <h2 class="heading-m">{componentTitle}</h2>: '' }
+        { title ? <h2 class="heading-m">{title}</h2>: '' }
         <slot />
       </main>
     </div>
