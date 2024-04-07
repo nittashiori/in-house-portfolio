@@ -1,0 +1,124 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  value?: string;
+  checked?: boolean;
+  onChange?: (event: Event) => void;
+  error?: boolean;
+  disabled?: boolean;
+}
+
+const {
+  id,
+  name,
+  value = '',
+  checked = false,
+  onChange = () => {},
+  error = false,
+  disabled = false,
+} = Astro.props;
+---
+<div class=`c-radio ${ disabled ? 'disabled' : '' } ${ error ? 'error' : '' }`>
+  <input
+    type="radio"
+    id={id}
+    name={name}
+    value={value}
+    checked={checked}
+    :onchange={onChange}
+    disabled={disabled}
+  >
+  <label for={id}><slot /></label>
+</div>
+
+<style>
+  .c-radio {
+    &:focus-within {
+      outline: none;
+      box-shadow: var(--shadow-focus);
+    }
+
+    input {
+      border-radius: 0;
+      -webkit-appearance: none;
+        -moz-appearance: none;
+              appearance: none;
+    }
+
+    input:checked {
+      + label::before {
+        background: var(--color-background-primary-emphasis);
+        border: 2px solid var(--color-border-primary);
+      }
+
+      + label::after {
+        content: '';
+        position: absolute;
+        width: 0.5em;
+        height: 0.5em;
+        left: 0.38em;
+        top: calc(0.75em + 0.38em);
+        background: var(--color-foreground-on-fill);
+        border-radius: 50%;
+      }
+    }
+
+    label {
+      position: relative;
+      padding-inline: calc(1.25em + 1em);
+      padding-block: 0.75em;
+      cursor: pointer;
+      display: inline-block;
+      line-height: 20px;
+      border-radius: var(--round-s);
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.75em;
+        width: 1.25em;
+        height: 1.25em;
+        border: 2px solid var(--color-border-default);
+        border-radius: 50%;
+        background: var(--color-background-on-fill);
+      }
+    }
+
+    &.error {
+      input:checked {
+        + label {
+          color: var(--color-foreground-body);
+        }
+      }
+
+      label {
+        color: var(--color-foreground-alert);
+      }
+
+      label::before {
+        border: 2px solid var(--color-border-alert);
+      }
+
+      label::after {
+        background: var(--color-background-alert);
+      }
+    }
+
+    &.disabled {
+      label {
+        color: var(--color-foreground-disabled);
+        cursor: not-allowed;
+      }
+
+      label::before {
+        border: 2px solid var(--color-border-disabled);
+      }
+
+      label::after {
+        background: var(--color-background-disabled);
+      }
+    }
+  }
+</style>

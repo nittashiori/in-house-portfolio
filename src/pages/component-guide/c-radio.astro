@@ -1,13 +1,11 @@
 ---
 import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
 
-import Checkbox from '../../components/Checkbox.astro'
+import Radio from '../../components/Radio.astro'
 ---
 <ComponentGuideLayout title="Checkbox">
   <section>
-    <div>
-      <Checkbox id="checkbox1" name="option1" value="option1">選択肢</Checkbox>
-    </div>
+    <Radio id="option1" name="group1" value="選択肢">選択肢</Radio>
   </section>
   <section>
     <h3 class="heading-s">ステート</h3>
@@ -17,10 +15,10 @@ import Checkbox from '../../components/Checkbox.astro'
     </p>
     <ul class="list-vertical">
       <li>
-        <Checkbox id="checkbox-error" name="error" value="Error" error>Error</Checkbox>
-        <Checkbox id="checkbox-disable" name="disable" value="Disable" disabled>Disabled</Checkbox>
-        <Checkbox id="checkbox-checked" name="checked" value="Checked" checked>Checked</Checkbox>
-        </li>
-    </div>
+        <Radio id="state1" name="state" value="error" error>Error</Radio>
+        <Radio id="state2" name="state" value="disabled" disabled>Disabled</Radio>
+        <Radio id="state3" name="state" value="checked" checked>Checked</Radio>
+      </li>
+    </ul>
   </section>
 </ComponentGuideLayout>
