@@ -19,8 +19,7 @@ const {
   disabled = false,
 } = Astro.props;
 ---
-<div
-  class=`c-check ${ disabled ? 'disabled' : '' } ${ error ? 'error' : '' }`>
+<div class=`c-check ${ disabled ? 'disabled' : '' } ${ error ? 'error' : '' }`>
   <input
     type="checkbox"
     id={id}
@@ -89,7 +88,7 @@ const {
         border: 2px solid var(--color-background-primary-emphasis);
 
         & + label {
-          color: var(--color-foreground-primary);
+          color: var(--color-foreground-body);
         }
       }
       

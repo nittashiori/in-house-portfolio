@@ -6,81 +6,21 @@ import Checkbox from '../../components/Checkbox.astro'
 <ComponentGuideLayout title="Checkbox">
   <section>
     <div>
-      <Checkbox
-        id="checkbox1"
-        name="option1"
-        value="option1"
-      >
-        選択肢
-      </Checkbox>
+      <Checkbox id="checkbox1" name="option1" value="option1">選択肢</Checkbox>
     </div>
   </section>
   <section>
     <h3 class="heading-s">ステート</h3>
     <p>
-      ボタンの状態は6種類あります。<br>
+      ボタンの状態は5種類あります。<br>
       Default（デフォルト）、Focus（タブでフォーカス時）、Error（フォームエラー時）、Disable（利用不可）、Checked（選択時）
     </p>
     <ul class="list-vertical">
       <li>
-        <Checkbox
-          id="checkbox-error"
-          name="error"
-          value="Error"
-          error
-        >
-          Error
-        </Checkbox>
-        <Checkbox
-          id="checkbox-disable"
-          name="disable"
-          value="Disable"
-          disabled
-        >
-          Disabled
-        </Checkbox>
-        <Checkbox
-          id="checkbox-checked"
-          name="checked"
-          value="Checked"
-          checked
-        >
-          Checked
-        </Checkbox>
+        <Checkbox id="checkbox-error" name="error" value="Error" error>Error</Checkbox>
+        <Checkbox id="checkbox-disable" name="disable" value="Disable" disabled>Disabled</Checkbox>
+        <Checkbox id="checkbox-checked" name="checked" value="Checked" checked>Checked</Checkbox>
         </li>
     </div>
   </section>
-  <!-- <section>
-    <h3 class="heading-s">グループ</h3>
-    <p>
-      チェックボックスを並べる場合は縦に並べてください
-    </p>
-    <ul class="list-vertical">
-      <li>
-        <div class="group">
-          <Checkbox
-            id="checkbox-group1"
-            name="group"
-            value="option1"
-          >
-            選択肢
-          </Checkbox>
-          <Checkbox
-            id="checkbox-group2"
-            name="group"
-            value="option1"
-          >
-            選択肢
-          </Checkbox>
-          <Checkbox
-            id="checkbox-group3"
-            name="group"
-            value="option1"
-          >
-            選択肢
-          </Checkbox>
-        </div>
-      </li>
-    </ul>
-  </section> -->
 </ComponentGuideLayout>
