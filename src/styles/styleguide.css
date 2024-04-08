@@ -105,7 +105,7 @@ h2 {
 
 .list-vertical > * {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 20px;
   padding: var(--space-s);
@@ -115,7 +115,7 @@ h2 {
 
 .list-horizon > * {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
