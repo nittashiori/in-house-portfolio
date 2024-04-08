@@ -141,7 +141,7 @@ body {
   fill: currentColor;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .heading-display {
     font-size: 4rem;
   }
