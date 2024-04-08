@@ -57,8 +57,8 @@ const {
         position: absolute;
         width: 0.5em;
         height: 0.5em;
-        left: 0.38em;
-        top: calc(var(--space-xs-2) + 0.38em);
+        left: calc(var(--space-1-5) + 0.38em);
+        top: calc(var(--space-1-5) + 0.38em);
         background: var(--color-foreground-on-fill);
         border-radius: 50%;
       }
@@ -66,8 +66,8 @@ const {
 
     label {
       position: relative;
-      padding-inline: calc(1.25em + var(--space-xs));
-      padding-block: var(--space-xs-2);
+      padding-inline: calc(1.25em + var(--space-3)) var(--space-1-5);
+      padding-block: var(--space-1-5);
       cursor: pointer;
       display: inline-block;
       line-height: 20px;
@@ -76,8 +76,8 @@ const {
       &::before {
         content: '';
         position: absolute;
-        left: 0;
-        top: var(--space-xs-2);
+        left: var(--space-1-5);
+        top: var(--space-1-5);
         width: 1.25em;
         height: 1.25em;
         border: 2px solid var(--color-border-default);
