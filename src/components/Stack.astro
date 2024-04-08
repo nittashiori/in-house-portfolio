@@ -1,0 +1,113 @@
+---
+// TypeScript の型定義は Astro コンポーネントでは直接使えないため、コメントとして残します
+// type Breakpoint = 'sm' | 'md' | 'lg';
+
+// type BreakpointGaps = {
+//   [key in Breakpoint]?: number | string;
+// };
+
+// type BreakpointDirection = {
+//   [key in Breakpoint]?: string;
+// };
+
+// type BreakpointAlignItems = {
+//   [key in Breakpoint]?: string;
+// };
+
+// type BreakpointJustifyContent = {
+//   [key in Breakpoint]?: string;
+// };
+
+// interface Props {
+//   /** ID */
+//   id?: string;
+//   /** クラス名 */
+//   className?: string;
+//   /** 間隔 */
+//   gap?: string | number | BreakpointGaps;
+//   /** 折り返し */
+//   wrap?: boolean;
+//   /** フレックス方向 */
+//   direction?: "row" | "column" | BreakpointDirection;
+//   /** 縦方向の配置 */
+//   alignItems?: "flex-start" | "flex-end" | "center" | "baseline" | "stretch" | BreakpointAlignItems;
+//   /** 横方向の配置 */
+//   justifyContent?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly" | BreakpointJustifyContent;
+//   /** タグ */
+//   as?: string;
+//   /** 幅 */
+//   width?: string | number | Record<Breakpoint, string | number>;
+// }
+
+const {
+  id,
+  className = "",
+  gap = "1rem",
+  wrap = false,
+  direction = "row",
+  alignItems = "flex-start",
+  justifyContent = "flex-start",
+  as: Tag = 'div',
+  width = "auto",
+} = Astro.props;
+
+const breakpoints = ['sm', 'md', 'lg'];
+
+let styles: Record<string, string> = {
+  '--stack-wrap': wrap ? 'wrap' : 'nowrap',
+};
+
+breakpoints.forEach((breakpoint) => {
+  if (typeof gap === 'object') {
+    styles[`--stack-gap-${breakpoint}`] = gap[breakpoint] ? `${gap[breakpoint]}` : '0';
+  } else {
+    styles[`--stack-gap-${breakpoint}`] = typeof gap === 'number' ? `${gap}` : gap;
+  }
+
+  const dir = typeof direction === 'object' ? direction[breakpoint] : direction;
+  styles[`--stack-direction-${breakpoint}`] = dir ? dir : 'row';
+
+  const align = typeof alignItems === 'object' ? alignItems[breakpoint] : alignItems;
+  styles[`--stack-alignItems-${breakpoint}`] = align ? align : 'flex-start';
+
+  const justify = typeof justifyContent === 'object' ? justifyContent[breakpoint] : justifyContent;
+  styles[`--stack-justifyContent-${breakpoint}`] = justify ? justify : 'flex-start';
+
+  const widthValue = typeof width === 'object' ? width[breakpoint] : width;
+  styles[`--stack-width-${breakpoint}`] = typeof widthValue === 'number' ? `${widthValue}px` : widthValue;
+});
+---
+
+<Tag id={id} class={`c-stack ${className}`} style={styles}>
+  <slot />
+</Tag>
+
+<style>
+  .c-stack {
+    display: flex;
+    width: 100%;
+    max-width: var(--stack-width-sm);
+    flex-wrap: var(--stack-wrap);
+    gap: var(--stack-gap-sm);
+    flex-direction: var(--stack-direction-sm);
+    align-items: var(--stack-alignItems-sm);
+    justify-content: var(--stack-justifyContent-sm);
+
+    /* 768px 以上 1199px 以下のデバイスに適用 */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      max-width: var(--stack-width-md);
+      gap: var(--stack-gap-md);
+      flex-direction: var(--stack-direction-md);
+      align-items: var(--stack-alignItems-md);
+      justify-content: var(--stack-justifyContent-md);
+    }
+
+    @media (min-width: 1200px) {
+      max-width: var(--stack-width-lg);
+      gap: var(--stack-gap-lg);
+      flex-direction: var(--stack-direction-lg);
+      align-items: var(--stack-alignItems-lg);
+      justify-content: var(--stack-justifyContent-lg);
+    }
+  }
+</style>

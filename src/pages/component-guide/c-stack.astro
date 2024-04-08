@@ -1,0 +1,71 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Stack from '../../components/Stack.astro'
+import Skelton from '../../components/Skelton.astro'
+---
+<ComponentGuideLayout title="Stack">
+  <section>
+    <div>
+      <Stack>
+        <Skelton />
+        <Skelton />
+        <Skelton />
+      </Stack>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">ギャップ</h3>
+    <p>レスポンシブごとに間隔の指定ができます。</p>
+    <Stack gap={{ sm: '1em', md: '2em', lg: "3em" }}>
+      <Skelton />
+      <Skelton />
+      <Skelton />
+    </Stack>
+  </section>
+  <section>
+    <h3 class="heading-s">方向</h3>
+    <p>レスポンシブごとに方向の指定ができます。</p>
+    <Stack direction={{ sm: 'row', md: 'column', lg: "row" }}>
+      <Skelton />
+      <Skelton />
+      <Skelton />
+    </Stack>
+  </section>
+  <section>
+    <h3 class="heading-s">縦方向の配置</h3>
+    <p>レスポンシブごとに縦方向の配置の指定ができます。</p>
+    <Stack alignItems={{ sm: 'flex-start', md: 'flex-end', lg: "center" }}>
+      <Skelton />
+      <Skelton width="5em" height="5em" />
+      <Skelton />
+    </Stack>
+  </section>
+  <section>
+    <h3 class="heading-s">横方向の配置</h3>
+    <p>レスポンシブごとに縦方向の配置の指定ができます。</p>
+    <Stack justifyContent={{ sm: 'flex-start', md: 'flex-end', lg: "center" }}>
+      <Skelton width="5em" height="5em" />
+      <Skelton width="5em" height="5em" />
+      <Skelton width="5em" height="5em" />
+    </Stack>
+  </section>
+  <section>
+    <h3 class="heading-s">タグ</h3>
+    <p>asプロパティを使ってタグを変更できます。</p>
+    <Stack as="section">
+      <Skelton />
+      <Skelton />
+      <Skelton />
+    </Stack>
+  </section>
+  <section>
+    <h3 class="heading-s">幅</h3>
+    <p>レスポンシブごとに幅を指定できます。</p>
+    <Stack width={{ sm: "200px", md: "500px", lg: "1000px" }}>
+      <Skelton />
+      <Skelton />
+      <Skelton />
+    </Stack>
+  </section>
+</ComponentGuideLayout>
