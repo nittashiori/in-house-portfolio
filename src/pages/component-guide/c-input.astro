@@ -1,0 +1,50 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Input from '../../components/Input.astro'
+---
+<ComponentGuideLayout title="Input">
+  <section>
+    <div>
+      <Input />
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">プレースホルダー</h3>
+    <p>
+      ユーザーがそのフィールドに何を入力すべきかのヒントを提供します。
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <Input placeholder="プレースホルダー" />
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">ステート</h3>
+    <p>
+      ボタンの状態は5種類あります。<br>
+      Default（デフォルト）、Focus（タブでフォーカス時）、Error（フォームエラー時）、Disable（利用不可）
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <Input placeholder="Error" error />
+        <Input placeholder="Disabled" disabled />
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">サイズ</h3>
+    <p>
+      max-widthを文字列で指定できます。
+      <br>
+      また、fullの追加で、コンテンツの幅に合わせてボタンの横幅を広げることもできます。
+    </p>
+    <ul class="list-vertical">
+      <li style="width: 100%;">
+        <Input placeholder="max-widthを500pxで指定" width="500px" />
+        <Input placeholder="Full" full />
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>

@@ -1,0 +1,63 @@
+---
+interface Props {
+  type?: "text" | "password" | "email" | "number" | "tel" | "url" | "search" | "date" | "time" | "datetime-local" | "month" | "week" | "color";
+  name?: string;
+  value?: string;
+  placeholder?: string;
+  error?: boolean;
+  disabled?: boolean;
+  full?: boolean;
+  width?: string;
+}
+
+const {
+  type = "text",
+  name = '',
+  value = '',
+  placeholder = '',
+  error = false,
+  disabled = false,
+  full = false,
+  width = ''
+} = Astro.props;
+---
+
+<input
+  class={`c-input ${error ? 'error' : ''} ${disabled ? 'disabled' : ''}`}
+  style={`${full ? 'max-width: 100%;' : width ? `max-width: ${width};` : ''}`}
+  type={type}
+  name={name}
+  placeholder={placeholder}
+  value={value}
+  disabled={disabled}
+/>
+
+<style>
+  .c-input {
+    display: inline-block;
+    width: 100%;
+    max-width: 240px;
+    padding: var(--space-xs-2) var(--space-xs);
+    border: 1px solid var(--color-border-default);
+    background: var(--color-background-default);
+    border-radius: var(--round-s);
+
+    &::placeholder {
+      color: var(--color-foreground-place-holder);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: var(--shadow-focus);
+    }
+
+    &.error {
+      border: 1px solid var(--color-border-alert);
+    }
+
+    &.disabled {
+      background: var(--color-background-disabled);
+      color: var(--color-foreground-disabled);
+    }
+  }
+</style>
