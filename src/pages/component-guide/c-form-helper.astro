@@ -1,0 +1,39 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import FormHelperLabel from '../../components/FormHelper/Label.astro'
+import FormHelperText from '../../components/FormHelper/Text.astro'
+---
+<ComponentGuideLayout title="FormHelper">
+  <section>
+    <h3 class="heading-s">ラベル</h3>
+    <p>
+      3種類のバリエーションがあります。
+      ラベルはできるだけ必須か任意のついたものを使ってください。<br>
+      <br>
+      Default、Required（必須）、Any（任意）
+    </p>
+    <ul class="list-horizon">
+      <li>
+        <FormHelperLabel>ラベル</FormHelperLabel>
+        <FormHelperLabel label="required">ラベル</FormHelperLabel>
+        <FormHelperLabel label="optional">ラベル</FormHelperLabel>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">テキスト</h3>
+    <p>
+      フォームを補足するためのテキストです。<br>
+      <br>
+      Caption<br>
+      Error
+    </p>
+    <ul class="list-horizon">
+      <li>
+        <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+        <FormHelperText error>フォームのエラーが入ります</FormHelperText>
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>
