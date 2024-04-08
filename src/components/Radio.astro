@@ -4,7 +4,7 @@ interface Props {
   name: string;
   value?: string;
   checked?: boolean;
-  onChange?: (event: Event) => void;
+  dataOnchange?: string;
   error?: boolean;
   disabled?: boolean;
 }
@@ -14,7 +14,7 @@ const {
   name,
   value = '',
   checked = false,
-  onChange = () => {},
+  dataOnchange = '',
   error = false,
   disabled = false,
 } = Astro.props;
@@ -26,7 +26,7 @@ const {
     name={name}
     value={value}
     checked={checked}
-    :onchange={onChange}
+    data-onchange={dataOnchange}
     disabled={disabled}
   >
   <label for={id}><slot /></label>

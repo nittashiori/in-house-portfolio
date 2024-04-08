@@ -2,7 +2,7 @@
 interface Props {
   id: string;
   name: string;
-  onChange?: string;
+  dataOnchange?: string;
   error?: boolean;
   disabled?: boolean;
   full?: boolean;
@@ -12,7 +12,7 @@ interface Props {
 const {
   id,
   name,
-  onChange,
+  dataOnchange = '',
   error = false,
   disabled = false,
   full = false,
@@ -20,21 +20,21 @@ const {
 } = Astro.props;
 ---
 <div
-  class=`c-select ${ disabled ? 'disabled' : '' } ${ error ? 'error' : '' }`
+  class=`c-selectbox ${ disabled ? 'disabled' : '' } ${ error ? 'error' : '' }`
   style=`max-width: ${full ? "100%" : width}`
 >
   <select
     id={id}
     name={name}
     disabled={disabled}
-    onchange={onChange ? `window.${onChange}` : undefined}
+    data-onchange={dataOnchange}
   >
     <slot />
   </select>
 </div>
 
 <style>
-  .c-select {
+  .c-selectbox {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

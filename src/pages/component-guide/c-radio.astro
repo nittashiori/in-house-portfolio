@@ -5,7 +5,7 @@ import Radio from '../../components/Radio.astro'
 ---
 <ComponentGuideLayout title="Radio">
   <section>
-    <Radio id="option1" name="group1" value="選択肢">選択肢</Radio>
+    <Radio id="option1" name="group1" value="選択肢" dataOnchange="handleChange">選択肢</Radio>
   </section>
   <section>
     <h3 class="heading-s">ステート</h3>
@@ -15,10 +15,22 @@ import Radio from '../../components/Radio.astro'
     </p>
     <ul class="list-vertical">
       <li>
-        <Radio id="state1" name="state" value="error" error>Error</Radio>
-        <Radio id="state2" name="state" value="disabled" disabled>Disabled</Radio>
-        <Radio id="state3" name="state" value="checked" checked>Checked</Radio>
+        <Radio id="state1" name="state" value="error" dataOnchange="handleChange" error>Error</Radio>
+        <Radio id="state2" name="state" value="disabled" dataOnchange="handleChange" disabled>Disabled</Radio>
+        <Radio id="state3" name="state" value="checked" dataOnchange="handleChange" checked>Checked</Radio>
       </li>
     </ul>
   </section>
 </ComponentGuideLayout>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.c-radio [data-onchange="handleChange"]');
+
+    elements.forEach(element => {
+      element.onchange = (event) => {
+        console.log(`選択された値: ${event.target.value}`);
+      };
+    });
+  });
+</script>
