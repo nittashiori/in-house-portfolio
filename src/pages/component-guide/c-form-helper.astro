@@ -3,6 +3,13 @@ import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
 
 import FormHelperLabel from '../../components/FormHelper/Label.astro'
 import FormHelperText from '../../components/FormHelper/Text.astro'
+
+import Stack from '../../components/Stack.astro'
+import Checkbox from '../../components/Checkbox.astro'
+import Radio from '../../components/Radio.astro'
+import Selectbox from '../../components/Selectbox.astro'
+import Input from '../../components/Input.astro'
+import Textarea from '../../components/Textarea.astro'
 ---
 <ComponentGuideLayout title="FormHelper">
   <section>
@@ -33,6 +40,125 @@ import FormHelperText from '../../components/FormHelper/Text.astro'
       <li>
         <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
         <FormHelperText error>フォームのエラーが入ります</FormHelperText>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">チェックボックス</h3>
+    <p>チェックボックスとの組み合わせ。</p>
+    <ul class="list-vertical">
+      <li>
+        <Stack direction="column" gap="0.75em">
+          <FormHelperLabel label="optional">ラベル</FormHelperLabel>
+          <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+          <Stack direction="column" gap="0">
+            <Checkbox id="checkbox1" name="checkbox">ラベル</Checkbox>
+            <Checkbox id="checkbox2" name="checkbox">ラベル</Checkbox>
+            <Checkbox id="checkbox3" name="checkbox">ラベル</Checkbox>
+          </Stack>
+        </Stack>
+        <Stack direction="column" gap="0.75em">
+          <FormHelperLabel label="required">ラベル</FormHelperLabel>
+          <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+          <Stack direction="column" gap="0">
+            <Checkbox id="checkbox1" name="checkbox" error>ラベル</Checkbox>
+            <Checkbox id="checkbox2" name="checkbox" error>ラベル</Checkbox>
+            <Checkbox id="checkbox3" name="checkbox" error>ラベル</Checkbox>
+          </Stack>
+          <FormHelperText error>フォームのエラーが入ります</FormHelperText>
+        </Stack>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">ラジオボタン</h3>
+    <p>ラジオボタンとの組み合わせ。</p>
+    <ul class="list-vertical">
+      <li>
+        <Stack direction="column" gap="0.75em">
+          <FormHelperLabel label="optional">ラベル</FormHelperLabel>
+          <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+          <Stack direction="column" gap="0">
+            <Radio id="radio1-1" name="radio-default">ラベル</Radio>
+            <Radio id="radio1-2" name="radio-default">ラベル</Radio>
+            <Radio id="radio1-3" name="radio-default">ラベル</Radio>
+          </Stack>
+        </Stack>
+        <Stack direction="column" gap="0.75em">
+          <FormHelperLabel label="required">ラベル</FormHelperLabel>
+          <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+          <Stack direction="column" gap="0">
+            <Radio id="radio2-1" name="radio-required" error>ラベル</Radio>
+            <Radio id="radio2-2" name="radio-required" error>ラベル</Radio>
+            <Radio id="radio2-3" name="radio-required" error>ラベル</Radio>
+          </Stack>
+          <FormHelperText error>フォームのエラーが入ります</FormHelperText>
+        </Stack>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">セレクトボックス</h3>
+    <p>セレクトボックスとの組み合わせ。</p>
+    <ul class="list-vertical">
+      <li>
+        <Stack direction="column" gap="0.75em">
+          <FormHelperLabel label="optional">ラベル</FormHelperLabel>
+          <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+          <Selectbox id="select" name="select-optional" full>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </Selectbox>
+        </Stack>
+        <Stack direction="column" gap="0.75em">
+          <FormHelperLabel label="required">ラベル</FormHelperLabel>
+          <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+          <Selectbox id="select" name="select-required" full error>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </Selectbox>
+          <FormHelperText error>フォームのエラーが入ります</FormHelperText>
+        </Stack>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">テキスト入力</h3>
+    <p>テキスト入力との組み合わせ。</p>
+    <ul class="list-vertical">
+      <li>
+        <Stack direction="column" gap="0.75em">
+          <FormHelperLabel label="optional">ラベル</FormHelperLabel>
+          <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+          <Input placeholder="プレースホルダー" full />
+        </Stack>
+        <Stack direction="column" gap="0.75em">
+          <FormHelperLabel label="required">ラベル</FormHelperLabel>
+          <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+          <Input placeholder="プレースホルダー" full error />
+          <FormHelperText error>フォームのエラーが入ります</FormHelperText>
+        </Stack>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">テキストエリア</h3>
+    <p>テキストエリアとの組み合わせ。</p>
+    <ul class="list-vertical">
+      <li>
+        <Stack direction="column" gap="0.75em">
+          <FormHelperLabel label="optional">ラベル</FormHelperLabel>
+          <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+          <Textarea name="placeholder" placeholder="プレースホルダー" full />
+        </Stack>
+        <Stack direction="column" gap="0.75em">
+          <FormHelperLabel label="required">ラベル</FormHelperLabel>
+          <FormHelperText>フォームをサポートするテキストが入ります</FormHelperText>
+          <Textarea name="placeholder" placeholder="プレースホルダー" full error />
+          <FormHelperText error>フォームのエラーが入ります</FormHelperText>
+        </Stack>
       </li>
     </ul>
   </section>
