@@ -16,12 +16,12 @@ const {
   error = false,
   disabled = false,
   full = false,
-  width = 'auto'
+  width = ''
 } = Astro.props;
 ---
 <div
   class=`c-selectbox ${ disabled ? 'disabled' : '' } ${ error ? 'error' : '' }`
-  style=`max-width: ${full ? "100%" : width}`
+  style={`${full ? 'max-width: 100%;' : width ? `max-width: ${width};` : ''}`}
 >
   <select
     id={id}
