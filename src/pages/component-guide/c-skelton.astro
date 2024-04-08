@@ -1,0 +1,23 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Skelton from '../../components/Skelton.astro'
+---
+<ComponentGuideLayout title="Skelton">
+  <section>
+    <div>
+      <Skelton />
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">サイズ</h3>
+    <p>widthとheightを指定してサイズを変更できます。</p>
+    <ul class="list-vertical">
+      <li>
+        <Skelton width="200px"/>
+        <Skelton width="1em" height="200px"/>
+        <Skelton width="200px" height="200px"/>
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>
