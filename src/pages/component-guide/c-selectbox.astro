@@ -1,0 +1,68 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Selectbox from '../../components/Selectbox.astro'
+---
+<ComponentGuideLayout title="Selectbox">
+  <section>
+    <Selectbox id="select" name="select" onChange="handleChange">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Selectbox>
+  </section>
+  <section>
+    <h3 class="heading-s">ステート</h3>
+    <p>
+      状態は4種類あります。<br>
+      Default（デフォルト）、Focus（タブでフォーカス時）、Error（フォームエラー時）、Disabled（利用不可）
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <Selectbox id="select" name="select" onChange="handleChange" error>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </Selectbox>
+        <Selectbox id="select" name="select" onChange="handleChange" disabled>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </Selectbox>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">サイズ</h3>
+    <p>
+      max-widthを文字列で指定できます。
+      <br>
+      また、fillの追加で、コンテンツの幅に合わせてボタンの横幅を広げることもできます。
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <Selectbox id="select" name="select" onChange="handleChange" width="500px">
+          <option value="1">Option 1 Option 1 Option 1 Option 1 Option 1 Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </Selectbox>
+        <Selectbox id="select" name="select" onChange="handleChange" fill>
+          <option value="1">Option 1 Option 1 Option 1 Option 1 Option 1 Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </Selectbox>
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const selectElement = document.getElementById('select');
+    if (selectElement) {
+      selectElement.onchange = (event) => {
+        console.log(`選択された値: ${event.target.value}`);
+      };
+    }
+  });
+</script>
