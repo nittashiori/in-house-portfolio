@@ -146,6 +146,8 @@ import Button from '../../components/Button.astro'
     最小幅は44pxです。<br>
     <br>
     コンテンツの幅に合わせてボタンの横幅を広げることもできます。<br>
+    <br>
+    サイズの他にmax-widthを文字列で指定できます。（できるだけ使わない）
   </p>
   <ul class="list-vertical" style="width: 100%">
     <li style="width: 100%">
@@ -168,6 +170,10 @@ import Button from '../../components/Button.astro'
       <Button size="full">
         <Icon type="share-box" />
         Full
+      </Button>
+      <Button width="500px">
+        <Icon type="share-box" />
+        max-width指定
       </Button>
     </li>
   </ul>
