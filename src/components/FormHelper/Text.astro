@@ -1,0 +1,19 @@
+---
+interface Props {
+  error?: boolean;
+}
+
+const {
+  error = false
+} = Astro.props;
+---
+<p class=`c-form-helper-text text-body-s ${error ? 'error' : null}`><slot /></p>
+
+<style>
+  .c-form-helper-text {
+    color: var(--color-foreground-description);
+
+    &.error {
+      color: var(--color-foreground-alert);}
+  }
+</style>

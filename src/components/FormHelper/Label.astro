@@ -1,0 +1,35 @@
+---
+interface Props {
+  label?: "none" | "required" | "optional";
+}
+
+const {
+  label = "none",
+} = Astro.props;
+---
+<legend class="c-form-helper-label">
+<slot />
+{ label === "required" ? <span class="required">必須</span> : label === "optional" ? <span class="optional">任意</span> : null}
+</legend>
+
+<style>
+  .c-form-helper-label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-weight: bold;
+
+    span {
+      font-size: 0.75em;
+      font-weight: normal;
+    }
+
+    .required {
+      color: var(--color-foreground-alert);
+    }
+
+    .optional {
+      color: var(--color-foreground-description);
+    }
+  }
+</style>
