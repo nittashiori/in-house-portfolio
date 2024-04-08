@@ -6,6 +6,7 @@ interface Props {
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'full';
 	href?: string;
   type?: 'button' | 'submit' | 'reset';
+  width?: string;
 }
 
 const {
@@ -14,15 +15,25 @@ const {
   disabled = false,
   size = 'medium',
   href,
-  type = 'button'
+  type = 'button',
+  width = 'auto'
 } = Astro.props;
 ---
 { href ?
-  <a class={`c-button ${variants} ${style} ${size} ${disabled ? disabled : ''}`} href={href}>
+  <a
+    class={`c-button ${variants} ${style} ${size} ${disabled ? disabled : ''}`}
+    href={href}
+    style={width !=="auto" ? `max-width: ${width}; width: 100%;` : ''}
+  >
     <slot />
   </a>
   :
-  <button class={`c-button ${variants} ${style} ${size} ${disabled ? disabled : ''}`} type={type} disabled={disabled}>
+  <button
+    class={`c-button ${variants} ${style} ${size} ${disabled ? disabled : ''}`}
+    type={type}
+    disabled={disabled}
+    style={width !=="auto" ? `max-width: ${width}; width: 100%;` : ''}
+  >
     <slot />
   </button>
 }
