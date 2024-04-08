@@ -216,7 +216,7 @@
 }
 
 /* Responsive */
-@media screen and(min-width: 768px) {
+@media (min-width: 768px) {
   :root {
     --space-xs-3: var(--space-base);
     --space-xs-2: var(--space-1-5);
