@@ -5,7 +5,7 @@ interface Props {
   onChange?: string;
   error?: boolean;
   disabled?: boolean;
-  fill?: boolean;
+  full?: boolean;
   width?: string;
 }
 
@@ -15,13 +15,13 @@ const {
   onChange,
   error = false,
   disabled = false,
-  fill = false,
+  full = false,
   width = 'auto'
 } = Astro.props;
 ---
 <div
-  class=`c-select ${ disabled ? 'disabled' : '' } ${ error ? 'error' : '' } ${ fill ? 'fill' : '' }`
-  style=`max-width: ${fill ? "100%" : width}`
+  class=`c-select ${ disabled ? 'disabled' : '' } ${ error ? 'error' : '' }`
+  style=`max-width: ${full ? "100%" : width}`
 >
   <select
     id={id}
