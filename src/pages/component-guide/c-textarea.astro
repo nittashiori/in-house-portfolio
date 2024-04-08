@@ -1,0 +1,51 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Textarea from '../../components/Textarea.astro'
+---
+<ComponentGuideLayout title="Textarea">
+  <section>
+    <div><Textarea name="message" /></div>
+  </section>
+  <section>
+    <h3 class="heading-s">プレースホルダー</h3>
+    <p>
+      ユーザーがそのフィールドに何を入力すべきかのヒントを提供します。
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <Textarea name="placeholder" placeholder="プレースホルダー" />
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">ステート</h3>
+    <p>
+      状態は4種類あります。<br>
+      Default（デフォルト）、Focus（タブでフォーカス時）、Error（フォームエラー時）、Disabled（利用不可）
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <Textarea name="state" placeholder="error" error />
+        <Textarea name="state" placeholder="disabled" disabled />
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">サイズ</h3>
+    <p>
+      サイズの指定は3種類あります。<br>
+      <br>
+      ・rows、colsを文字列で指定<br>
+      ・max-widthを文字列で指定<br>
+      ・fullを追加してンテンツの幅に合わせてボタンの横幅を広げる<br>
+    </p>
+    <ul class="list-vertical">
+      <li style="width: 100%;">
+        <Textarea name="size" rows="4" cols="50" placeholder="rowsとcolsを指定" />
+        <Textarea name="size" width="500px" placeholder="max-widthを指定" />
+        <Textarea name="size" placeholder="Full" full />
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>

@@ -1,9 +1,11 @@
 ---
 interface Props {
-  type?: "text" | "password" | "email" | "number" | "tel" | "url" | "search" | "date" | "time" | "datetime-local" | "month" | "week" | "color";
+  id?: string;
   name?: string;
-  value?: string;
+  rows?: string;
+  cols?: string;
   placeholder?: string;
+  value?: string;
   error?: boolean;
   disabled?: boolean;
   full?: boolean;
@@ -11,44 +13,42 @@ interface Props {
 }
 
 const {
-  type = "text",
+  id = '',
   name = '',
-  value = '',
+  rows = '',
+  cols = '',
   placeholder = '',
+  value = '',
   error = false,
   disabled = false,
   full = false,
   width = ''
 } = Astro.props;
 ---
-
-<input
-  class={`c-input ${error ? 'error' : ''} ${disabled ? 'disabled' : ''}`}
-  style={`${full ? 'max-width: 100%;' : width ? `max-width: ${width}; width: 100%` : ''}`}
-  type={type}
+<textarea
+  class=`c-textarea ${ disabled ? 'disabled' : '' } ${ error ? 'error' : '' }`
+  style={`${cols ? 'max-width: initial; width: auto;' : full ? 'max-width: 100%;' : width ? `max-width: ${width}; width: 100%` : ''}`}
+  id={id}
   name={name}
+  rows={rows}
+  cols={cols}
   placeholder={placeholder}
-  value={value}
   disabled={disabled}
-/>
+>
+{value}
+</textarea>
 
 <style>
-  .c-input {
-    display: inline-block;
+  .c-textarea {
     width: 100%;
     max-width: 240px;
     padding: var(--space-1-5) var(--space-2);
+    background: var(--color-backgound-default);
     border: 1px solid var(--color-border-default);
-    background: var(--color-background-default);
     border-radius: var(--round-s);
 
     &::placeholder {
       color: var(--color-foreground-place-holder);
-    }
-
-    &:focus {
-      outline: none;
-      box-shadow: var(--shadow-focus);
     }
 
     &.error {
