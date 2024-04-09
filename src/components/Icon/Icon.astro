@@ -37,43 +37,43 @@ import Moon from './icons/Moon.astro'
 import Comment from './icons/Comment.astro'
 import Good from './icons/Good.astro'
 
-const { type, fill } = Astro.props
+const { name, fill, className = '' } = Astro.props
 ---
-{type === 'slot' ? (fill ? <Slot fill /> : <Slot />) : 
-  type === 'add' ? (fill ? <Add fill /> : <Add />) : 
-  type === 'arrow-down' ? (fill ? <ArrowDown fill /> : <ArrowDown />) :
-  type === 'arrow-down-s' ? (fill ? <ArrowDownS fill /> : <ArrowDownS />) :
-  type === 'arrow-left' ? (fill ? <ArrowLeft fill /> : <ArrowLeft />) :
-  type === 'arrow-left-s' ? (fill ? <ArrowLeftS fill /> : <ArrowLeftS />) :
-  type === 'arrow-right' ? (fill ? <ArrowRight fill /> : <ArrowRight />) :
-  type === 'arrow-right-s' ? (fill ? <ArrowRightS fill /> : <ArrowRightS />) :
-  type === 'arrow-up' ? (fill ? <ArrowUp fill /> : <ArrowUp />) :
-  type === 'arrow-up-s' ? (fill ? <ArrowUpS fill /> : <ArrowUpS />) :
-  type === 'add' ? (fill ? <Add fill /> : <Add />) :
-  type === 'heart' ? (fill ? <Heart fill /> : <Heart />) :
-  type === 'bookmark' ? (fill ? <Bookmark fill /> : <Bookmark />) :
-  type === 'check' ? (fill ? <Check fill /> : <Check />) :
-  type === 'close' ? (fill ? <Close fill /> : <Close />) :
-  type === 'trash' ? (fill ? <Trash fill /> : <Trash />) :
-  type === 'global' ? (fill ? <Global fill /> : <Global />) :
-  type === 'home' ? (fill ? <Home fill /> : <Home />) :
-  type === 'information' ? (fill ? <Information fill /> : <Information />) :
-  type === 'question' ? (fill ? <Question fill /> : <Question />) :
-  type === 'alert' ? (fill ? <Alert fill /> : <Alert />) :
-  type === 'history' ? (fill ? <History fill /> : <History />) :
-  type === 'mail' ? (fill ? <Mail fill /> : <Mail />) :
-  type === 'loop' ? (fill ? <Loop fill /> : <Loop />) :
-  type === 'map-pin' ? (fill ? <MapPin fill /> : <MapPin />) :
-  type === 'message' ? (fill ? <Message fill /> : <Message />) :
-  type === 'more' ? (fill ? <More fill /> : <More />) :
-  type === 'notification' ? (fill ? <Notification fill /> : <Notification />) :
-  type === 'phone' ? (fill ? <Phone fill /> : <Phone />) :
-  type === 'settings' ? (fill ? <Settings fill /> : <Settings />) :
-  type === 'share-box' ? (fill ? <ShareBox fill /> : <ShareBox />) :
-  type === 'shopping-cart' ? (fill ? <ShoppingCart fill /> : <ShoppingCart />) :
-  type === 'user' ? (fill ? <User fill /> : <User />) :
-  type === 'search' ? (fill ? <Search fill /> : <Search />) :
-  type === 'sun' ? (fill ? <Sun fill /> : <Sun />) :
-  type === 'moon' ? (fill ? <Moon fill /> : <Moon />) :
-  type === 'comment' ? (fill ? <Comment fill /> : <Comment />) :
-  type === 'good' ? (fill ? <Good fill /> : <Good />) : null}
+{name === 'slot' ? (fill ? <Slot className={className} fill /> : <Slot className={className} />) : 
+  name === 'add' ? (fill ? <Add className={className} fill /> : <Add className={className} />) : 
+  name === 'arrow-down' ? (fill ? <ArrowDown fill /> : <ArrowDown />) :
+  name === 'arrow-down-s' ? (fill ? <ArrowDownS className={className} fill /> : <ArrowDownS className={className} />) :
+  name === 'arrow-left' ? (fill ? <ArrowLeft className={className} fill /> : <ArrowLeft className={className} />) :
+  name === 'arrow-left-s' ? (fill ? <ArrowLeftS className={className} fill /> : <ArrowLeftS className={className} />) :
+  name === 'arrow-right' ? (fill ? <ArrowRight className={className} fill /> : <ArrowRight className={className} />) :
+  name === 'arrow-right-s' ? (fill ? <ArrowRightS className={className} fill /> : <ArrowRightS className={className} />) :
+  name === 'arrow-up' ? (fill ? <ArrowUp className={className} fill /> : <ArrowUp className={className} />) :
+  name === 'arrow-up-s' ? (fill ? <ArrowUpS className={className} fill /> : <ArrowUpS className={className} />) :
+  name === 'add' ? (fill ? <Add className={className} fill /> : <Add className={className} />) :
+  name === 'heart' ? (fill ? <Heart className={className} fill /> : <Heart className={className} />) :
+  name === 'bookmark' ? (fill ? <Bookmark className={className} fill /> : <Bookmark className={className} />) :
+  name === 'check' ? (fill ? <Check className={className} fill /> : <Check className={className} />) :
+  name === 'close' ? (fill ? <Close className={className} fill /> : <Close className={className} />) :
+  name === 'trash' ? (fill ? <Trash className={className} fill /> : <Trash className={className} />) :
+  name === 'global' ? (fill ? <Global className={className} fill /> : <Global className={className} />) :
+  name === 'home' ? (fill ? <Home className={className} fill /> : <Home className={className} />) :
+  name === 'information' ? (fill ? <Information className={className} fill /> : <Information className={className} />) :
+  name === 'question' ? (fill ? <Question className={className} fill /> : <Question className={className} />) :
+  name === 'alert' ? (fill ? <Alert className={className} fill /> : <Alert className={className} />) :
+  name === 'history' ? (fill ? <History className={className} fill /> : <History className={className} />) :
+  name === 'mail' ? (fill ? <Mail className={className} fill /> : <Mail className={className} />) :
+  name === 'loop' ? (fill ? <Loop className={className} fill /> : <Loop className={className} />) :
+  name === 'map-pin' ? (fill ? <MapPin className={className} fill /> : <MapPin className={className} />) :
+  name === 'message' ? (fill ? <Message className={className} fill /> : <Message className={className} />) :
+  name === 'more' ? (fill ? <More className={className} fill /> : <More className={className} />) :
+  name === 'notification' ? (fill ? <Notification className={className} fill /> : <Notification className={className} />) :
+  name === 'phone' ? (fill ? <Phone className={className} fill /> : <Phone className={className} />) :
+  name === 'settings' ? (fill ? <Settings className={className} fill /> : <Settings className={className} />) :
+  name === 'share-box' ? (fill ? <ShareBox className={className} fill /> : <ShareBox className={className} />) :
+  name === 'shopping-cart' ? (fill ? <ShoppingCart className={className} fill /> : <ShoppingCart className={className} />) :
+  name === 'user' ? (fill ? <User className={className} fill /> : <User className={className} />) :
+  name === 'search' ? (fill ? <Search className={className} fill /> : <Search className={className} />) :
+  name === 'sun' ? (fill ? <Sun className={className} fill /> : <Sun className={className} />) :
+  name === 'moon' ? (fill ? <Moon className={className} fill /> : <Moon className={className} />) :
+  name === 'comment' ? (fill ? <Comment className={className} fill /> : <Comment className={className} />) :
+  name === 'good' ? (fill ? <Good className={className} fill /> : <Good className={className} />) : null}

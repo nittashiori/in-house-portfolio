@@ -1,7 +1,12 @@
 ---
-const { fill } = Astro.props;
+interface Props {
+  fill?: boolean;
+  className?: string;
+}
+
+const { fill, className = '' } = Astro.props;
 ---
-<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class={`icon ${className || ''}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   { fill ? 
     <path class="fill" d="M13.172 12L8.22198 7.04996L9.63598 5.63696L16 12L9.63598 18.364L8.22198 16.949L13.172 12Z"/>
     :

@@ -1,0 +1,67 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+  ariaExpanded?: boolean;
+  ariaControls?: string;
+}
+
+const {
+  /** ID */
+  id = '',
+  /** Class */
+  className = '',
+  /** 適用される要素のラベル付け（Aria Labelled By） */
+  ariaExpanded = false,
+  /** ある要素が別の要素の内容や表示を制御する（Aria Controls） */
+  ariaControls = 'content1'
+} = Astro.props;
+
+import Icon from '../Icon/Icon.astro';
+---
+<button
+  {...(id ? { id: id } : {})}
+  class={`c-accordion-button text-body-m ${className || ''}`}
+  type="button"
+  aria-expanded={ariaExpanded ? 'true' : 'false'}
+  aria-controls={ariaControls}
+>
+<slot />
+<Icon className="arrow" name="arrow-down-s" />
+</button>
+
+<style>
+  .c-accordion-button {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5em;
+    padding: var(--space-2) var(--space-8) var(--space-2) var(--space-2);
+    position: relative;
+
+    &:hover {
+      background: var(--color-button-hover);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: var(--shadow-focus);
+    }
+
+    &:active {
+      background: var(--color-button-active);
+    }
+
+    .arrow {
+      position: absolute;
+      right: 1em;
+    }
+
+    &.is-active {
+      .arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+</style>
