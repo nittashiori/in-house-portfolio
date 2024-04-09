@@ -9,7 +9,7 @@ const {
 ---
 <legend class="c-form-helper-label">
 <slot />
-{ label === "required" ? <span class="required">必須</span> : label === "optional" ? <span class="optional">任意</span> : null}
+{ label === "required" ? <span class="required">必須</span> : label === "optional" || <span class="optional">任意</span>}
 </legend>
 
 <style>
