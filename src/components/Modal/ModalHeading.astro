@@ -1,0 +1,19 @@
+---
+interface Props {
+  as?: string;
+}
+
+const {
+  as: Tag = 'div',
+} = Astro.props;
+---
+
+<Tag class="c-modal-heading heading-s">
+  <slot />
+</Tag>
+
+<style>
+  .c-modal-heading {
+    padding: var(--space-xl);
+  }
+</style>

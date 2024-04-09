@@ -1,0 +1,106 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Modal from '../../components/Modal/Modal.astro';
+import ModalContent from '../../components/Modal/ModalContent.astro';
+import ModalOverlay from '../../components/Modal/ModalOverlay.astro';
+import ModalHeading from '../../components/Modal/ModalHeading.astro';
+import ModalBody from '../../components/Modal/ModalBody.astro';
+import ModalButtons from '../../components/Modal/ModalButtons.astro';
+import ModalCloseButton from '../../components/Modal/ModalCloseButton.astro';
+
+import Button from '../../components/Button.astro';
+---
+
+<ComponentGuideLayout title="Modal">
+  <section>
+    <p>
+      モーダルは7つのコンポーネントで形成してます。<br>
+      <br>
+      Modal：モーダル全体のコンポーネント<br>
+      ModalOverlay：モーダルの背景を覆うオーバーレイ<br>
+      ModalContent：モーダルのコンテンツを包むコンポーネント<br>
+      ModalHeading：モーダルの見出し<br>
+      ModalBody：モーダルの本文<br>
+      ModalButtons：モーダルのボタンエリア<br>
+      ModalCloseButton：モーダルを閉じるボタン<br>
+      <br>
+      Buttonコンポーネントの`id`とModalコンポーネントの`modalId`で紐づけてください。
+    </p>
+    <div>
+      <Button id="modal1" variants="default" style="outline" dataOnclick="openModal">
+        モーダルを開く
+      </Button>
+      <Modal modalId="modal1">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeading>モーダル見出し</ModalHeading>
+          <ModalBody>
+            モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。
+          </ModalBody>
+          <ModalButtons>
+            <Button variants="primary" style="solid">
+              プライマリーボタン
+            </Button>
+            <ModalCloseButton />
+          </ModalButtons>
+        </ModalContent>
+      </Modal>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">見出し</h3>
+    <p>モーダルの見出しが入ります。</p>
+    <ul class="list-vertical">
+      <li style="width: 100%;">
+        <ModalHeading>モーダル見出し</ModalHeading>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">ボディ</h3>
+    <p>
+      モーダルの補助テキストが入ります。<br>
+      <br>
+      もし、モーダルの高さがデバイスの高さを超える場合、コンテンツはY軸にスクロールして閲覧できるようにします。
+    </p>
+    <ul class="list-horizon">
+      <li>
+        <ModalBody>
+          モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。モーダルの補助テキストが入ります。
+        </ModalBody>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">閉じるボタン</h3>
+    <ul class="list-vertical">
+      <li style="width: 100%;">
+        <ModalCloseButton />
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">ボタンエリア</h3>
+    <p>
+      モーダルを操作するボタンエリアです。<br>
+      閉じるボタンは必ず入れてください。<br>
+      <br>
+      ボタンは閉じるボタンのみと、何かしら決定するためのボタンを含んだものがあります。<br>
+      （プライマリーボタンの他にサクセスやアラートボタンに代替できます）
+    </p>
+    <ul class="list-vertical">
+      <li style="width: 100%;">
+        <ModalButtons>
+          <ModalCloseButton />
+        </ModalButtons>
+        <ModalButtons>
+          <Button variants="primary" style="solid">
+            プライマリーボタン
+          </Button>
+          <ModalCloseButton />
+        </ModalButtons>
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>
