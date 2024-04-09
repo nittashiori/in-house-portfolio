@@ -1,0 +1,23 @@
+---
+interface Props {
+  className?: string;
+  as?: string;
+}
+
+const {
+  /** Class */
+  className = '',
+  /** タグ */
+  as: Tag = 'div',
+} = Astro.props;
+---
+<Tag class={`c-accordion ${className || ''}`}>
+  <slot />
+</Tag>
+
+<style>
+  .c-accordion {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

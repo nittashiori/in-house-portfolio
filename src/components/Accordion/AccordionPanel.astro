@@ -1,0 +1,36 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+  ariaLabelledby?: string;
+}
+
+const {
+  /** ID */
+  id = '',
+  /** Class */
+  className = '',
+  /** 適用される要素のラベル付け（Aria Labelled By） */
+  ariaLabelledby = 'accordion1',
+} = Astro.props;
+---
+<div
+  {...(id ? { id: id } : {})}
+  class={`c-accordion-panel ${className || ''}`}
+  role='region'
+  aria-labelledby={ariaLabelledby}
+>
+  <div class="wrap">
+    <slot/>
+  </div>
+</div>
+
+<style>
+  .c-accordion-panel {
+    width: 100%;
+    
+    .wrap {
+      padding: var(--space-2);
+    }
+  }
+</style>

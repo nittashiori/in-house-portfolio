@@ -1,0 +1,144 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Stack from '../../components/Stack.astro'
+import Icon from '../../components/Icon/Icon.astro'
+import Accordion from '../../components/Accordion/Accordion.astro'
+import AccordionItem from '../../components/Accordion/AccordionItem.astro'
+import AccordionButton from '../../components/Accordion/AccordionButton.astro'
+import AccordionPanel from '../../components/Accordion/AccordionPanel.astro'
+---
+
+<ComponentGuideLayout title="Accordion">
+  <section>
+    <Accordion>
+      <AccordionItem>
+        <AccordionButton id="accordion1" aria-controls="content1">アコーディオンボタン</AccordionButton>
+        <AccordionPanel id="content1" aria-labelledby="accodion1">
+          <p>コンテンツがはいります。コンテンツがはいります。コンテンツがはいります。</p>
+        </AccordionPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionButton id="accordion2" aria-controls="content2">アコーディオンボタン</AccordionButton>
+        <AccordionPanel id="content2" aria-labelledby="accodion2">
+          <p>コンテンツがはいります。コンテンツがはいります。コンテンツがはいります。</p>
+        </AccordionPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionButton id="accordion3" aria-controls="content3">アコーディオンボタン</AccordionButton>
+        <AccordionPanel id="content3" aria-labelledby="accodion3">
+          <p>コンテンツがはいります。コンテンツがはいります。コンテンツがはいります。</p>
+        </AccordionPanel>
+      </AccordionItem>
+    </Accordion>
+  </section>
+  <section>
+    <h3 class="heading-s">アコーディオンアイテム</h3>
+    <p>
+      ボタン、パネルを組み合わせたコンポーネントです。<br>
+      初期で開いているアコーディオンアイテムを設定することができます。
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <AccordionItem>
+          <AccordionButton id="accordion-sample" aria-controls="content-sample">アコーディオンボタン</AccordionButton>
+          <AccordionPanel id="content-sample" aria-labelledby="accodion-sample">
+            <p>コンテンツがはいります。コンテンツがはいります。コンテンツがはいります。</p>
+          </AccordionPanel>
+        </AccordionItem>
+      </li>
+      <li>
+        <AccordionItem isOpen>
+          <AccordionButton id="accordion-sample" aria-controls="content-sample">アコーディオンボタン</AccordionButton>
+          <AccordionPanel id="content-sample" aria-labelledby="accodion-sample">
+            <p>コンテンツがはいります。コンテンツがはいります。コンテンツがはいります。</p>
+          </AccordionPanel>
+        </AccordionItem>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">ボタン</h3>
+    <p>
+      アコーディオンを開閉するためのボタンパーツです。<br>
+      ラベルの左側はアイコンの設定・非表示することができます。<br>
+      <br>
+      ボタンの状態は4種類あります。<br>
+      Default（デフォルト）、Hover（マウスオーバー）、Focus（タブでフォーカス時）、Active（ボタン押下時）
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <AccordionButton>
+          アコーディオンボタン
+        </AccordionButton>
+      </li>
+      <li>
+        <AccordionButton>
+          <Icon name="slot" />
+          アコーディオンボタン
+        </AccordionButton>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">パネル</h3>
+    <p>
+      アコーディオンを開閉したときに表示するパーツです。<br>
+      テキスト以外に画像や注釈を追加することもできます。
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <AccordionPanel>
+          <p>コンテンツがはいります。コンテンツがはいります。コンテンツがはいります。</p>
+        </AccordionPanel>
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.c-accordion-item');
+
+    elements.forEach(element => {
+      const button = element.querySelector('.c-accordion-button');
+      const panel = element.querySelector('.c-accordion-panel');
+
+      if(element.classList.contains('is-open')) {
+        button.classList.add('is-active');
+        button.setAttribute('aria-expanded', 'true');
+        panel.style.height = panel.scrollHeight + 'px';
+      } else {
+        button.setAttribute('aria-expanded', 'false');
+      }
+
+      button.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+
+        this.classList.toggle('is-active');
+        this.setAttribute('aria-expanded', !expanded);
+        
+        if(element.classList.contains('is-open')) {
+          element.classList.remove('is-open');
+        }
+
+        if (!expanded) {
+          panel.style.height = panel.scrollHeight + 'px';
+        } else {
+          panel.style.height = panel.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              panel.style.height = '0';
+            });
+          });
+        }
+
+        panel.addEventListener('transitionend', () => {
+          if (!expanded) {
+            panel.style.height = 'auto';
+          }
+        }, { once: true });
+      });
+    });
+  });
+</script>
