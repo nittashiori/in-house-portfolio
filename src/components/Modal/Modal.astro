@@ -1,0 +1,96 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+  ariaLabelledby?: string;
+  ariaDescribedby?: string;
+  tabIndex?: number;
+  hidden?: boolean;
+  modalId: string;
+}
+
+const {
+  /** ID */
+  id,
+  /** Class */
+  className,
+  /** モーダルのタイトル */
+  ariaLabelledby = "modalTitle",
+  /** モーダルの内容 */
+  ariaDescribedby = "modalDescription",
+  /** タブインデックス */
+  tabIndex = -1,
+  /** 非表示 */
+  hidden = true,
+  /** ボタンに紐づけるID */
+  modalId,
+} = Astro.props;
+---
+<div
+  {...(id ? { id: id } : {})}
+  class=`c-modal ${className || ''}`
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby={ariaLabelledby}
+  aria-describedby={ariaDescribedby}
+  tabindex={tabIndex}
+  hidden={hidden}
+  data-modalid={modalId}
+>
+  <slot />
+</div>
+
+<style>
+  .c-modal {
+    place-content: center;
+    width: 100vw;
+    height: 100dvh;
+    padding: var(--space-s);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    &:not([hidden]) {
+      display: grid;
+    }
+  }
+</style>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const modals = document.querySelectorAll('.c-modal');
+    const triggerButtons = document.querySelectorAll('.c-button[data-onclick="openModal"]')
+
+    triggerButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const buttonId = button.getAttribute('id');
+        modals.forEach((modal) => {
+          const modalId = modal.getAttribute('data-modalid');
+          if (modalId === buttonId) {
+            modal.hidden = false;
+          }
+        })
+      });
+    });
+
+    // 閉じるボタンの処理
+    const closeButtons = document.querySelectorAll('.c-button[data-onclick="closeModal"]');
+    closeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        console.log(button);
+        const modal = button.closest('.c-modal');
+        modal.hidden = true;
+      })
+    })
+
+    // オーバーレイの処理
+    const overlays = document.querySelectorAll('.c-modal-overlay');
+    overlays.forEach((overlay) => {
+      overlay.addEventListener('click', () => {
+        const modal = overlay.closest('.c-modal');
+        modal.hidden = true;
+      })
+    })
+  });
+</script>

@@ -1,5 +1,7 @@
 ---
 interface Props {
+  id?: string;
+  className?: string;
   variants?: 'default' | 'primary' | 'success' | 'warning' | 'alert';
   style?: 'solid' | 'outline' | 'ghost' | 'link';
   disabled?: boolean;
@@ -7,32 +9,40 @@ interface Props {
 	href?: string;
   type?: 'button' | 'submit' | 'reset';
   width?: string;
+  dataOnclick?: string;
 }
 
 const {
+  id,
+  className,
   variants = 'default',
   style = 'solid',
   disabled = false,
   size = 'medium',
   href,
   type = 'button',
-  width = 'auto'
+  width = 'auto',
+  dataOnclick
 } = Astro.props;
 ---
 { href ?
   <a
-    class={`c-button ${variants} ${style} ${size} ${disabled ? disabled : ''}`}
+    {...(id ? { id: id } : {})}
+    class={`c-button ${className || ''} ${variants} ${style} ${size} ${disabled ? disabled : ''}`}
     href={href}
     style={width !=="auto" ? `max-width: ${width}; width: 100%;` : ''}
+    data-onclick={dataOnclick}
   >
     <slot />
   </a>
   :
   <button
-    class={`c-button ${variants} ${style} ${size} ${disabled ? disabled : ''}`}
+    {...(id ? { id: id } : {})}
+    class={`c-button ${className || ''} ${variants} ${style} ${size} ${disabled ? disabled : ''}`}
     type={type}
     disabled={disabled}
     style={width !=="auto" ? `max-width: ${width}; width: 100%;` : ''}
+    data-onclick={dataOnclick}
   >
     <slot />
   </button>
