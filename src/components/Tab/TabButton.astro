@@ -1,0 +1,66 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+  ariaExpanded?: boolean;
+  ariaControls?: string;
+  isActive?: boolean;
+  tabIndex?: number;
+}
+
+const {
+  /** ID */
+  id = '',
+  /** Class */
+  className = '',
+  /** ある要素が別の要素の内容や表示を制御する（Aria Controls） */
+  ariaControls = 'panel1',
+  /** アクティブかどうか */
+  isActive = false,
+  /** タブインデックス */
+  tabIndex = 0,
+} = Astro.props;
+
+---
+<button
+  {...(id ? { id: id } : {})}
+  class={`c-tab-button text-body-m ${className || ''} ${isActive ? 'is-active' : ''}`}
+  type="button"
+  role="tab"
+  aria-controls={ariaControls}
+  aria-selected={isActive ? 'true' : 'false'}
+  tab-index={tabIndex}
+>
+<slot />
+</button>
+
+<style>
+  .c-tab-button {
+    padding: var(--space-xs);
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+
+    &:hover {
+      background: var(--color-button-hover);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: var(--shadow-focus);
+    }
+
+    &:active {
+      background: var(--color-button-active);
+    }
+
+    .arrow {
+      position: absolute;
+      right: 1em;
+    }
+
+    &.is-active {
+      color: var(--color-foreground-primary);
+      border-bottom: 2px solid var(--color-border-primary);
+    }
+  }
+</style>
