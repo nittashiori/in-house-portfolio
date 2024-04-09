@@ -1,0 +1,120 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Tab from '../../components/Tab/Tab.astro'
+import TabList from '../../components/Tab/TabList.astro'
+import TabButton from '../../components/Tab/TabButton.astro'
+import TabPanel from '../../components/Tab/TabPanel.astro'
+---
+<ComponentGuideLayout title="Tab">
+  <section>
+    <p>
+      タブは4つのコンポーネントで形成してます。<br>
+      <br>
+      Tab：タブ全体のコンポーネント<br>
+      TabList：タブボタンをリストにしたコンポーネント<br>
+      TabButton：タブボタンのコンポーネント<br>
+      TabPanel：タブボタンが選択されたときに表示するコンポーネント<br>
+      <br>
+      TabButtonの`ariaControls`とTabPanelの`id`は同じIDを指定してください。<br>
+      TabButtnの`id`とTabPanelの`aria-labelledby`は同じIDを指定してください。
+    </p>
+    <div>
+      <Tab>
+        <TabList>
+          <TabButton id="tab1" ariaControls="panel1" tabIndex={0} isActive>
+            タブボタン1
+          </TabButton>
+          <TabButton id="tab2" ariaControls="panel2" tabIndex={-1}>
+            タブボタン2
+          </TabButton>
+          <TabButton id="tab3" ariaControls="panel3" tabIndex={-1}>
+            タブボタン3
+          </TabButton>
+        </TabList>
+        <TabPanel id="panel1" aria-labelledby="tab1" tabIndex={0}>
+          <p>
+            タブ1の内容が入ります<br>
+            タブ1の内容が入ります<br>
+            タブ1の内容が入ります
+          </p>
+        </TabPanel>
+        <TabPanel id="panel2" aria-labelledby="tab2" tabIndex={0} hidden>
+          <p>
+            タブ2の内容が入ります<br>
+            タブ2の内容が入ります
+          </p>
+        </TabPanel>
+        <TabPanel id="panel3" aria-labelledby="tab3" tabIndex={0} hidden>
+          <p>タブ3の内容が入ります</p>
+        </TabPanel>
+      </Tab>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">ボタン</h3>
+    <p>
+      タブを切り替えるためのボタンパーツです。<br>
+      選択されてる場合は、テキストをハイライト・下線を表示します。
+      <br>
+      ボタンの状態は4種類あります。<br>
+      Default（デフォルト）、Hover（マウスオーバー）、Focus（タブでフォーカス時）、Active（ボタン押下時）
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <TabButton>
+          タブボタン
+        </TabButton>
+      </li>
+      <li>
+        <TabButton isActive>
+          タブボタン
+        </TabButton>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">タブリスト</h3>
+    <p>
+      タブのボタンをリストにしたコンポーネントです。<br>
+      必ず左のタブボタンは選択されてる状態にします。<br>
+      <br>
+      コンテンツの横幅に収まりきらない場合は、横スクロールできる状態にします。
+    </p>
+    <ul class="list-vertical">
+      <li style="width: 100%">
+        <TabList>
+          <TabButton isActive>
+            タブボタン
+          </TabButton>
+          <TabButton>
+            タブボタン
+          </TabButton>
+          <TabButton>
+            タブボタン
+          </TabButton>
+          <TabButton>
+            タブボタン
+          </TabButton>
+          <TabButton>
+            タブボタン
+          </TabButton>
+        </TabList>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">パネル</h3>
+    <p>
+      タブが選択されたときに表示するコンポーネントです。<br>
+      テキスト以外に画像や注釈を追加することもできます。
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <TabPanel>
+          <p>コンテンツがはいります。コンテンツがはいります。コンテンツがはいります。</p>
+        </TabPanel>
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>

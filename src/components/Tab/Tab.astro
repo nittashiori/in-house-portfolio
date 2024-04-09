@@ -1,0 +1,50 @@
+---
+interface Props {
+  className?: string
+}
+
+const {
+  className = ''
+} = Astro.props
+---
+<div class={`c-tab ${className || ''}`}>
+  <slot />
+</div>
+
+<style>
+  .c-tab {
+    width: 100%;
+  }
+</style>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.c-tab .c-tab-button');
+
+    tabs.forEach(function(tab) {
+      tab.addEventListener("click", () => {
+        // すべてのタブの選択状態をリセット
+        tabs.forEach((tab) => {
+          tab.setAttribute("aria-selected", "false");
+          tab.setAttribute("tabindex", "-1");
+          tab.classList.remove("is-active");
+        });
+
+        // クリックされたタブをアクティブに設定
+        tab.setAttribute("aria-selected", "true");
+        tab.setAttribute("tabindex", "0");
+        tab.classList.add("is-active");
+
+        // すべてのタブパネルを隠す
+        const panels = document.querySelectorAll('.c-tab-panel');
+        panels.forEach((panel) => {
+          panel.hidden = true;
+        });
+
+        // 関連するタブパネルを表示
+        const panelId = tab.getAttribute("aria-controls");
+        document.getElementById(panelId).hidden = false;
+      });
+    });
+  })
+</script>

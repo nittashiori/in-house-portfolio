@@ -1,0 +1,29 @@
+---
+interface Props {
+  className?: string;
+  ariaLabel?: string;
+}
+
+const {
+  /** Class */
+  className,
+  /** Aria label */
+  ariaLabel = 'タブ',
+} = Astro.props;
+---
+<div
+  class={`c-tab-list ${className || ''}`}
+  role="tablist"
+  aria-label={ariaLabel}
+>
+<slot />
+</div>
+
+<style>
+  .c-tab-list {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    border-bottom: 1px solid var(--color-border-default);
+  }
+</style>

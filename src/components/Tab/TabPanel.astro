@@ -3,23 +3,30 @@ interface Props {
   id?: string;
   className?: string;
   ariaLabelledby?: string;
+  tabIndex?: number;
+  hidden?: boolean;
 }
 
 const {
   /** ID */
-  id = '',
+  id = 'panel1',
   /** Class */
   className = '',
   /** 適用される要素のラベル付け（Aria Labelled By） */
-  ariaLabelledby = 'accordion1',
+  ariaLabelledby = 'tab',
+  /** タブインデックス */
+  tabIndex = 0,
+  /** 非表示 */
+  hidden = false
 } = Astro.props;
 ---
 <div
   {...(id ? { id: id } : {})}
-  class={`c-accordion-panel ${className || ''}`}
-  role='region'
+  class={`c-tab-panel ${className || ''}`}
+  role='tabpanel'
   aria-labelledby={ariaLabelledby}
-  aria-hidden="false"
+  tab-index={tabIndex}
+  hidden={hidden}
 >
   <div class="wrap">
     <slot/>
@@ -27,7 +34,7 @@ const {
 </div>
 
 <style>
-  .c-accordion-panel {
+  .c-tab-panel {
     width: 100%;
     
     .wrap {
