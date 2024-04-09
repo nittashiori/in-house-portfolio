@@ -1,7 +1,6 @@
 ---
 import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
 
-import Stack from '../../components/Stack.astro'
 import Icon from '../../components/Icon/Icon.astro'
 import Accordion from '../../components/Accordion/Accordion.astro'
 import AccordionItem from '../../components/Accordion/AccordionItem.astro'
@@ -11,6 +10,14 @@ import AccordionPanel from '../../components/Accordion/AccordionPanel.astro'
 
 <ComponentGuideLayout title="Accordion">
   <section>
+    <p>
+      アコーディオンは4つのコンポーネントで形成してます。<br>
+      <br>
+      Accordion：アコーディオン全体を囲むコンポーネント<br>
+      AccordionItem：アコーディオンのボタンとパネルを組み合わせたコンポーネント<br>
+      AccordionButton：アコーディオンを開閉するためのボタンコンポーネント<br>
+      AccordionPanel：アコーディオンを開閉したときに表示するパネルコンポーネント
+    </p>
     <Accordion>
       <AccordionItem>
         <AccordionButton id="accordion1" aria-controls="content1">アコーディオンボタン</AccordionButton>
