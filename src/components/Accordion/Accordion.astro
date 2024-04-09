@@ -36,6 +36,7 @@ const {
         panel.style.height = panel.scrollHeight + 'px';
       } else {
         button.setAttribute('aria-expanded', 'false');
+        panel.setAttribute('aria-hidden', 'true');
       }
 
       button.addEventListener('click', function() {
@@ -43,6 +44,7 @@ const {
 
         this.classList.toggle('is-active');
         this.setAttribute('aria-expanded', !expanded);
+        panel.setAttribute('aria-hidden', expanded);
         
         if(element.classList.contains('is-open')) {
           element.classList.remove('is-open');
