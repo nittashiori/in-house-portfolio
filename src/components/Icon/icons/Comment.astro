@@ -1,7 +1,12 @@
 ---
-const { fill } = Astro.props;
+interface Props {
+  fill?: boolean;
+  className?: string;
+}
+
+const { fill, className = '' } = Astro.props;
 ---
-<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class={`icon ${className || ''}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   { fill ? 
     <path class="fill" fill-rule="evenodd" clip-rule="evenodd" d="M4.88555 6.03137C6.61184 4.75936 8.95336 4 11.5 4C14.0466 4 16.3882 4.75936 18.1145 6.03137C19.8404 7.30312 21 9.13361 21 11.2381C21 13.3618 19.8227 15.2007 18.0704 16.4768C18.335 17.2365 18.7992 17.7101 19.3779 18.2888C19.6366 18.5476 19.714 18.9367 19.574 19.2748C19.4339 19.6129 19.104 19.8333 18.7381 19.8333C16.3594 19.8333 14.6924 19.1244 13.6281 18.2952C12.943 18.4138 12.2306 18.4762 11.5 18.4762C8.95336 18.4762 6.61184 17.7168 4.88555 16.4448C3.1596 15.1731 2 13.3426 2 11.2381C2 9.13361 3.1596 7.30312 4.88555 6.03137Z" />
     :
