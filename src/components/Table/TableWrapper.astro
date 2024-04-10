@@ -1,0 +1,49 @@
+---
+interface Props {
+  className?: string;
+  device?: 'sp' | 'tablet' | 'pc';
+}
+
+const {
+  className,
+  device = 'pc',
+} = Astro.props;
+---
+<div class=`c-table-wrapper ${className || ''} ${device}`>
+  <slot />
+</div>
+
+<style>
+  .c-table-wrapper {
+    overflow-x: auto;
+
+    > .c-table {
+      width: 1200px;
+    }
+
+    &.pc {
+      overflow-x: visible;
+
+      > .c-table {
+        width: 100%;
+      }
+    }
+
+    /* 768px 以上 1199px 以下のデバイスに適用 */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      &.sp {
+        overflow-x: visible;
+
+        > .c-table {
+          width: 100%;
+        }
+      }
+    }
+
+    @media (min-width: 1200px) {
+      > .c-table {
+        width: 100%;
+      }
+    }
+  }
+</style>

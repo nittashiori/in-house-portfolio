@@ -1,0 +1,51 @@
+---
+interface Props {
+  device?: 'sp' | 'tablet' | 'pc';
+}
+
+const {
+  device = 'pc',
+} = Astro.props
+---
+<p class=`c-table-caption text-body-m ${ device }`>
+  <slot />
+</p>
+
+<style>
+  .c-table-caption {
+    display: block;
+
+    &.tablet {
+      display: block;
+    }
+
+    &.pc {
+      display: block;
+    }
+
+    /* 768px 以上 1199px 以下のデバイスに適用 */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      display: none;
+
+      &.tablet {
+        display: block;
+      }
+
+      &.pc {
+        display: block;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      display: none;
+
+      &.tablet {
+        display: none;
+      }
+
+      &.pc {
+        display: block;
+      }
+    }
+  }
+</style>
