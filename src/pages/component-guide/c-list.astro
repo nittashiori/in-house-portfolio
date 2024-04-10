@@ -1,0 +1,75 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import List from '../../components/List.astro'
+import Stack from '../../components/Stack.astro'
+---
+
+<ComponentGuideLayout title="List">
+  <section>
+    <ul class="list-vertical">
+      <li style="width: 100%;">
+        <Stack as="ul" direction="column">
+          <List>リスト項目</List>
+          <List>リスト項目</List>
+          <List>リスト項目</List>
+        </Stack>
+        <Stack as="ul" direction="column">
+          <List variants="unordered">リスト項目</List>
+          <List variants="unordered">リスト項目</List>
+          <List variants="unordered">リスト項目</List>
+        </Stack>
+        <Stack as="ul" direction="column">
+          <List variants="ordered">リスト項目</List>
+          <List variants="ordered">リスト項目</List>
+          <List variants="ordered">リスト項目</List>
+        </Stack>
+        <Stack as="ul" direction="column">
+          <List variants="check">リスト項目</List>
+          <List variants="check">リスト項目</List>
+          <List variants="check">リスト項目</List>
+        </Stack>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">デフォルト</h3>
+    <ul class="list-vertical">
+      <li>
+        <Stack as="ul" direction="column">
+          <List>リスト項目</List>
+        </Stack>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">順序なしリスト</h3>
+    <ul class="list-vertical">
+      <li>
+        <Stack as="ul" direction="column">
+          <List variants="unordered">リスト項目</List>
+        </Stack>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">順序ありリスト</h3>
+    <ul class="list-vertical">
+      <li>
+        <Stack as="ol" direction="column">
+          <List variants="ordered">リスト項目</List>
+        </Stack>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">チェックマーク付きリスト</h3>
+    <ul class="list-vertical">
+      <li>
+        <Stack as="ul" direction="column">
+          <List variants="check">リスト項目</List>
+        </Stack>
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>
