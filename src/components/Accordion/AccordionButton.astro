@@ -40,8 +40,10 @@ import Icon from '../Icon/Icon.astro';
     padding: var(--space-2) var(--space-8) var(--space-2) var(--space-2);
     position: relative;
 
-    &:hover {
-      background: var(--color-button-hover);
+    @media (hover: hover) {
+      &:hover {
+        background: var(--color-button-hover);
+      }
     }
 
     &:focus {

@@ -42,9 +42,11 @@ const {
     text-decoration: underline;
     border-radius: var(--round-s);
 
-    &:hover {
-      color: var(--color-foreground-hover);
-      text-decoration: none;
+    @media (hover: hover) {
+      &:hover {
+        color: var(--color-foreground-hover);
+        text-decoration: none;
+      }
     }
 
     &:focus {

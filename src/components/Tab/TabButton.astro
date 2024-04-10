@@ -40,8 +40,10 @@ const {
     border-bottom: 2px solid transparent;
     white-space: nowrap;
 
-    &:hover {
-      background: var(--color-button-hover);
+    @media (hover: hover) {
+      &:hover {
+        background: var(--color-button-hover);
+      }
     }
 
     &:focus {
