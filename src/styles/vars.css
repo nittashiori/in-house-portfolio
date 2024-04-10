@@ -191,7 +191,7 @@
   --round-s: 4px;
   --round-m: 8px;
   --round-l: 20px;
-  --rounc-full: 9999px;
+  --round-full: 9999px;
 
   --border-regular: 1px solid var(--color-border-default);
   --border-medium: 2px solid var(--color-border-default);
