@@ -48,6 +48,7 @@ a {
   background: #fff;
   overflow-y: auto;
   position: sticky;
+  z-index: 1000;
   top: var(--header-height);
 
   @media (max-width: 768px) {
@@ -59,7 +60,7 @@ a {
     border-bottom: 1px solid #ccc;
   }
 
-  ul {
+  > ul {
     display: flex;
     flex-direction: column;
 
@@ -67,11 +68,13 @@ a {
       flex-direction: row;
       gap: 16px;
     }
-  }
 
-  a {
-    display: block;
-    padding: 12px 0;
+    > li {
+      > a {
+        display: block;
+        padding: 12px 0;
+      }
+    }
   }
 }
 
