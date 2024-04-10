@@ -32,41 +32,42 @@ a {
 }
 
 .content {
-  display: flex;
+  display: block;
 
-  @media (max-width: 768px) {
-    display: block;
+  @media (min-width: 768px) {
+    display: flex;
   }
 }
 
 .sidevar {
-  width: 20%;
-  max-width: 280px;
-  height: 90vh;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   flex-shrink: 0;
-  padding: 20px;
-  background: #fff;
+  padding: 4px 16px;
+  background: #eee;
+  border-bottom: 1px solid #ccc;
   overflow-y: auto;
   position: sticky;
-  z-index: 1000;
+  z-index: 1;
   top: var(--header-height);
 
-  @media (max-width: 768px) {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    padding: 4px 16px;
-    background: #eee;
-    border-bottom: 1px solid #ccc;
+  @media (min-width: 768px) {
+    width: 20%;
+    max-width: 280px;
+    height: 90vh;
+    padding: 20px;
+    background: #fff;
   }
 
   > ul {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 16px;
 
-    @media (max-width: 768px) {
-      flex-direction: row;
-      gap: 16px;
+    @media (min-width: 768px) {
+      flex-direction: column;
+      gap: 0;
     }
 
     > li {
