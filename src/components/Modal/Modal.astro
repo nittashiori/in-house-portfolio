@@ -61,6 +61,7 @@ const {
   document.addEventListener('DOMContentLoaded', () => {
     const modals = document.querySelectorAll('.c-modal');
     const triggerButtons = document.querySelectorAll('.c-button[data-onclick="openModal"]')
+    const body = document.querySelector('body');
 
     triggerButtons.forEach((button) => {
       button.addEventListener('click', () => {
@@ -71,6 +72,8 @@ const {
             modal.hidden = false;
           }
         })
+
+        body.style.overflow = 'hidden';
       });
     });
 
@@ -81,6 +84,8 @@ const {
         console.log(button);
         const modal = button.closest('.c-modal');
         modal.hidden = true;
+
+        body.style.overflow = 'auto';
       })
     })
 
@@ -90,6 +95,8 @@ const {
       overlay.addEventListener('click', () => {
         const modal = overlay.closest('.c-modal');
         modal.hidden = true;
+
+        body.style.overflow = 'auto';
       })
     })
   });
