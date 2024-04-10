@@ -1,0 +1,149 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import TableWrapper from '../../components/Table/TableWrapper.astro'
+import Table from '../../components/Table/Table.astro'
+import Th from '../../components/Table/Th.astro'
+import Td from '../../components/Table/Td.astro'
+import TableCaption from '../../components/Table/TableCaption.astro'
+---
+<ComponentGuideLayout title="Table">
+  <section>
+    <h3 class="heading-s">テーブルヘッダー</h3>
+    <p>テーブルのタイトルが入り、HTMLのth要素に相当します。</p>
+    <ul class="list-vertical">
+      <li>
+        <Table>
+          <thead>
+            <tr>
+              <Th>ヘッダー</Th>
+            </tr>
+          </thead>
+        </Table>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">テーブルコンテンツ</h3>
+    <p>テーブルの詳細が入り、HTMLのtd要素に相当します。</p>
+    <ul class="list-vertical">
+      <li>
+        <Table>
+          <tbody>
+            <tr>
+              <Td>詳細が入ります詳細が入ります</Td>
+            </tr>
+          </tbody>
+        </Table>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">キャプション</h3>
+    <p>
+      テーブルがコンテンツに収まりきらず、横スクロールする必要がある場合に、このキャプションを表示します。<br>
+      デバイスサイズ（PC、タブレット、スマホ）ごとにキャプションの表示、非表示ができます。
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <TableCaption>PCサイズのときに表示します。</TableCaption>
+        <TableCaption device="tablet">タブレットサイズのときに表示します。</TableCaption>
+        <TableCaption device="sp">スマホサイズのときに表示します。</TableCaption>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">テーブル</h3>
+    <p>
+      データを表形式で表示するためのコンポーネントです。テーブルは、HTMLのtable要素に相当します。
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <Table>
+          <thead>
+            <tr>
+              <Th>ヘッダー</Th>
+              <Th>ヘッダー</Th>
+              <Th>ヘッダー</Th>
+              <Th>ヘッダー</Th>
+              <Th>ヘッダー</Th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <Td>詳細が入ります詳細が入ります</Td>
+              <Td>詳細が入ります詳細が入ります</Td>
+              <Td>詳細が入ります詳細が入ります</Td>
+              <Td>詳細が入ります詳細が入ります</Td>
+              <Td>詳細が入ります詳細が入ります</Td>
+            </tr>
+          </tbody>
+        </Table>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">横スクロール</h3>
+    <p>
+      タブレットとスマホサイズのときにテーブル内を横スクロールさせたい場合は、<br>
+      TableコンポーネントをラップするTableWrapperコンポーネントを使用します。<br>
+      また、横スクロールを示唆するTableCaptionコンポーネントを追加します。
+    </p>
+    <h4 class="heading-xs">タブレットサイズ</h4>
+    <ul class="list-vertical">
+      <li style="width: 100%;">
+        <TableCaption device="tablet">横スクロールできます</TableCaption>
+        <TableWrapper device="tablet">
+          <Table>
+            <thead>
+              <tr>
+                <Th>ヘッダー</Th>
+                <Th>ヘッダー</Th>
+                <Th>ヘッダー</Th>
+                <Th>ヘッダー</Th>
+                <Th>ヘッダー</Th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <Td>詳細が入ります詳細が入ります</Td>
+                <Td>詳細が入ります詳細が入ります</Td>
+                <Td>詳細が入ります詳細が入ります</Td>
+                <Td>詳細が入ります詳細が入ります</Td>
+                <Td>詳細が入ります詳細が入ります</Td>
+              </tr>
+            </tbody>
+          </Table>
+        </TableWrapper>
+      </li>
+    </ul>
+    <h4 class="heading-xs">スマホサイズ</h4>
+    <ul class="list-vertical">
+      <li style="width: 100%;">
+        <TableCaption device="sp">横スクロールできます</TableCaption>
+        <TableWrapper device="sp">
+          <Table>
+            <thead>
+              <tr>
+                <Th>ヘッダー</Th>
+                <Th>ヘッダー</Th>
+                <Th>ヘッダー</Th>
+                <Th>ヘッダー</Th>
+                <Th>ヘッダー</Th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <Td>詳細が入ります詳細が入ります</Td>
+                <Td>詳細が入ります詳細が入ります</Td>
+                <Td>詳細が入ります詳細が入ります</Td>
+                <Td>詳細が入ります詳細が入ります</Td>
+                <Td>詳細が入ります詳細が入ります</Td>
+              </tr>
+            </tbody>
+          </Table>
+        </TableWrapper>
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>
