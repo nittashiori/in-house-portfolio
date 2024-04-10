@@ -1,0 +1,28 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Divider from '../../components/Divider.astro'
+---
+<ComponentGuideLayout title="Divider">
+  <section>
+    <p>
+      ディバイダーは、異なるセクション、コンポーネント、またはコンテンツのグループ間に設けられる視覚的な区切りで、HTMLのhr要素に相当します。<br>
+      <br>
+      要素間に明確な区切りを設けることで、読みやすさを向上させる役割を果たします。
+    </p>
+    <ul class="list-vertical">
+      <li style="width: 100%;">
+        <Divider />
+        <Divider thickness={2} />
+        <Divider thickness={3} />
+        <Divider thickness={4} />
+      </li>
+      <li style="width: 100%;">
+        <Divider style="dashed" />
+        <Divider style="dashed" thickness={2} />
+        <Divider style="dashed" thickness={3} />
+        <Divider style="dashed" thickness={4} />
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>

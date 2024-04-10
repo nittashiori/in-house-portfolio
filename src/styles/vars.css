@@ -120,7 +120,7 @@
   --color-background-alert-emphasis: var(--color-apple-6);
 
   --color-border-default: var(--color-gray-5);
-  --color-border-diveder: var(--color-gray-4);
+  --color-border-divider: var(--color-gray-4);
   --color-border-on-fill: var(--color-white);
   --color-border-disabled: var(--color-blackalpha-20);
   --color-border-focused: var(--color-blueberry-2);
@@ -264,7 +264,7 @@
   --color-background-alert-emphasis: var(--color-apple-6);
 
   --color-border-default: var(--color-gray-6);
-  --color-border-diveder: var(--color-gray-7);
+  --color-border-divider: var(--color-gray-7);
   --color-border-on-fill: var(--color-white);
   --color-border-disabled: var(--color-whitealpha-40);
   --color-border-focused: var(--color-blueberry-2);

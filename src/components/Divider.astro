@@ -1,0 +1,20 @@
+---
+interface Props {
+  thickness?: number;
+  style?: 'solid' | 'dashed' | 'dotted';
+}
+
+const {
+  thickness = 1,
+  style = 'solid',
+} = Astro.props
+---
+<hr class="c-divider" style=`border-top-width: ${thickness}px; border-style: ${style};`>
+
+<style>
+  .c-divider {
+    width: 100%;
+    border-color: var(--color-border-divider);
+    margin: var(--space-2) 0;
+  }
+</style>
