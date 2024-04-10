@@ -147,8 +147,10 @@ const {
       color: var(--color-foreground-on-fill);
       background: var(--color-button-primary-default);
 
-      &:hover{
-        background: var(--color-button-primary-hover);
+      @media (hover: hover) {
+        &:hover{
+          background: var(--color-button-primary-hover);
+        }
       }
 
       &:active {
