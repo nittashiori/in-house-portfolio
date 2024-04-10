@@ -73,8 +73,10 @@ const {
       min-width: auto;
     }
 
-    &:hover {
-      background: var(--color-button-hover);
+    @media (hover: hover) {
+      &:hover {
+        background: var(--color-button-hover);
+      }
     }
 
     &:active {
@@ -96,10 +98,12 @@ const {
       background: transparent;
       border: 1px solid var(--color-border-default);
 
-      &:hover {
-        background: var(--color-button-hover);
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-button-hover);
+        }
       }
-
+      
       &:active {
         background: var(--color-button-active);
       }
@@ -112,10 +116,12 @@ const {
     &.ghost {
       background: transparent;
 
-      &:hover {
-        background: var(--color-button-hover);
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-button-hover);
+        }
       }
-
+      
       &:active {
         background: var(--color-button-active);
       }
@@ -125,10 +131,12 @@ const {
       background: transparent;
       text-decoration: underline;
 
-      &:hover {
-        background: var(--color-button-hover);
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-button-hover);
+        }
       }
-
+      
       &:active {
         background: var(--color-button-active);
       }
@@ -152,10 +160,12 @@ const {
         color: var(--color-foreground-primary);
         border: 1px solid var(--color-border-primary);
 
-        &:hover {
-          background: var(--color-button-primary-muted-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-primary-muted-hover);
+          }
         }
-
+        
         &:active {
           background: var(--color-button-primary-muted-active);
         }
@@ -170,8 +180,10 @@ const {
         color: var(--color-foreground-primary);
         background: transparent;
 
-        &:hover {
-          background: var(--color-button-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-hover);
+          }
         }
 
         &:active {
@@ -184,10 +196,12 @@ const {
         background: transparent;
         text-decoration: underline;
 
-        &:hover {
-          background: var(--color-button-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-hover);
+          }
         }
-
+        
         &:active {
           background: var(--color-button-active);
         }
@@ -198,10 +212,12 @@ const {
       color: var(--color-foreground-on-fill);
       background: var(--color-button-success-default);
 
-      &:hover {
-        background: var(--color-button-success-hover);
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-button-success-hover);
+        }
       }
-
+      
       &:active {
         background: var(--color-button-success-active);
       }
@@ -211,10 +227,12 @@ const {
         color: var(--color-foreground-success);
         border: 1px solid var(--color-border-success);
 
-        &:hover {
-          background: var(--color-button-success-muted-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-success-muted-hover);
+          }
         }
-
+        
         &:active {
           background: var(--color-button-success-muted-active);
         }
@@ -229,8 +247,10 @@ const {
         color: var(--color-foreground-success);
         background: transparent;
 
-        &:hover {
-          background: var(--color-button-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-hover);
+          }
         }
 
         &:active {
@@ -243,10 +263,12 @@ const {
         background: transparent;
         text-decoration: underline;
 
-        &:hover {
-          background: var(--color-button-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-hover);
+          }
         }
-
+        
         &:active {
           background: var(--color-button-active);
         }
@@ -257,10 +279,12 @@ const {
       color: var(--color-foreground-on-fill);
       background: var(--color-button-warning-default);
 
-      &:hover {
-        background: var(--color-button-warning-hover);
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-button-warning-hover);
+        }
       }
-
+      
       &:active {
         background: var(--color-button-warning-active);
       }
@@ -270,10 +294,12 @@ const {
         color: var(--color-foreground-warning);
         border: 1px solid var(--color-border-warning);
 
-        &:hover {
-          background: var(--color-button-warning-muted-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-warning-muted-hover);
+          }
         }
-
+        
         &:active {
           background: var(--color-button-warning-muted-active);
         }
@@ -288,8 +314,10 @@ const {
         color: var(--color-foreground-warning);
         background: transparent;
 
-        &:hover {
-          background: var(--color-button-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-hover);
+          }
         }
 
         &:active {
@@ -302,10 +330,12 @@ const {
         background: transparent;
         text-decoration: underline;
 
-        &:hover {
-          background: var(--color-button-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-hover);
+          }
         }
-
+        
         &:active {
           background: var(--color-button-active);
         }
@@ -316,8 +346,10 @@ const {
       color: var(--color-foreground-on-fill);
       background: var(--color-button-alert-default);
 
-      &:hover {
-        background: var(--color-button-alert-hover);
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-button-alert-hover);
+        }
       }
 
       &:active {
@@ -329,8 +361,10 @@ const {
         color: var(--color-foreground-alert);
         border: 1px solid var(--color-border-alert);
 
-        &:hover {
-          background: var(--color-button-alert-muted-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-alert-muted-hover);
+          }
         }
 
         &:active {
@@ -347,8 +381,10 @@ const {
         color: var(--color-foreground-alert);
         background: transparent;
 
-        &:hover {
-          background: var(--color-button-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-hover);
+          }
         }
 
         &:active {
@@ -361,8 +397,10 @@ const {
         background: transparent;
         text-decoration: underline;
 
-        &:hover {
-          background: var(--color-button-hover);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--color-button-hover);
+          }
         }
 
         &:active {
