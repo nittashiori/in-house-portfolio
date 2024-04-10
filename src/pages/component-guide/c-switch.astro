@@ -1,0 +1,51 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Switch from '../../components/Switch/Switch.astro'
+import SwitchArea from '../../components/Switch/SwitchArea.astro'
+import Icon from '../../components/Icon/Icon.astro'
+---
+<ComponentGuideLayout title="Switch">
+  <section>
+    <p>ユーザーが特定の設定をオンまたはオフに切り替えることができるコントロールパーツです。<br></p>
+    <ul class="list-vertical">
+      <li>
+        <Switch />
+        <Switch checked />
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">ステート</h3>
+    <p>
+      ボタンの状態は5種類あります。<br>
+      Default（デフォルト）、Hover（マウスオーバー）、Focus（タブでフォーカス時）、Active（ボタン押下時）、Disable（非活性）
+    </p>
+    <ul class="list-vertical">
+      <li>
+        <Switch disabled />
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">スイッチエリア</h3>
+    <p>
+      スイッチをオンまたはオフに切り替えたときにどういった状態になるか注釈を入れたパーツです。<br>
+      スイッチの左右にラベルもしくはアイコンを追加して説明できます。
+    </p>
+    <ul class="list-horizon">
+      <li>
+        <SwitchArea>
+          <span>Light</span>
+          <Switch checked />
+          <span>Dark</span>
+        </SwitchArea>
+        <SwitchArea>
+          <Icon name="sun" />
+          <Switch checked />
+          <Icon name="moon" />
+        </SwitchArea>
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>

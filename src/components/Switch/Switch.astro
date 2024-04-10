@@ -1,0 +1,105 @@
+---
+interface Props {
+  checked?: boolean;
+  disabled?: boolean;
+  dataOnchange?: string;
+}
+
+const {
+  checked = false,
+  disabled = false,
+  dataOnchange = '',
+} = Astro.props
+---
+<label class="c-switch">
+  <input
+    type="checkbox"
+    id="toggleSwitch"
+    checked={checked}
+    disabled={disabled}
+    data-onchange={dataOnchange}
+  >
+  <span class="slider"></span>
+</label>
+
+<style>
+  .c-switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-background-inset);
+      border-radius: var(--round-full);
+      transition: .4s;
+
+      &:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background: var(--color-background-default);
+        border-radius: var(--round-full);
+        transform: translateX(24px);
+        transition: .4s;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-background-inset);
+        }
+      }
+
+      &:active {
+        background: var(--color-background-inset);
+      }
+    }
+
+    input:checked + .slider {
+      background: var(--color-background-emphasis);
+
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-background-emphasis);
+        }
+      }
+
+      &:active {
+        background: var(--color-background-emphasis);
+      }
+    }
+
+    input:focus + .slider {
+      outline: none;
+      box-shadow: var(--shadow-focus);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(0);
+    }
+
+    input:disabled + .slider {
+      cursor: not-allowed;
+      background: var(--color-background-disabled);
+
+      &:before {
+        background: var(--color-background-disabled);
+      }
+    }
+  }
+</style>
