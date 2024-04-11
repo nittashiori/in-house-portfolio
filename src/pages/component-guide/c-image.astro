@@ -1,0 +1,28 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Image from '../../components/Image.astro'
+---
+<ComponentGuideLayout title="Image">
+  <section>
+    <h3 class="heading-s">16:9</h3>
+    <p>動画、画像などに使います</p>
+    <div style="width: 50%;">
+      <Image src="https://placehold.jp/30/c4c4c4/ffffff/1600x900.png" aspectRatio="16/9" width="1600" height="900" alt="サムネイルです" loading="eager" />
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">3:2</h3>
+    <p>16:9よりも大きく見せたい画像、図などに使います</p>
+    <div style="width: 50%;">
+      <Image src="https://placehold.jp/30/c4c4c4/ffffff/900x600.png" aspectRatio="3/2" width="900" height="600" alt="図です" loading="lazy" />
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">1:1</h3>
+    <p>アバターなどに使います</p>
+    <div style="width: 50%;">
+      <Image src="https://placehold.jp/30/c4c4c4/ffffff/1000x1000.png" aspectRatio="1/1" width="1000" height="1000" alt="アバター" loading="lazy" />
+    </div>
+  </section>
+</ComponentGuideLayout>

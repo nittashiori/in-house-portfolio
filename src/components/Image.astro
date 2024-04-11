@@ -1,0 +1,37 @@
+---
+interface Props {
+  className?: string;
+  src: string;
+  alt?: string;
+  width?: string;
+  height?: string;
+  loading?: 'lazy' | 'eager';
+  aspectRatio?: string;
+}
+
+const {
+  className,
+  src = 'https://placehold.jp/30/c4c4c4/ffffff/100x100.png',
+  alt = '',
+  width = '1000px',
+  height = '1000px',
+  loading = 'lazy',
+  aspectRatio = '1:1',
+} = Astro.props;
+---
+<img
+  class=`c-image ${className || ''}`
+  style=`aspect-ratio: ${aspectRatio};`
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  loading={loading}
+>
+
+<style>
+  .c-image {
+    width: 100%;
+    height: auto;
+  }
+</style>
