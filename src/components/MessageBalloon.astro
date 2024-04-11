@@ -1,0 +1,46 @@
+---
+interface Props {
+  className?: string;
+  type?: 'mine' | 'theirs'
+}
+
+const {
+  className = '',
+  type = 'theirs'
+} = Astro.props;
+---
+<div class=`c-message-balloon text-body-m-bold ${className || ''} ${type === 'mine' ? 'mine': 'theirs'}`>
+  <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 7.57895C20.8254 7.57895 10.3485 7.13787 1.82599 0.51448C1.01531 -0.115557 -0.23473 0.645769 0.0834113 1.62196C3.20055 11.1866 9.04317 24 9.14634 24C25 24 25 10.3158 25 7.57895Z"/>
+   </svg>
+  <slot />
+</div>
+
+<style>
+  .c-message-balloon {
+    max-width: 320px;
+    padding: var(--space-m) var(--space-xl);
+    background: var(--color-background-inset);
+    border-radius: var(--round-full);
+    position: relative;
+
+    > svg {
+      fill: var(--color-background-inset);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &.mine {
+      background: var(--color-background-primary-emphasis);
+      color: var(--color-foreground-on-fill);
+
+      > svg {
+        fill: var(--color-background-primary-emphasis);
+        left: revert;
+        right: 0;
+        transform: scaleX(-1);
+      }
+    }
+  }
+</style>
