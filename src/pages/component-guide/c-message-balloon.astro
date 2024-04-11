@@ -1,0 +1,16 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import MessageBalloon from '../../components/MessageBalloon.astro'
+---
+<ComponentGuideLayout title="MessageBalloon">
+  <section>
+    <p>吹き出し型のコンポーネントです。</p>
+    <ul class="list-vertical">
+      <li>
+        <MessageBalloon>テキストが入ります</MessageBalloon>
+        <MessageBalloon type="mine">テキストが入ります</MessageBalloon>
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>
