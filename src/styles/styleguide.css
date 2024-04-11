@@ -19,6 +19,9 @@ body {
 }
 
 .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: var(--header-height);
   line-height: var(--header-height);
   padding: 0 20px;
