@@ -7,11 +7,15 @@ p {
 }
 
 a {
-  color: #295BC5;
+  color: var(--color-foreground-link);
 
   &:hover {
     opacity: 0.7;
   }
+}
+
+body {
+  background: var(--color-background-default);
 }
 
 .page-header {
@@ -20,8 +24,8 @@ a {
   padding: 0 20px;
   font-size: 24px;
   font-weight: bold;
-  background: #fff;
-  border-bottom: 1px solid #ccc;
+  background: var(--color-background-default);
+  border-bottom: 1px solid var(--color-border-default);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -45,8 +49,8 @@ a {
   height: auto;
   flex-shrink: 0;
   padding: 4px 16px;
-  background: #eee;
-  border-bottom: 1px solid #ccc;
+  background: var(--color-background-muted);
+  border-bottom: 1px solid var(--color-border-default);
   overflow-y: auto;
   position: sticky;
   z-index: 1;
@@ -57,7 +61,8 @@ a {
     max-width: 280px;
     height: 90vh;
     padding: 20px;
-    background: #fff;
+    background: var(--color-background-default);
+    border-bottom: 1px solid transparent;
   }
 
   > ul {

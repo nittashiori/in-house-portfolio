@@ -213,6 +213,9 @@
   --aspect-image: 16 / 9;
   --aspect-image-l: 3 / 2;
   --aspect-avator: 1 / 1;
+
+  --icon-arrow-down-s: url(data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC4wMDAxIDEwLjk3NThMMTQuMTI1MSA2Ljg1MDgzTDE1LjMwMzQgOC4wM0wxMC4wMDAxIDEzLjMzMzNMNC42OTY3OCA4LjAzTDUuODc1MTEgNi44NTE2N0wxMC4wMDAxIDEwLjk3NThaIiBmaWxsPSIjMjIyMjIyIi8+Cjwvc3ZnPgo=);
+  --icon-arrow-down-s-disabled: url(data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC4wMDAxIDEwLjk3NThMMTQuMTI1MSA2Ljg1MDgzTDE1LjMwMzQgOC4wM0wxMC4wMDAxIDEzLjMzMzNMNC42OTY3OCA4LjAzTDUuODc1MTEgNi44NTE2NkwxMC4wMDAxIDEwLjk3NThaIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjIiLz4KPC9zdmc+Cg==);
 }
 
 /* Responsive */
@@ -232,12 +235,12 @@
 }
 
 /* Dark mode */
-.dark {
+:root[data-theme="dark"] {
   /* Semantic Color */
   --color-foreground-body: var(--color-gray-1);
   --color-foreground-description: var(--color-gray-5);
-  --color-foreground-place-holder: var(--color-whitelpha-30);
-  --color-foreground-disabled: var(--color-whitelpha-30);
+  --color-foreground-place-holder: var(--color-whitealpha-30);
+  --color-foreground-disabled: var(--color-whitealpha-30);
   --color-foreground-on-fill: var(--color-white);
   --color-foreground-link: var(--color-blueberry-4);
   --color-foreground-hover: var(--color-blueberry-3);
@@ -252,7 +255,7 @@
   --color-background-emphasis: var(--color-gray-1);
   --color-background-muted: var(--color-gray-9);
   --color-background-inset: var(--color-gray-8);
-  --color-background-disabled: var(--color-whitelpha-10);
+  --color-background-disabled: var(--color-whitealpha-10);
   --color-background-blur: var(--color-blackalpha-5);
   --color-background-primary-muted: var(--color-blueberry-9);
   --color-background-primary-emphasis: var(--color-blueberry-6);
@@ -302,11 +305,14 @@
   --color-shadow-default: var(--color-blackalpha-50);
 
   --color-overlay-background: var(--color-gray-9);
-  --color-overlay-backdrop: var(--color-blackalpha-60);
+  --color-overlay-backdrop: var(--color-blackalpha-40);
 
   --color-status-success: var(--color-kiwi-6);
   --color-status-warning: var(--color-lemon-5);
   --color-status-alert: var(--color-apple-6);
+
+  --icon-arrow-down-s: url(data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC4wMDAxIDEwLjk3NThMMTQuMTI1MSA2Ljg1MDgzTDE1LjMwMzQgOC4wM0wxMC4wMDAxIDEzLjMzMzNMNC42OTY3OCA4LjAzTDUuODc1MTEgNi44NTE2N0wxMC4wMDAxIDEwLjk3NThaIiBmaWxsPSIjRkFGQUZBIi8+Cjwvc3ZnPgo=);
+  --icon-arrow-down-s-disabled: url(data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC4wMDAxIDEwLjk3NThMMTQuMTI1MSA2Ljg1MDgzTDE1LjMwMzQgOC4wM0wxMC4wMDAxIDEzLjMzMzNMNC42OTY3OCA4LjAzTDUuODc1MTEgNi44NTE2NkwxMC4wMDAxIDEwLjk3NThaIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjMiLz4KPC9zdmc+Cg==);
 }
 
 @font-face {
