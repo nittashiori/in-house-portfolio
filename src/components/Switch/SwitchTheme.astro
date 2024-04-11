@@ -1,0 +1,29 @@
+---
+import SwitchArea from './SwitchArea.astro'
+import Switch from './Switch.astro'
+import Icon from '../Icon/Icon.astro'
+---
+<div class="c-switch-theme">
+  <SwitchArea>
+    <Icon name="sun" />
+    <Switch checked />
+    <Icon name="moon" />
+  </SwitchArea>
+</div>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const switchElement = document.querySelector('.c-switch-theme .c-switch');
+    const html = document.querySelector('html');
+
+    switchElement.addEventListener('click', () => {
+      if(switchElement.getAttribute('checked') === 'true') {
+        switchElement.setAttribute('checked', 'false');
+        html.setAttribute('data-theme', 'dark');
+      } else {
+        switchElement.setAttribute('checked', 'true');
+        html.setAttribute('data-theme', 'light');
+      }
+    })
+  })
+</script>

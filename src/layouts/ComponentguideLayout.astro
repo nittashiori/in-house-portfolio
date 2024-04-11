@@ -7,10 +7,12 @@ import '../styles/styleguide.css';
 const { title } = Astro.props;
 
 const path = '/component-guide';
+
+import SwitchTheme from '../components/Switch/SwitchTheme.astro';
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-theme="light">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -21,7 +23,8 @@ const path = '/component-guide';
 	</head>
 	<body>
     <header class="page-header">
-      <h1><a href={path}>コンポーネントガイド</a></h1>
+      <h1 class="heading-s"><a href={path}>コンポーネントガイド</a></h1>
+      <SwitchTheme />
     </header>
     <div class="content">
       <nav class="sidevar">

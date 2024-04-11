@@ -17,7 +17,7 @@ const {
   disabled = false,
   full = false,
   width = ''
-} = Astro.props;
+} = Astro.props
 ---
 <div
   class=`c-selectbox ${ disabled ? 'disabled' : '' } ${ error ? 'error' : '' }`
@@ -51,7 +51,7 @@ const {
       right: 0;
       width: 2em;
       height: 100%;
-      background-image: url(data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC4wMDAxIDEwLjk3NThMMTQuMTI1MSA2Ljg1MDgzTDE1LjMwMzQgOC4wM0wxMC4wMDAxIDEzLjMzMzNMNC42OTY3OCA4LjAzTDUuODc1MTEgNi44NTE2N0wxMC4wMDAxIDEwLjk3NThaIiBmaWxsPSIjMjIyMjIyIi8+Cjwvc3ZnPgo=);
+      background-image: var(--icon-arrow-down-s);
       background-repeat: no-repeat;
       background-position: right 0.6em center;
       position: absolute;
@@ -81,7 +81,7 @@ const {
       background-color: var(--color-background-disabled);
 
       &::before {
-        background-image: url(data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC4wMDAxIDEwLjk3NThMMTQuMTI1MSA2Ljg1MDgzTDE1LjMwMzQgOC4wM0wxMC4wMDAxIDEzLjMzMzNMNC42OTY3OCA4LjAzTDUuODc1MTEgNi44NTE2NkwxMC4wMDAxIDEwLjk3NThaIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjIiLz4KPC9zdmc+Cg==);
+        background-image: var(--icon-arrow-down-s-disabled);
         color: var(--color-foreground-disabled);
       }
 

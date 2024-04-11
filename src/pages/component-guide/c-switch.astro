@@ -4,6 +4,7 @@ import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
 import Switch from '../../components/Switch/Switch.astro'
 import SwitchArea from '../../components/Switch/SwitchArea.astro'
 import Icon from '../../components/Icon/Icon.astro'
+import SwitchTheme from '../../components/Switch/SwitchTheme.astro'
 ---
 <ComponentGuideLayout title="Switch">
   <section>
@@ -36,9 +37,9 @@ import Icon from '../../components/Icon/Icon.astro'
     <ul class="list-horizon">
       <li>
         <SwitchArea>
-          <span>Light</span>
+          <span>On</span>
           <Switch checked />
-          <span>Dark</span>
+          <span>Off</span>
         </SwitchArea>
         <SwitchArea>
           <Icon name="sun" />
@@ -47,5 +48,10 @@ import Icon from '../../components/Icon/Icon.astro'
         </SwitchArea>
       </li>
     </ul>
+  </section>
+  <section>
+    <h3 class="heading-s">テーマ切り替え</h3>
+    <p>ライトとダークテーマを切り替えます。</p>
+    <SwitchTheme />
   </section>
 </ComponentGuideLayout>
