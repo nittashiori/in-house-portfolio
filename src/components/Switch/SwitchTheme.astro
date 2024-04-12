@@ -6,24 +6,52 @@ import Icon from '../Icon/Icon.astro'
 <div class="c-switch-theme">
   <SwitchArea>
     <Icon name="sun" />
-    <Switch checked />
+    <Switch />
     <Icon name="moon" />
   </SwitchArea>
 </div>
 
 <script type="module">
   document.addEventListener('DOMContentLoaded', () => {
-    const switchElement = document.querySelector('.c-switch-theme .c-switch');
+    const switchElements = document.querySelectorAll('.c-switch-theme .c-switch');
     const html = document.querySelector('html');
 
-    switchElement.addEventListener('click', () => {
-      if(switchElement.getAttribute('checked') === 'true') {
-        switchElement.setAttribute('checked', 'false');
-        html.setAttribute('data-theme', 'dark');
-      } else {
+    // ローカルストレージから現在のテーマ設定を読み込みます
+    const currentTheme = localStorage.getItem('theme');
+
+    // ローカルストレージにテーマが保存されていれば、そのテーマを適用します
+    if (currentTheme) {
+      html.setAttribute('data-theme', currentTheme);
+      switchElements.forEach(switchElement => {
+        const isChecked = currentTheme === 'light';
+        if (isChecked) {
+          switchElement.setAttribute('checked', 'true');
+        } else {
+          switchElement.removeAttribute('checked');
+        }
+      });
+    }
+
+    switchElements.forEach(switchElement => {
+      if(currentTheme === 'light') {
         switchElement.setAttribute('checked', 'true');
-        html.setAttribute('data-theme', 'light');
+      } else {
+        switchElement.removeAttribute('checked');
       }
+
+      switchElement.addEventListener('click', (e) => {
+        let isChecked = switchElement.hasAttribute('checked');
+        if(isChecked) {
+          switchElement.removeAttribute('checked');
+          html.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          isChecked = false;
+        } else {
+          switchElement.setAttribute('checked', 'true');
+          html.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+        }
+      })
     })
   })
 </script>
