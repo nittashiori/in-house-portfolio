@@ -6,6 +6,9 @@ body {
   font-size: 1.6rem;
   font-family: var(--font-family-default);
   color: var(--color-foreground-body);
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-break: strict;
 }
 
 .heading-display {
