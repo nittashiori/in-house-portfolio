@@ -15,13 +15,10 @@ import Icon from '../Icon/Icon.astro'
   document.addEventListener('DOMContentLoaded', () => {
     const switchElements = document.querySelectorAll('.c-switch-theme .c-switch');
     const html = document.querySelector('html');
-
-    // ローカルストレージから現在のテーマ設定を読み込みます
     const currentTheme = localStorage.getItem('theme');
 
     // ローカルストレージにテーマが保存されていれば、そのテーマを適用します
     if (currentTheme) {
-      html.setAttribute('data-theme', currentTheme);
       switchElements.forEach(switchElement => {
         const isChecked = currentTheme === 'light';
         if (isChecked) {

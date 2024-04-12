@@ -20,6 +20,18 @@ import SwitchTheme from '../components/Switch/SwitchTheme.astro';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>コンポーネントガイド</title>
+    <script>
+			const html = document.querySelector('html');
+
+			// ローカルストレージから現在のテーマ設定を読み込みます
+			const currentTheme = localStorage.getItem('theme');
+
+			if (currentTheme) {
+				if (html) {
+					html.setAttribute('data-theme', currentTheme);
+				}
+			}
+		</script>
 	</head>
 	<body>
     <header class="page-header">
