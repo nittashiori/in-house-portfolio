@@ -9,36 +9,35 @@ body {
 }
 
 .heading-display {
-  font-size: clamp(4rem, 2vw + 3rem, 6.4rem);
+  font-size: 4rem;
   font-weight: bold;
   line-height: 1.4;
   letter-spacing: 0.04em;
-  padding: var(--space-base);
 }
 
 .heading-l {
-  font-size: clamp(3.2rem, 2vw + 2rem, 4rem);
+  font-size: 3.2rem;
   font-weight: bold;
   line-height: 1.4;
   letter-spacing: 0.04em;
 }
 
 .heading-m {
-  font-size: clamp(2.4rem, 2vw + 1.2rem, 3.2rem);
+  font-size: 2.4rem;
   font-weight: bold;
   line-height: 1.4;
   letter-spacing: 0.04em;
 }
 
 .heading-s {
-  font-size: clamp(2rem, 2vw + 0.6rem, 2.4rem);
+  font-size: 2rem;
   font-weight: bold;
   line-height: 1.6;
   letter-spacing: 0.04em;
 }
 
 .heading-xs {
-  font-size: clamp(1.6rem, 2vw, 1.8rem);
+  font-size: 1.6rem;
   font-weight: bold;
   line-height: 1.6;
   letter-spacing: 0.04em;
@@ -143,22 +142,22 @@ body {
 
 @media (min-width: 768px) {
   .heading-display {
-    font-size: 4rem;
+    font-size: clamp(4rem, 2vw + 3rem, 6.4rem);
   }
 
   .heading-l {
-    font-size: 3.2rem;
+    font-size: clamp(3.2rem, 2vw + 2rem, 4rem);
   }
 
   .heading-m {
-    font-size: 2.4rem;
+    font-size: clamp(2.4rem, 2vw + 1.2rem, 3.2rem);
   }
 
   .heading-s {
-    font-size: 2rem;
+    font-size: clamp(2rem, 2vw + 0.6rem, 2.4rem);
   }
 
   .heading-xs {
-    font-size: 1.6rem;
+    font-size: clamp(1.6rem, 2vw, 1.8rem);
   }
 }
