@@ -15,8 +15,9 @@ const {
   class="c-switch"
   type="checkbox"
   id="toggleSwitch"
-  checked={checked}
-  disabled={disabled} {...(dataOnchange ? {'data-onchange': dataOnchange} : {})}
+  {...(checked ? { checked: true } : {})}
+  disabled={disabled}
+  {...(dataOnchange ? {'data-onchange': dataOnchange} : {})}
 >
 
 <style>
