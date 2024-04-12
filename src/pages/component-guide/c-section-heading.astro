@@ -7,12 +7,22 @@ import SectionHeadingSub from '../../components/SectionHeading/SectionHeadingSub
 ---
 <ComponentGuideLayout title="SectionHeading">
   <section>
-    <p>最初のセクションに表示する見出しです。</p>
-    <div>
-      <SectionHeading>
-        <SectionHeadingMain>Title</SectionHeadingMain>
-        <SectionHeadingSub>サブタイトル</SectionHeadingSub>
-      </SectionHeading>
-    </div>
+    <p>
+      最初のセクションに表示する見出しです。<br>
+      <br>
+      見出しは3つのコンポーネントで形成してます。<br>
+      <br>
+      SectionHeading: 見出し全体を囲むコンポーネント<br>
+      SectionHeadingMain: 見出しのメイン部分<br>
+      SectionHeadingSub: 見出しのサブ部分<br>
+    </p>
+    <ul class="list-vertical">
+      <li style="width: 100%;">
+        <SectionHeading>
+          <SectionHeadingMain>Title</SectionHeadingMain>
+          <SectionHeadingSub>サブタイトル</SectionHeadingSub>
+        </SectionHeading>
+      </li>
+    </ul>
   </section>
 </ComponentGuideLayout>
