@@ -1,0 +1,19 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import CanDoItem from '../../components/CanDoItem/CanDoItem.astro';
+---
+<ComponentGuideLayout title="Cando Item">
+  <section>
+    <p>デフォルトは`design`です</p>
+    <ul class="list-horizon">
+      <li>
+        <CanDoItem name="design" />
+        <CanDoItem name="cording" />
+        <CanDoItem name="wordpress" />
+        <CanDoItem name="nextjs" />
+        <CanDoItem name="astro" />
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>
