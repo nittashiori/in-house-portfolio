@@ -1,11 +1,6 @@
 ---
+import Typography from '../Typography.astro';
 ---
-<div class="c-section-heading-sub text-label-s">
+<Typography className="c-section-heading-sub" size="label-s" color="description">
   <slot />
-</div>
-
-<style>
-  .c-section-heading-sub {
-    color: var(--color-foreground-description);
-  }
-</style>
+</Typography>
