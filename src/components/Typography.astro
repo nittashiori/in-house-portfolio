@@ -10,6 +10,8 @@ interface Props {
   align?: 'left' | 'center' | 'right';
   /** 文字色 */
   color?: 'body' | 'description'| string;
+  /** フォントファミリー */
+  family?: 'ja' | 'en';
 }
 
 const {
@@ -20,11 +22,12 @@ const {
   weight = 'normal',
   align = 'left',
   color = 'body',
+  family = 'ja',
 } = Astro.props;
 ---
 <Tag
   id={id}
-  class=`c-typography ${size} ${weight} ${className || ''} `
+  class=`c-typography ${size} ${weight} ${family} ${className || ''} `
   style={`text-align: ${align}; color: ${color ? `var(--color-foreground-${color})` : 'inherit'};`}
 >
   <slot />
@@ -136,6 +139,10 @@ const {
 
     &.bold {
       font-weight: 700;
+    }
+
+    &.en {
+      font-family: var(--font-family-en);
     }
 
     @media (min-width: 768px) {
