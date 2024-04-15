@@ -37,13 +37,13 @@ const data = {
 
 const currentData = data[name];
 
-import CanDoIcon from '../CanDoIcon/Icon.astro'
-import Typography from '../Typography.astro'
-import Stack from '../Stack.astro'
+import SkillIcon from './SkillIcon/Icon.astro'
+import Typography from './Typography.astro'
+import Stack from './Stack.astro'
 ---
 <div class="c-cando-item">
   <Stack className="header" gap="16px" alignItems="center">
-    <CanDoIcon name={name} />
+    <SkillIcon name={name} />
     <Stack className="heading" direction="column" gap="4px">
       <Typography className="heading-sub" size="label-s" color="description">{currentData.headingSub}</Typography>
       <Typography className="heading-main" size="body-l" weight="bold">{currentData.headingMain}</Typography>
