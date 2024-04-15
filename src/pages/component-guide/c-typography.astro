@@ -1,0 +1,96 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Typography from '../../components/Typography.astro'
+---
+<ComponentGuideLayout title="Typography">
+  <section>
+    <h3 class="heading-s">見出し</h3>
+    <div>
+      <Typography size="display">
+        ディスプレイ
+      </Typography>
+      <Typography size="heading-l">
+        見出しL
+      </Typography>
+      <Typography size="heading-m">
+        見出しM
+      </Typography>
+      <Typography size="heading-s">
+        見出しS
+      </Typography>
+      <Typography size="heading-xs">
+        見出しXS
+      </Typography>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">その他のテキストスタイル</h3>
+    <div>
+      <Typography size="body-l">
+        本文L
+      </Typography>
+      <Typography size="body-l" wight="bold">
+        本文L 太字
+      </Typography>
+      <Typography size="body-m">
+        本文M
+      </Typography>
+      <Typography size="body-m" weight="bold">
+        本文M 太字
+      </Typography>
+      <Typography size="body-s">
+        本文S
+      </Typography>
+      <Typography size="body-s" weight="bold">
+        本文S 太字
+      </Typography>
+      <Typography size="label-l">
+        ラベルL
+      </Typography>
+      <Typography size="label-m">
+        ラベルM
+      </Typography>
+      <Typography size="label-s">
+        ラベルS
+      </Typography>
+      <Typography size="label-xs">
+        ラベルXS
+      </Typography>
+      <Typography size="caption">
+        注釈
+      </Typography>
+      <Typography size="caption" weight="bold">
+        注釈 太字
+      </Typography>
+      <Typography size="button">
+        ボタン
+      </Typography>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">フォントカラー</h3>
+    <div>
+      <Typography>
+        本文カラー
+      </Typography>
+      <Typography color="description">
+        説明文カラー
+      </Typography>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">テキストの位置</h3>
+    <div>
+      <Typography>
+        左揃え
+      </Typography>
+      <Typography align="center">
+        中央揃え
+      </Typography>
+      <Typography align="right">
+        右揃え
+      </Typography>
+    </div>
+  </section>
+</ComponentGuideLayout>

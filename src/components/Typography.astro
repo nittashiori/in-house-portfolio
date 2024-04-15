@@ -1,0 +1,163 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+  as?: string;
+  size?: 'display' | 'heading-l' | 'heading-m' | 'heading-s' | 'heading-xs' | 'body-l' | 'body-m' | 'body-s' | 'label-l' | 'label-m' | 'label-s' | 'label-xs' | 'caption' | 'button';
+  /** 太字かどうか */
+  weight?: 'normal' | 'medium' | 'bold';
+  /** テキストの位置 */
+  align?: 'left' | 'center' | 'right';
+  /** 文字色 */
+  color?: 'body' | 'description'| string;
+}
+
+const {
+  id,
+  className = "",
+  as: Tag = 'p',
+  size = 'body-m',
+  weight = 'normal',
+  align = 'left',
+  color = 'body',
+} = Astro.props;
+---
+<Tag
+  id={id}
+  class=`c-typography ${size} ${weight} ${className || ''} `
+  style={`text-align: ${align}; color: ${color ? `var(--color-foreground-${color})` : 'inherit'};`}
+>
+  <slot />
+</Tag>
+
+<style>
+  .c-typography {
+    &.display {
+      font-size: 4rem;
+      font-weight: bold;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+    }
+
+    &.heading-l {
+      font-size: 3.2rem;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+    }
+
+    &.heading-m {
+      font-size: 2.4rem;
+      font-weight: bold;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+    }
+
+    &.heading-s {
+      font-size: 2rem;
+      font-weight: bold;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    &.heading-xs {
+      font-size: 1.6rem;
+      font-weight: bold;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    &.body-l {
+      font-size: 1.8rem;
+      font-weight: normal;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    &.body-m {
+      font-size: 1.6rem;
+      font-weight: normal;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    &.body-s {
+      font-size: 1.4rem;
+      font-weight: normal;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    &.label-l {
+      font-size: 1.8rem;
+      font-weight: bold;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    &.label-m {
+      font-size: 1.6rem;
+      font-weight: bold;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    &.label-s {
+      font-size: 1.4rem;
+      font-weight: bold;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+    }
+
+    &.label-xs {
+      font-size: 1.2rem;
+      font-weight: bold;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+    }
+
+    &.caption {
+      font-size: 1.2rem;
+      font-weight: normal;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+    }
+
+    &.button {
+      font-size: 1.6rem;
+      font-weight: bold;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    &.medium {
+      font-weight: 500;
+    }
+
+    &.bold {
+      font-weight: 700;
+    }
+
+    @media (min-width: 768px) {
+      &.display {
+        font-size: clamp(4rem, 2vw + 3rem, 6.4rem);
+      }
+
+      &.heading-l {
+        font-size: clamp(3.2rem, 2vw + 2rem, 4rem);
+      }
+
+      &.heading-m {
+        font-size: clamp(2.4rem, 2vw + 1.2rem, 3.2rem);
+      }
+
+      &.heading-s {
+        font-size: clamp(2rem, 2vw + 0.6rem, 2.4rem);
+      }
+
+      &.heading-xs {
+        font-size: clamp(1.6rem, 2vw, 1.8rem);
+      }
+    }
+  }
+</style>
