@@ -1,0 +1,77 @@
+---
+interface Props {
+  name?: 'design' | 'cording' | 'wordpress' | 'nextjs' | 'astro',
+}
+
+const {
+  name = 'design',
+} = Astro.props
+
+const data = {
+  design: {
+    headingSub: 'Design',
+    headingMain: 'デザイン',
+    description: 'Webサイト、UI、ロゴのデザインができます。\n使いやすさや見やすさを心がけてデザインしてます。',
+  },
+  cording: {
+    headingSub: 'Cording',
+    headingMain: 'コーディング',
+    description: 'HTML・CSS・JavaScriptを使ったセマンティックなコーディングができます。',
+  },
+  wordpress: {
+    headingSub: 'CMS',
+    headingMain: 'WordPress',
+    description: '静的サイトのWordPressへの移行やブログなど更新に必要な機能を構築ができます。',
+  },
+  nextjs: {
+    headingSub: 'Frontend Framework',
+    headingMain: 'Next.js',
+    description: '勉強中。Storybookを使ったコンポーネントのカタログを作るなどサイト作成ができます。',
+  },
+  astro: {
+    headingSub: 'Web Framework',
+    headingMain: 'Astro',
+    description: '勉強中。このサイトもAstroで作成してます。',
+  }
+}
+
+const currentData = data[name];
+
+import SkillIcon from './SkillIcon/Icon.astro'
+import Typography from './Typography.astro'
+import Stack from './Stack.astro'
+---
+<div class="c-cando-item">
+  <Stack className="header" gap="16px" alignItems="center">
+    <SkillIcon name={name} />
+    <Stack className="heading" direction="column" gap="4px">
+      <Typography className="heading-sub" size="label-s" color="description">{currentData.headingSub}</Typography>
+      <Typography className="heading-main" size="body-l" weight="bold">{currentData.headingMain}</Typography>
+    </Stack>
+  </Stack>
+  <Typography className="description">
+    {currentData.description}
+  </Typography>
+  <slot />
+</div>
+
+<style>
+  .c-cando-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .icon {
+      width: 40px;
+      height: auto;
+      flex: 40px 0 0;
+      color: var(--color-foreground-primary);
+    }
+
+    .description {
+      width: 100%;
+      white-space: pre-wrap;
+    }
+  }
+</style>

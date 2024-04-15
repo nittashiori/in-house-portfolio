@@ -16,7 +16,7 @@ interface Props {
 
 const {
   id,
-  className = "",
+  className = '',
   as: Tag = 'p',
   size = 'body-m',
   weight = 'normal',
@@ -27,7 +27,7 @@ const {
 ---
 <Tag
   id={id}
-  class=`c-typography ${size} ${weight} ${family} ${className || ''} `
+  class=`${className || ''} c-typography ${size} ${weight} ${family}`
   style={`text-align: ${align}; color: ${color ? `var(--color-foreground-${color})` : 'inherit'};`}
 >
   <slot />

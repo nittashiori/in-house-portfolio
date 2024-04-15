@@ -1,0 +1,23 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import SkillItem from '../../components/SkillItem.astro';
+---
+<ComponentGuideLayout title="Skill Item">
+  <section>
+    <p>
+      スキルを表示する項目です。
+      <br>
+      デフォルトは`design`です
+    </p>
+    <ul class="list-horizon">
+      <li>
+        <SkillItem name="design" />
+        <SkillItem name="cording" />
+        <SkillItem name="wordpress" />
+        <SkillItem name="nextjs" />
+        <SkillItem name="astro" />
+      </li>
+    </ul>
+  </section>
+</ComponentGuideLayout>
