@@ -1,0 +1,15 @@
+---
+import DesignIcon from './icons/DesignIcon.astro'
+import CordingIcon from './icons/CordingIcon.astro'
+import WordpressIcon from './icons/WordpressIcon.astro'
+import NestjsIcon from './icons/NestjsIcon.astro'
+import AstroIcon from './icons/AstroIcon.astro'
+
+const { name, className = '' } = Astro.props
+---
+{name === 'design' ? <DesignIcon className={className} /> :
+  name === 'cording' ? <CordingIcon className={className} /> :
+  name === 'wordpress' ? <WordpressIcon className={className} /> : 
+  name === 'nextjs' ? <NestjsIcon className={className} /> : 
+  name === 'astro' ? <AstroIcon className={className} /> : null
+}
