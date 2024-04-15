@@ -1,16 +1,12 @@
 ---
-interface Props {
-  as?: string;
-}
-
-const {
-  as: Tag = 'div',
-} = Astro.props;
+import Typography from '../Typography.astro';
 ---
 
-<Tag class="c-modal-heading heading-s">
-  <slot />
-</Tag>
+<div class="c-modal-heading">
+  <Typography size="heading-s">
+    <slot />
+  </Typography>
+</div>
 
 <style>
   .c-modal-heading {
