@@ -1,0 +1,29 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import WorkThumbnail from '../../components/WorkThumbnail.astro'
+---
+<ComponentGuideLayout title="WorkThumbnail">
+  <section>
+    <h3 class="heading-s">通常</h3>
+    <WorkThumbnail
+      src = '/images/work-image01.png',
+      src2x = '/images/work-image01@2x.png',
+      srcWebp = '/images/work-image01.webp',
+      srcWebp2x = '/images/work-image01@2x.webp',
+      alt = 'Loyalty Marketing',
+    />
+  </section>
+  <section>
+    <h3 class="heading-s">リンク付き</h3>
+    <WorkThumbnail
+      href="#"
+      target="_blank"
+      src = '/images/work-image01.png',
+      src2x = '/images/work-image01@2x.png',
+      srcWebp = '/images/work-image01.webp',
+      srcWebp2x = '/images/work-image01@2x.webp',
+      alt = 'Loyalty Marketing',
+    />
+  </section>
+</ComponentGuideLayout>
