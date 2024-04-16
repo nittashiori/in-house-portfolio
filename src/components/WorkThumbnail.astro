@@ -1,0 +1,91 @@
+---
+interface Props {
+  href?: string;
+  target?: '_blank' | '_self' | '_parent' | '_top';
+  rel?: string;
+  src?: string;
+  src2x?: string;
+  srcWebp?: string;
+  srcWebp2x?: string;
+  alt?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const {
+  href,
+  target = '_self',
+  rel = 'noopener noreferrer',
+  src = '/images/work-image01.png',
+  src2x = '/images/work-image01@2x.png',
+  srcWebp = '/images/work-image01.webp',
+  srcWebp2x = '/images/work-image01@2x.webp',
+  alt = '',
+  loading = 'lazy',
+} = Astro.props;
+
+import Image from './Image.astro'
+---
+{ href ? 
+<div class="c-work-thumbnail">
+  <a href={href} target={target} rel={rel}>
+    <Image
+      src={src}
+      src2x={src2x}
+      srcWebp={srcWebp}
+      srcWebp2x={srcWebp2x}
+      aspectRatio="3/2"
+      width="720"
+      height="480"
+      alt={`${alt}のサムネイル`}
+      loading={loading}
+    />
+  </a>
+</div>
+:
+<div class="c-work-thumbnail">
+  <Image
+    src={src}
+    src2x={src2x}
+    srcWebp={srcWebp}
+    srcWebp2x={srcWebp2x}
+    aspectRatio="3/2"
+    width="720"
+    height="480"
+    alt={`${alt}のサムネイル`}
+    loading={loading}
+  />
+</div>}
+
+
+<style>
+  .c-work-thumbnail {
+    width: 100%;
+    height: auto;
+    background: var(--color-background-inset);
+    padding: var(--space-l);
+
+    > a,
+    .c-image {
+      transition: .4s;
+    }
+  }
+
+  .c-work-thumbnail:has(a) {
+    padding: 0;
+
+    > a {
+      display: block;
+      padding: var(--space-l);
+    }
+
+    @media (hover: hover) {
+      > a:hover {
+        background: var(--color-background-primary-muted);
+
+        .c-image {
+          scale: 1.02;
+        }
+      }
+    }
+  }
+</style>
