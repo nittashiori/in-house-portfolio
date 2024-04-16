@@ -1,0 +1,25 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import WorkItem from '../../components/WorkItem/WorkItem.astro'
+import WorkItemContent from '../../components/WorkItem/WorkItemContent.astro'
+import WorkThumbnail from '../../components/WorkThumbnail.astro'
+---
+<ComponentGuideLayout title="WorkItem">
+  <section>
+    <WorkItem href="#" target="_blank">
+      <WorkThumbnail
+        src = '/images/work-image01.png',
+        src2x = '/images/work-image01@2x.png',
+        srcWebp = '/images/work-image01.webp',
+        srcWebp2x = '/images/work-image01@2x.webp',
+        alt = 'Loyalty Marketing',
+      />
+      <WorkItemContent
+        subtitle="コーポレートサイト"
+        title="ロイヤリティマーケティング"
+        description="デザイン"
+      />
+    </WorkItem>
+  </section>
+</ComponentGuideLayout>

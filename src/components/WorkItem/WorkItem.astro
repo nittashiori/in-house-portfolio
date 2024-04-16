@@ -1,0 +1,70 @@
+---
+interface Props {
+  href?: string;
+  target?: '_blank' | '_self' | '_parent' | '_top';
+  rel?: string;
+}
+
+const {
+  href,
+  target = '_self',
+  rel = 'noopener noreferrer',
+} = Astro.props;
+---
+<div class="c-work-item">
+  <a href={href} target={target} rel={rel}>
+    <slot />
+  </a>
+</div>
+
+<style>
+  .c-work-item {
+    width: 100%;
+
+    .c-work-thumbnail,
+    .c-work-item-content {
+      width: 100%;
+      transition: .4s;
+    }
+
+    > a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @media (hover: hover) {
+        &:hover {
+          .c-work-thumbnail {
+            background: var(--color-background-primary-muted);
+
+            .c-image {
+              scale: 1.02;
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      > a {
+        flex-direction: row;
+      }
+
+      .c-work-thumbnail {
+        width: 56%;
+      }
+
+      .c-work-item-content {
+        width: 44%;
+      }
+    }
+
+    &:nth-child(2n) {
+      @media (min-width: 768px) {
+        > a {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+</style>
