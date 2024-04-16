@@ -1,0 +1,59 @@
+---
+import Stack from "./Stack.astro";
+import Typography from "./Typography.astro";
+import Button from "./Button.astro";
+---
+<nav class="c-navigation">
+  <ul class="lists">
+    <li>
+      <Button href="#" style="ghost" size="small">プロフィール</Button>
+    </li>
+    <li>
+      <Button href="#" style="ghost" size="small">スキル</Button>
+    </li>
+    <li>
+      <Button href="#" style="ghost" size="small">相談できること</Button>
+    </li>
+    <li>
+      <Button href="#" style="ghost" size="small">制作物</Button>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .c-navigation {
+    /* display: none; */
+
+    .lists {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      padding: var(--space-s);
+    }
+
+    .lists li,
+    .lists li a {
+      width: 100%;
+    }
+
+    &.is-expanded {
+      display: block;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: block;
+
+      .lists {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0;
+      }
+
+      .lists li,
+      .lists li a {
+        width: auto;
+      }
+    }
+  }
+</style>

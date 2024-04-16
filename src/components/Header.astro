@@ -1,0 +1,90 @@
+---
+import Navigation from './Navigation.astro';
+import SwitchTheme from './Switch/SwitchTheme.astro';
+import Hamburger from './Hamburger.astro';
+---
+<header class="c-header">
+  <Navigation />
+  <SwitchTheme />
+  <Hamburger />
+</header>
+
+<script type="module">
+  const navigation = document.querySelector('.c-navigation');
+  const hamburger = document.querySelector('.c-hamburger');
+
+  document.querySelector('.c-hamburger').addEventListener('click', () => {
+    navigation.classList.toggle('is-expanded');
+    hamburger.classList.toggle('is-expanded');
+
+    if(hamburger.classList.contains('is-expanded')) {
+      hamburger.setAttribute('aria-pressed', true);
+    } else {
+      hamburger.setAttribute('aria-pressed', false);
+    }
+  });
+</script>
+
+<style>
+  .c-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-xs-2) var(--space-xs);
+    position: relative;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    .c-navigation {
+      display: none;
+      width: 100vw;
+      height: 100svh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      .lists {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: var(--color-background-default);
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+      }
+    }
+
+    .c-navigation.is-expanded {
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .c-navigation {
+        display: block;
+        width: auto;
+        height: auto;
+        position: relative;
+
+        .lists {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+</style>

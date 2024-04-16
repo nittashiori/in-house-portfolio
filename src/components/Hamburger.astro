@@ -1,0 +1,52 @@
+---
+---
+<div class="c-hamburger" role="button" aria-pressed="false">
+  <div class="inner">
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+</div>
+
+<style>
+.c-hamburger {
+  width: 6.4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--round-full);
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
+  .inner {
+    width: 2rem;
+    height: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-foreground-body);
+    transition: .4s;
+  }
+
+  &.is-expanded {
+    .line {
+      &:first-child {
+        transform: rotate(45deg) translate(0.3rem, 0.3rem);
+      }
+
+      &:last-child {
+        transform: rotate(-45deg) translate(0.2rem, -0.2rem);
+      }
+    }
+  }
+}
+</style>
