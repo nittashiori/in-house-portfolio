@@ -1,0 +1,159 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Grid from '../../components/Grid/Grid.astro'
+import GridItem from '../../components/Grid/GridItem.astro'
+import Skelton from '../../components/Skelton.astro'
+---
+<ComponentGuideLayout title="Grid">
+  <section>
+    <p>
+      Gridは2つのコンポーネントで形成してます。<br>
+      <br>
+      Grid: 親コンポーネントで、子コンポーネントをグリッドレイアウトします。<br>
+      GridItem: 子コンポーネントで、Gridの中で配置するコンポーネントです。<br>
+    </p>
+    <div>
+      <Grid>
+        <GridItem>
+          <Skelton />
+        </GridItem>
+        <GridItem>
+          <Skelton />
+        </GridItem>
+        <GridItem>
+          <Skelton />
+        </GridItem>
+        <GridItem>
+          <Skelton />
+        </GridItem>
+        <GridItem>
+          <Skelton />
+        </GridItem>
+        <GridItem>
+          <Skelton />
+        </GridItem>
+      </Grid>
+    </div>
+  </section>
+  <section>
+    <h3 class="heading-s">ギャップ</h3>
+    <p>レスポンシブごとに間隔の指定ができます。</p>
+    <Grid columns={3} gap={{sm: "16px", md: "32px", lg: "64px"}}>
+      <GridItem>
+        <Skelton height="100px" />
+      </GridItem>
+      <GridItem>
+        <Skelton height="100px" />
+      </GridItem>
+      <GridItem>
+        <Skelton height="100px" />
+      </GridItem>
+      <GridItem>
+        <Skelton height="100px" />
+      </GridItem>
+      <GridItem>
+        <Skelton height="100px" />
+      </GridItem>
+      <GridItem>
+        <Skelton height="100px" />
+      </GridItem>
+    </Grid>
+  </section>
+  <section>
+    <h3 class="heading-s">縦方向の配置</h3>
+    <p>レスポンシブごとに縦方向の配置の指定ができます。</p>
+    <Grid columns={3} alignItems="center">
+      <GridItem>
+        <Skelton height="100px" />
+      </GridItem>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+    </Grid>
+  </section>
+  <section>
+    <h3 class="heading-s">タグ</h3>
+    <p>asプロパティを使ってタグを変更できます。</p>
+    <Grid as="ul" columns={3}>
+      <GridItem as="li">
+        <Skelton height="100px" />
+      </GridItem>
+      <GridItem as="li">
+        <Skelton />
+      </GridItem>
+      <GridItem as="li">
+        <Skelton />
+      </GridItem>
+      <GridItem as="li">
+        <Skelton />
+      </GridItem>
+      <GridItem as="li">
+        <Skelton />
+      </GridItem>
+      <GridItem as="li">
+        <Skelton />
+      </GridItem>
+    </Grid>
+  </section>
+  <section>
+    <h3 class="heading-s">幅</h3>
+    <p>レスポンシブごとに縦方向の配置の指定ができます。</p>
+    <Grid columns={3} width={{sm: "50%", md: "500px", lg: "800px"}}>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+      <GridItem>
+        <Skelton />
+      </GridItem>
+    </Grid>
+  </section>
+  <section>
+    <h3 class="heading-s">子要素の幅</h3>
+    <p>GridItemのspanを指定すると、子要素の幅を指定できます。</p>
+    <Grid columns={3}>
+      <GridItem span={2}>
+        <Skelton />
+      </GridItem>
+      <GridItem span={1}>
+        <Skelton />
+      </GridItem>
+      <GridItem span={1}>
+        <Skelton />
+      </GridItem>
+      <GridItem span={2}>
+        <Skelton />
+      </GridItem>
+      <GridItem span={2}>
+        <Skelton />
+      </GridItem>
+      <GridItem span={1}>
+        <Skelton />
+      </GridItem>
+    </Grid>
+  </section>
+</ComponentGuideLayout>

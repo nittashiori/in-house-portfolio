@@ -1,0 +1,45 @@
+---
+interface Props {
+  className?: string
+  as?: string
+}
+
+const {
+  /** クラス名 */
+  className = '',
+  /** 要素の大きさ */
+  span = 1,
+  /** タグ */
+  as: Tag = 'div',
+} = Astro.props
+
+const breakpoints = ['sm', 'md', 'lg'];
+
+let styles: Record<string, string> = {};
+
+breakpoints.forEach((breakpoint) => {
+  if (typeof span === 'object') {
+    styles[`--grid-span-${breakpoint}`] = span[breakpoint] ? `${span[breakpoint]}` : '0';
+  } else {
+    styles[`--grid-span-${breakpoint}`] = typeof span === 'number' ? `${span}` : span;
+  }
+})
+---
+<Tag class=`c-grid-item ${className || ''}` style={styles}>
+  <slot />
+</Tag>
+
+<style>
+  .c-grid-item {
+    grid-column: span var(--grid-span-sm);
+
+    /* 768px 以上 1199px 以下のデバイスに適用 */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      grid-column: span var(--grid-span-md);
+    }
+
+    @media (min-width: 1200px) {
+      grid-column: span var(--grid-span-lg);
+    }
+  }
+</style>
