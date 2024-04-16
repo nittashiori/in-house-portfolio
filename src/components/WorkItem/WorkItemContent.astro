@@ -1,0 +1,39 @@
+---
+interface Props {
+  subtitle: string;
+  title: string;
+  description: string;
+}
+
+const {
+  subtitle,
+  title,
+  description,
+} = Astro.props;
+
+import Stack from "../Stack.astro"
+import Typography from "../Typography.astro"
+import Divider from "../Divider.astro"
+---
+<div class="c-work-item-content">
+  <Stack direction="column" gap="8px">
+    <Typography size="label-xs" color="description">{subtitle}</Typography>
+    <Typography size="body-l" weight="bold">{title}</Typography>
+  </Stack>
+  <Divider />
+  <Typography size="body-s">{description}</Typography>
+</div>
+
+<style>
+  .c-work-item-content {
+    padding: var(--space-s) 0;
+
+    .c-divider {
+      width: 2.4rem;
+    }
+
+    @media (min-width: 768px) {
+      padding: 0 var(--space-xl-2);
+    }
+  }
+</style>
