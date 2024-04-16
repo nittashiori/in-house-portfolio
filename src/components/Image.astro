@@ -2,9 +2,12 @@
 interface Props {
   className?: string;
   src: string;
-  alt?: string;
-  width?: string;
-  height?: string;
+  src2x?: string;
+  srcWebp?: string;
+  srcWebp2x?: string;
+  alt: string;
+  width: string;
+  height: string;
   loading?: 'lazy' | 'eager';
   aspectRatio?: string;
 }
@@ -12,6 +15,9 @@ interface Props {
 const {
   className,
   src = 'https://placehold.jp/30/c4c4c4/ffffff/100x100.png',
+  src2x = 'https://placehold.jp/30/c4c4c4/ffffff/200x200.png',
+  srcWebp = 'https://placehold.jp/30/c4c4c4/ffffff/100x100.webp',
+  srcWebp2x = 'https://placehold.jp/30/c4c4c4/ffffff/200x200.webp',
   alt = '',
   width = '1000px',
   height = '1000px',
@@ -19,15 +25,19 @@ const {
   aspectRatio = '1:1',
 } = Astro.props;
 ---
-<img
-  class=`c-image ${className || ''}`
-  style=`aspect-ratio: ${aspectRatio};`
-  src={src}
-  alt={alt}
-  width={width}
-  height={height}
-  loading={loading}
->
+<picture>
+  <source srcset=`${srcWebp} 1x, ${srcWebp2x} 2x` type="image/webp">
+  <img
+    class=`c-image ${className || ''}`
+    style=`aspect-ratio: ${aspectRatio};`
+    src={src}
+    srcset={`${src} 1x, ${src2x} 2x`}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+  >
+</picture>
 
 <style>
   .c-image {
