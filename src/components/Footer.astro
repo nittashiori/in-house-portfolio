@@ -1,0 +1,22 @@
+---
+import Typography from "./Typography.astro";
+---
+<footer class="c-footer">
+  <Typography as="small" className="copyright" size="caption" align="center">COPYRIGHT 2024 SHIORI NITTA.</Typography>
+</footer>
+
+<style>
+  .c-footer {
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    .copyright {
+      display: block;
+      width: 100%;
+      padding-bottom: var(--space-xl);
+    }
+  }
+</style>
