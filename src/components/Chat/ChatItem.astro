@@ -1,0 +1,23 @@
+---
+---
+<div class="c-chat-item">
+  <slot />
+</div>
+
+<style>
+  .c-chat-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+
+    .c-message-balloon {
+      &.theirs {
+        margin-right: auto;
+      }
+
+      &.mine {
+        margin-left: auto;
+      }
+    }
+  }
+</style>

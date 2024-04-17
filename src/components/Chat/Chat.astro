@@ -1,0 +1,40 @@
+---
+---
+<div class="c-chat">
+  <slot />
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const balloons = document.querySelectorAll('.c-message-balloon');
+
+  balloons.forEach((balloon) => {
+    gsap.from(balloon, {
+      y: 100,
+      scale: 0,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: balloon,
+        start: "top bottom",
+        end: "center 70%",
+        scrub: true,
+        markers: false,
+      }
+    });
+  });
+</script>
+
+
+<style>
+  .c-chat {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-xl-4) * 1.5);
+    max-width: 480px;
+    width: 100%;
+    margin: auto;
+  }
+</style>
