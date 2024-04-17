@@ -1,0 +1,17 @@
+---
+import Stack from '../Stack.astro';
+---
+<div class="chat">
+  <slot />
+</div>
+
+<style>
+  .chat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl-3);
+    max-width: 480px;
+    width: 100%;
+    margin: auto;
+  }
+</style>

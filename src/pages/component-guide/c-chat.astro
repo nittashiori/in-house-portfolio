@@ -1,0 +1,27 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Chat from '../../components/Chat/Chat.astro'
+import ChatItem from '../../components/Chat/ChatItem.astro'
+import MessageBalloon from '../../components/MessageBalloon.astro';
+---
+<ComponentGuideLayout title="Chat">
+  <section>
+    <p>
+      チャットは2つのコンポーネントで形成してます。<br>
+      <br>
+      Chat：チャットのコンテナ<br>
+      ChatItem：受け答えをグルーピングした項目<br>
+    </p>
+    <Chat>
+      <ChatItem>
+        <MessageBalloon>テキストが入ります</MessageBalloon>
+        <MessageBalloon type="mine">テキストが入ります</MessageBalloon>
+      </ChatItem>
+      <ChatItem>
+        <MessageBalloon>テキストが入ります</MessageBalloon>
+        <MessageBalloon type="mine">テキストが入ります</MessageBalloon>
+      </ChatItem>
+    </Chat>
+  </section>
+</ComponentGuideLayout>
