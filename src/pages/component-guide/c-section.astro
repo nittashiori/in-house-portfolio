@@ -1,0 +1,30 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import Section from '../../components/Section.astro'
+import Skelton from '../../components/Skelton.astro'
+---
+<ComponentGuideLayout title="Section">
+  <section>
+    <p>セクションのコンポーネントです</p>
+    <Section>
+      <Skelton />
+    </Section>
+  </section>
+  <section>
+    <h3 class="heading-s">背景色</h3>
+    <p>
+      背景色はdefault、muted、transparent、文字列の指定が可能です。<br>
+      デフォルトはdefaultです。
+    </p>
+    <Section background="muted">
+      <Skelton />
+    </Section>
+    <Section background="transparent">
+      <Skelton />
+    </Section>
+    <Section background="var(--color-background-primary-muted)">
+      <Skelton />
+    </Section>
+  </section>
+</ComponentGuideLayout>
