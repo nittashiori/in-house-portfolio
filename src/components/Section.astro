@@ -1,0 +1,28 @@
+---
+interface Props {
+  id?: string;
+  background?: 'default' | 'muted' | 'transparent' | string;
+}
+
+const {
+  id,
+  background = 'default',
+} = Astro.props;
+
+const backgroundStyles: { [key: string]: string } = {
+  default: 'var(--color-background-default)',
+  muted: 'var(--color-background-muted)',
+  transparent: 'transparent',
+};
+
+const safeBackground = backgroundStyles[background] || background;
+---
+<section id={id} class="c-section" style=`background-color: ${safeBackground}`>
+  <slot />
+</section>
+
+<style>
+  .c-section {
+    padding: var(--space-xl-4) var(--space-m);
+  }
+</style>
