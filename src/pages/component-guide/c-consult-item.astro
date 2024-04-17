@@ -1,0 +1,23 @@
+---
+import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
+
+import ConsultItem from '../../components/ConsultItem.astro'
+import Typography from '../../components/Typography.astro'
+import Stack from '../../components/Stack.astro'
+import List from '../../components/List.astro'
+
+---
+<ComponentGuideLayout title="ConsultItem">
+  <section>
+    <ConsultItem>
+      <Typography size="body-l" weight="bold">デザイン</Typography>
+      <Stack as="ul" direction="column">
+        <List variants="check">制作途中だが相談がしたい</List>
+        <List variants="check">客観的な意見・デザインレビューしてほしい</List>
+        <List variants="check">コーディングで実現可能なデザインか相談したい</List>
+        <List variants="check">デザイナー不在案件のUIなど調整してほしい</List>
+        <List variants="check">デザインツールの使い方を教えてほしい</List>
+      </Stack>
+    </ConsultItem>
+  </section>
+</ComponentGuideLayout>

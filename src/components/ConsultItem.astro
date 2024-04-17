@@ -1,0 +1,13 @@
+---
+import Stack from "./Stack.astro"
+---
+<Stack className="c-consult-item" direction="column" gap={{sm: "2rem", md: "2.4rem", lg: "2.4rem"}}>
+  <slot />
+</Stack>
+
+<style>
+  :global(.c-consult-item) {
+    padding: var(--space-l);
+    background: var(--color-background-default);
+  }
+</style>
