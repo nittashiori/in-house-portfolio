@@ -1,52 +1,10 @@
 ---
 import ComponentGuideLayout from '../../layouts/ComponentguideLayout.astro';
 
-import Section from '../../components/Section.astro'
-import Stack from '../../components/Stack.astro'
-import SectionHeading from '../../components/SectionHeading/SectionHeading.astro'
-import SectionHeadingMain from '../../components/SectionHeading/SectionHeadingMain.astro'
-import SectionHeadingSub from '../../components/SectionHeading/SectionHeadingSub.astro'
-import Grid from '../../components/Grid/Grid.astro'
-import GridItem from '../../components/Grid/GridItem.astro'
-import ConsultItem from '../../components/ConsultItem.astro'
-import Typography from '../../components/Typography.astro'
-import List from '../../components/List.astro'
+import SectionConsult from '../../components/SectionConsult.astro'
 ---
 <ComponentGuideLayout title="SectionConsult">
-  <section>
-    <Section id="consult" background="muted">
-      <Stack direction="column" gap={{ sm: "6.4rem", md: "8rem", lg: "8rem" }} alignItems="center" width="1152px">
-        <SectionHeading>
-          <SectionHeadingMain>CONSULT</SectionHeadingMain>
-          <SectionHeadingSub>相談できること</SectionHeadingSub>
-        </SectionHeading>
-        <Grid as="ul" columns={{ sm: 1, md: 2, lg: 2 }} gap={{ sm: "4rem", md: "6.4rem", lg: "6.4rem" }}>
-          <GridItem>
-            <ConsultItem>
-              <Typography size="body-l" weight="bold">デザイン</Typography>
-              <Stack as="ul" direction="column">
-                <List variants="check">制作途中だが相談がしたい</List>
-                <List variants="check">客観的な意見・デザインレビューしてほしい</List>
-                <List variants="check">コーディングで実現可能なデザインか相談したい</List>
-                <List variants="check">デザイナー不在案件のUIなど調整してほしい</List>
-                <List variants="check">デザインツールの使い方を教えてほしい</List>
-              </Stack>
-            </ConsultItem>
-          </GridItem>
-          <GridItem>
-            <ConsultItem>
-              <Typography size="body-l" weight="bold">コーディング</Typography>
-              <Stack as="ul" direction="column">
-                <List variants="check">環境構築について相談したい</List>
-                <List variants="check">コード設計について相談したい</List>
-                <List variants="check">HTML・CSS・JavaScriptのレビューをしてほしい</List>
-                <List variants="check">HTML・CSS・JavaScriptを教えてほしい</List>
-                <List variants="check">Reactを教えてほしい（自信はあまりない...）</List>
-              </Stack>
-            </ConsultItem>
-          </GridItem>
-        </Grid>
-      </Stack>
-    </Section>
-  </section>
+  <div>
+    <SectionConsult />
+  </div>
 </ComponentGuideLayout>
