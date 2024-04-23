@@ -72,15 +72,10 @@
 <script>
   import { gsap } from 'gsap';
 
-  const typographyWrap = document.querySelector('.typography-wrap');
   const face = document.querySelector('.face');
   const subject = document.querySelector('.subject');
   const text = subject?.getAttribute('data-text'); // HTMLからテキストを取得
   let index = 0;
-
-  gsap.set(face, {
-    y: 80
-  });
 
   setTimeout(() => {
     gsap.to(face, (
@@ -124,6 +119,7 @@
       aspect-ratio: 1;
       background: var(--color-white);
       border-radius: var(--round-full);
+      transform: translateY(80px);
 
       @media (min-width: 768px) {
         width: auto;
