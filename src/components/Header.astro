@@ -4,17 +4,24 @@ import SwitchTheme from './Switch/SwitchTheme.astro';
 import Hamburger from './Hamburger.astro';
 ---
 <header class="c-header">
+  <Hamburger />
   <Navigation />
   <SwitchTheme />
-  <Hamburger />
 </header>
 
 <script type="module">
   const navigation = document.querySelector('.c-navigation');
   const hamburger = document.querySelector('.c-hamburger');
 
-  document.querySelector('.c-hamburger').addEventListener('click', () => {
+  hamburger.addEventListener('click', () => {
     toggleHamburger();
+  });
+
+  hamburger.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      toggleHamburger();
+      event.preventDefault();
+    }
   });
 
   const anchers = document.querySelectorAll('.c-navigation a');
@@ -44,6 +51,7 @@ import Hamburger from './Hamburger.astro';
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: row-reverse;
     padding: var(--space-xs-2) var(--space-s);
     position: relative;
     z-index: 1000;
@@ -54,6 +62,7 @@ import Hamburger from './Hamburger.astro';
 
     @media (min-width: 768px) {
       height: auto;
+      flex-direction: row;
     }
 
     .c-navigation {
