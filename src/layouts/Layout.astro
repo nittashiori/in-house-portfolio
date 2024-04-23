@@ -5,9 +5,18 @@ import '../styles/global.css';
 
 interface Props {
 	title: string;
+	description?: string;
+	canonicalUrl?: string;
+	ogImage?: string;
 }
 
-const { title } = Astro.props;
+const { 
+	title,
+	description = "新田詩織の社内ポートフォリオサイトです。ブロフィール、スキル、相談できる内容、制作物を紹介してます。",
+	canonicalUrl = "https://ellie-in-house-portfolio.netlify.app/",
+	ogImage = "https://ellie-in-house-portfolio.netlify.app/og-image.jpg"
+
+} = Astro.props;
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -21,7 +30,20 @@ import Footer from '../components/Footer.astro';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>{title} | 新田詩織 社内ポートフォリオ</title>
+		<meta name="description" content={description}>
+  	<link rel="canonical" href={canonicalUrl}>
+		<meta property="og:title" content=`${title} | 新田詩織 社内ポートフォリオ` />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content={ogImage} />
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@yourTwitterAccount">
+		<meta name="twitter:title" content=`${title} | 新田詩織 社内ポートフォリオ`>
+		<meta name="twitter:description" content={description}>
+		<meta name="twitter:image" content={ogImage}>
+		<meta name="robots" content="noindex, nofollow">
 		<script>
 			const html = document.querySelector('html');
 
