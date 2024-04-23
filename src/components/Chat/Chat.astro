@@ -5,7 +5,7 @@
 </div>
 
 <script>
-  import { gsap } from 'gsap';
+import { gsap } from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
 
@@ -20,13 +20,13 @@
         trigger: balloon,
         start: "top bottom",
         end: "center 70%",
+        once: true,
         scrub: true,
         markers: false,
       }
     });
   });
 </script>
-
 
 <style>
   .c-chat {

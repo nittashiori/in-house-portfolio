@@ -1,6 +1,6 @@
 ---
 ---
-<div class="catch">
+<div class="c-catch">
   <div class="face">
     <svg width="311" height="227" viewBox="0 0 311 227" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M50.2764 119C75.6815 119 96.2764 98.4051 96.2764 73C96.2764 47.5949 75.6815 27 50.2764 27C24.8713 27 4.27637 47.5949 4.27637 73C4.27637 98.4051 24.8713 119 50.2764 119ZM50.2764 123C77.8906 123 100.276 100.614 100.276 73C100.276 45.3858 77.8906 23 50.2764 23C22.6621 23 0.276367 45.3858 0.276367 73C0.276367 100.614 22.6621 123 50.2764 123Z" fill="black"/>
@@ -19,7 +19,7 @@
       </svg>
   </div>
   <p class="typography">
-    <span class="subject">I’m a</span>
+    <span class="subject" data-text="I’m a"></span>
     <span class="job">
       <svg width="414" height="101" viewBox="0 0 414 101" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="text">
@@ -69,24 +69,49 @@
   </p>
 </div>
 
+<script>
+  const element = document.querySelector('.subject');
+  const text = element?.getAttribute('data-text'); // HTMLからテキストを取得
+  let index = 0;
+
+  function type() {
+    if (index < (text?.length ?? 0)) {
+      if (element) {
+        element.textContent += text?.charAt(index) ?? '';
+        if (element?.textContent) {
+          (element as HTMLElement).style.maxWidth = `${element.textContent.length}ch`;
+        }
+      }
+      index++;
+      setTimeout(type, 100); // 100ミリ秒ごとに次の文字を追加
+    } else {
+      element?.classList.add('no-cursor');
+    }
+  }
+
+  setTimeout(type, 500); // アニメーションを開始
+
+</script>
+
 <style>
-  .catch {
+  .c-catch {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-xs);
+    gap: var(--space-s);
+    margin-bottom: var(--space-xl-3);
 
     .face {
       display: grid;
       place-items: center;
-      height: auto;
+      height: 40vh;
       aspect-ratio: 1;
       background: var(--color-white);
       border-radius: var(--round-full);
 
       @media (min-width: 768px) {
         width: auto;
-        height: 40vh;
+        height: 56vh;
       }
 
       > svg {
@@ -108,10 +133,20 @@
         font-size: 3.2rem;
         font-family: var(--font-family-en);
         font-weight: 700;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 0ch;
+        border-right: 3px solid var(--color-foreground-body); /* カーソル */
+        animation: blink 1s step-end infinite;
 
         @media (min-width: 768px) {
           font-size: clamp(3.2rem, 2vw + 4rem, 8rem);
         }
+      }
+
+      .no-cursor {
+        border-right: 3px solid transparent;
+        animation: none;
       }
 
       .job {
@@ -217,7 +252,7 @@
 
         #marker {
           mask: url(#mask-marker-wrapper);
-          fill: var(--color-lemon-3);
+          fill: var(--color-foreground-marker);
         }
 
         #mask-marker path {
@@ -229,10 +264,14 @@
           stroke-miterlimit: 10;
           stroke-dasharray: 1000px;
           stroke-dashoffset: 1000px;
-          animation: marker-line 1.2s 3s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+          animation: marker-line 1.2s 2.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
         }
       }
     }
+  }
+
+  @keyframes blink {
+    50% { border-color: transparent; }
   }
 
   @keyframes typo-line {

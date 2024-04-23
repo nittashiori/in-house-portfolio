@@ -1,11 +1,13 @@
 ---
 interface Props {
   id?: string;
+  className?: string;
   background?: 'default' | 'muted' | 'transparent' | string;
 }
 
 const {
   id,
+  className = '',
   background = 'default',
 } = Astro.props;
 
@@ -17,7 +19,7 @@ const backgroundStyles: { [key: string]: string } = {
 
 const safeBackground = backgroundStyles[background] || background;
 ---
-<section id={id} class="c-section" style=`background-color: ${safeBackground}`>
+<section id={id} class=`c-section ${className || ''}` style=`background-color: ${safeBackground}`>
   <slot />
 </section>
 

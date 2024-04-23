@@ -14,15 +14,27 @@ import Hamburger from './Hamburger.astro';
   const hamburger = document.querySelector('.c-hamburger');
 
   document.querySelector('.c-hamburger').addEventListener('click', () => {
-    navigation.classList.toggle('is-expanded');
-    hamburger.classList.toggle('is-expanded');
-
-    if(hamburger.classList.contains('is-expanded')) {
-      hamburger.setAttribute('aria-pressed', true);
-    } else {
-      hamburger.setAttribute('aria-pressed', false);
-    }
+    toggleHamburger();
   });
+
+  const anchers = document.querySelectorAll('.c-navigation a');
+  anchers.forEach((ancher) => {
+    ancher.addEventListener('click', () => {
+      toggleHamburger();
+    })
+  })
+
+  function toggleHamburger () {
+    if (hamburger.classList.contains('is-expanded')) {
+      navigation.classList.remove('is-expanded');
+      hamburger.classList.remove('is-expanded');
+      hamburger.setAttribute('aria-pressed', false);
+    } else {
+      navigation.classList.add('is-expanded');
+      hamburger.classList.add('is-expanded');
+      hamburger.setAttribute('aria-pressed', true);
+    }
+  }
 </script>
 
 <style>
