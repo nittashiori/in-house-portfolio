@@ -70,27 +70,43 @@
 </div>
 
 <script>
-  const element = document.querySelector('.subject');
-  const text = element?.getAttribute('data-text'); // HTMLからテキストを取得
+  import { gsap } from 'gsap';
+
+  const typographyWrap = document.querySelector('.typography-wrap');
+  const face = document.querySelector('.face');
+  const subject = document.querySelector('.subject');
+  const text = subject?.getAttribute('data-text'); // HTMLからテキストを取得
   let index = 0;
+
+  gsap.set(face, {
+    y: 80
+  });
+
+  setTimeout(() => {
+    gsap.to(face, (
+      {
+        duration: .6,
+        y: 0,
+      }
+    ))
+  }, 800);
 
   function type() {
     if (index < (text?.length ?? 0)) {
-      if (element) {
-        element.textContent += text?.charAt(index) ?? '';
-        if (element?.textContent) {
-          (element as HTMLElement).style.maxWidth = `${element.textContent.length}ch`;
+      if (subject) {
+        subject.textContent += text?.charAt(index) ?? '';
+        if (subject?.textContent) {
+          (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
         }
       }
       index++;
       setTimeout(type, 100); // 100ミリ秒ごとに次の文字を追加
     } else {
-      element?.classList.add('no-cursor');
+      subject?.classList.add('no-cursor');
     }
   }
 
-  setTimeout(type, 500); // アニメーションを開始
-
+  setTimeout(type, 1400); // アニメーションを開始
 </script>
 
 <style>
@@ -98,8 +114,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-s);
-    margin-bottom: var(--space-xl-3);
+    gap: var(--space-m);
+    margin-bottom: var(--space-xl-2);
 
     .face {
       display: grid;
@@ -119,7 +135,6 @@
         height: auto;
       }
     }
-
     .typography {
       display: flex;
       align-items: center;
@@ -182,51 +197,51 @@
         stroke-dashoffset: 1200px;
         
         &:nth-of-type(1) {
-          animation: typo-line 4s 0.3s forwards;
+          animation: typo-line 8s 0.3s forwards;
         }
 
         &:nth-of-type(2) {
           stroke-width: 8;
-          animation: typo-line 4s 0.5s forwards;
+          animation: typo-line 8s 0.5s forwards;
         }
         &:nth-of-type(3) {
           stroke-width: 20;
-          animation: typo-line 4s 0.7s forwards;
+          animation: typo-line 8s 0.7s forwards;
         }
         &:nth-of-type(4) {
           stroke-width: 18;
-          animation: typo-line 4s 0.8s forwards;
+          animation: typo-line 8s 0.8s forwards;
         }
         &:nth-of-type(5) {
           stroke-width: 7;
-          animation: typo-line 4s 0.9s forwards;
+          animation: typo-line 8s 0.9s forwards;
         }
         &:nth-of-type(6) {
           stroke-width: 7;
-          animation: typo-line 4s 1s forwards;
+          animation: typo-line 8s 1s forwards;
         }
         &:nth-of-type(7) {
           stroke-width: 7;
-          animation: typo-line 4s 1.1s forwards;
+          animation: typo-line 8s 1.1s forwards;
         }
         &:nth-of-type(8) {
           stroke-width: 7;
-          animation: typo-line 4s 1.2s forwards;
+          animation: typo-line 8s 1.2s forwards;
         }
         &:nth-of-type(9) {
           stroke-width: 6;
-          animation: typo-line 4s 1.3s forwards;
+          animation: typo-line 8s 1.3s forwards;
         }
         &:nth-of-type(10) {
           stroke-width: 10;
-          animation: typo-line 4s 1.5s forwards;
+          animation: typo-line 8s 1.5s forwards;
         }
         &:nth-of-type(11) {
-          animation: typo-line 4s 1.7s forwards;
+          animation: typo-line 8s 1.7s forwards;
         }
         &:nth-of-type(12) {
           stroke-width: 10;
-          animation: typo-line 4s 1.7s forwards;
+          animation: typo-line 8s 1.7s forwards;
         }
       }
       
@@ -264,7 +279,7 @@
           stroke-miterlimit: 10;
           stroke-dasharray: 1000px;
           stroke-dashoffset: 1000px;
-          animation: marker-line 1.2s 2.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+          animation: marker-line 1s 3.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
         }
       }
     }
