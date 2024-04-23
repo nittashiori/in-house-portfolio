@@ -9,6 +9,7 @@ body {
   overflow-wrap: anywhere;
   word-break: normal;
   line-break: strict;
+  background: var(--color-background-default);
 }
 
 .heading-display {

@@ -103,6 +103,7 @@
   --color-foreground-success: var(--color-kiwi-7);
   --color-foreground-warning: var(--color-lemon-7);
   --color-foreground-alert: var(--color-apple-6);
+  --color-foreground-marker: var(--color-lemon-3);
 
   --color-background-default: var(--color-white);
   --color-background-emphasis: var(--color-gray-9);
@@ -250,6 +251,7 @@
   --color-foreground-success: var(--color-kiwi-7);
   --color-foreground-warning: var(--color-lemon-7);
   --color-foreground-alert: var(--color-apple-5);
+  --color-foreground-marker: var(--color-lemon-5);
 
   --color-background-default: var(--color-black);
   --color-background-emphasis: var(--color-gray-1);
