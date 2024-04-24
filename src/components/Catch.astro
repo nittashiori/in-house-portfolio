@@ -78,6 +78,9 @@
   if (subject) {
     subject.textContent = '';
   }
+  if (subject) {
+    (subject as HTMLElement).style.visibility = 'visible';
+  }
   let index = 0;
 
   setTimeout(() => {
@@ -94,7 +97,10 @@
       if (subject) {
         subject.textContent += text?.charAt(index) ?? '';
         if (subject?.textContent) {
-          (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
+          const subject = document.querySelector('.subject') as HTMLElement;
+          if (subject.textContent) {
+            subject.style.maxWidth = `${subject.textContent.length}ch`;
+          }
         }
       }
       index++;
@@ -145,6 +151,7 @@
       z-index: 0;
 
       .subject {
+        visibility: hidden;
         font-size: 3.2rem;
         font-family: var(--font-family-en);
         font-weight: 700;
