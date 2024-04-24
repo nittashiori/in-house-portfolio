@@ -15,6 +15,9 @@ const {
   class="c-switch"
   type="checkbox"
   id="toggleSwitch"
+  role="switch"
+  aria-label="テーマ切り替えスイッチ"
+  aria-checked="false"
   {...(checked ? { checked: true } : {})}
   disabled={disabled}
   {...(dataOnchange ? {'data-onchange': dataOnchange} : {})}
