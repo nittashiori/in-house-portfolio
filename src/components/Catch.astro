@@ -19,7 +19,7 @@
       </svg>
   </div>
   <p class="typography">
-    <span class="subject" data-text="I’m a"></span>
+    <span class="subject">I’m a</span>
     <span class="job">
       <svg width="414" height="101" viewBox="0 0 414 101" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="text">
@@ -74,7 +74,10 @@
 
   const face = document.querySelector('.face');
   const subject = document.querySelector('.subject');
-  const text = subject?.getAttribute('data-text'); // HTMLからテキストを取得
+  const text = subject?.textContent;
+  if (subject) {
+    subject.textContent = '';
+  }
   let index = 0;
 
   setTimeout(() => {
@@ -100,6 +103,7 @@
       subject?.classList.add('no-cursor');
     }
   }
+
 
   setTimeout(type, 1400); // アニメーションを開始
 </script>
