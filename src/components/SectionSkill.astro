@@ -15,19 +15,19 @@ import SkillItem from '../components/SkillItem.astro'
       <SectionHeadingSub>スキル</SectionHeadingSub>
     </SectionHeading>
     <Grid as="ul" columns={{ sm: 1, md: 2, lg: 3 }} gap={{ sm: "4rem", md: "6.4rem", lg: "6.4rem" }}>
-      <GridItem>
+      <GridItem as="li">
         <SkillItem name="design" />
       </GridItem>
-      <GridItem>
+      <GridItem as="li">
         <SkillItem name="cording" />
       </GridItem>
-      <GridItem>
+      <GridItem as="li">
         <SkillItem name="wordpress" />
       </GridItem>
-      <GridItem>
+      <GridItem as="li">
         <SkillItem name="nextjs" />
       </GridItem>
-      <GridItem>
+      <GridItem as="li">
         <SkillItem name="astro" />
       </GridItem>
     </Grid>
