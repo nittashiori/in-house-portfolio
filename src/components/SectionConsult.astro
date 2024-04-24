@@ -17,7 +17,7 @@ import List from '../components/List.astro'
       <SectionHeadingSub>相談できること</SectionHeadingSub>
     </SectionHeading>
     <Grid as="ul" columns={{ sm: 1, md: 2, lg: 2 }} gap={{ sm: "4rem", md: "6.4rem", lg: "6.4rem" }}>
-      <GridItem>
+      <GridItem as="li">
         <ConsultItem>
           <Typography size="body-l" weight="bold">デザイン</Typography>
           <Stack as="ul" direction="column">
@@ -29,7 +29,7 @@ import List from '../components/List.astro'
           </Stack>
         </ConsultItem>
       </GridItem>
-      <GridItem>
+      <GridItem as="li">
         <ConsultItem>
           <Typography size="body-l" weight="bold">コーディング</Typography>
           <Stack as="ul" direction="column">
