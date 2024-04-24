@@ -15,40 +15,28 @@ import Icon from '../Icon/Icon.astro'
   document.addEventListener('DOMContentLoaded', () => {
     const switchElements = document.querySelectorAll('.c-switch-theme .c-switch');
     const html = document.querySelector('html');
-    const currentTheme = localStorage.getItem('theme');
-
-    // ローカルストレージにテーマが保存されていれば、そのテーマを適用します
-    if (currentTheme) {
-      switchElements.forEach(switchElement => {
-        const isChecked = currentTheme === 'light';
-        if (isChecked) {
-          switchElement.setAttribute('checked', 'true');
-        } else {
-          switchElement.removeAttribute('checked');
-        }
-      });
-    }
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    localStorage.setItem('theme', currentTheme);
+    html.setAttribute('data-theme', currentTheme);
 
     switchElements.forEach(switchElement => {
-      if(currentTheme === 'light') {
-        switchElement.setAttribute('checked', 'true');
-      } else {
-        switchElement.removeAttribute('checked');
-      }
+      switchElement.checked = currentTheme === 'light';
+    });
 
-      switchElement.addEventListener('click', (e) => {
-        let isChecked = switchElement.hasAttribute('checked');
+    switchElements.forEach(switchElement => {
+      switchElement.addEventListener('click', () => {
+        let isChecked = switchElement.checked;
         if(isChecked) {
-          switchElement.removeAttribute('checked');
-          html.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-          isChecked = false;
-        } else {
-          switchElement.setAttribute('checked', 'true');
+          switchElement.checked = true;
           html.setAttribute('data-theme', 'light');
           localStorage.setItem('theme', 'light');
+        } else {
+          switchElement.checked = false;
+          html.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
         }
-      })
+      });
     })
   })
 </script>
