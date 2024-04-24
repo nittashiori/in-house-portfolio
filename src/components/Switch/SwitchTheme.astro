@@ -22,6 +22,7 @@ import Icon from '../Icon/Icon.astro'
 
     switchElements.forEach(switchElement => {
       switchElement.checked = currentTheme === 'light';
+      switchElement.setAttribute('aria-checked', 'true');
     });
 
     switchElements.forEach(switchElement => {
@@ -31,10 +32,12 @@ import Icon from '../Icon/Icon.astro'
           switchElement.checked = true;
           html.setAttribute('data-theme', 'light');
           localStorage.setItem('theme', 'light');
+          switchElement.setAttribute('aria-checked', 'true');
         } else {
           switchElement.checked = false;
           html.setAttribute('data-theme', 'dark');
           localStorage.setItem('theme', 'dark');
+          switchElement.setAttribute('aria-checked', 'false');
         }
       });
     })
