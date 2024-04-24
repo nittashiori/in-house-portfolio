@@ -91,7 +91,7 @@
 
   /* Semantic Color */
   --color-foreground-body: var(--color-gray-9);
-  --color-foreground-description: var(--color-gray-7);
+  --color-foreground-description: var(--color-gray-8);
   --color-foreground-place-holder: var(--color-blackalpha-30);
   --color-foreground-disabled: var(--color-blackalpha-20);
   --color-foreground-on-fill: var(--color-white);
@@ -239,7 +239,7 @@
 :root[data-theme="dark"] {
   /* Semantic Color */
   --color-foreground-body: var(--color-gray-1);
-  --color-foreground-description: var(--color-gray-5);
+  --color-foreground-description: var(--color-gray-4);
   --color-foreground-place-holder: var(--color-whitealpha-30);
   --color-foreground-disabled: var(--color-whitealpha-30);
   --color-foreground-on-fill: var(--color-white);
