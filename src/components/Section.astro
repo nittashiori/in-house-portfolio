@@ -2,7 +2,7 @@
 interface Props {
   id?: string;
   className?: string;
-  background?: 'default' | 'muted' | 'inset' | 'transparent' | string;
+  background?: 'default' | 'muted' | 'transparent' | string;
 }
 
 const {
@@ -14,7 +14,6 @@ const {
 const backgroundStyles: { [key: string]: string } = {
   default: 'var(--color-background-default)',
   muted: 'var(--color-background-muted)',
-  inset: 'var(--color-background-inset)',
   transparent: 'transparent',
 };
 
