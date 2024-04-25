@@ -22,8 +22,30 @@ import SectionWorks from '../components/SectionWorks.astro';
   function noscroll(e: any){
     e.preventDefault();
   }
-  document.addEventListener('touchmove', noscroll, {passive: false});
-  document.addEventListener('wheel', noscroll, {passive: false});
+
+  // 初回確認
+  localStorage.clear();
+  const htmlElement = document.getElementsByTagName('html')
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const visited = localStorage.getItem('visited');
+    if (!visited) {
+      // 初回訪問時の処理
+      htmlElement[0].classList.add("is-loading");
+      document.addEventListener('touchmove', noscroll, { passive: false });
+      document.addEventListener('wheel', noscroll, { passive: false });
+      localStorage.setItem('visited', String(true));
+      setTimeout(() => {
+        htmlElement[0].classList.remove("is-loading");
+        document.removeEventListener('touchmove', noscroll);
+        document.removeEventListener('wheel', noscroll);
+      }, 4000);
+    } else {
+      // 既に訪問したことがある場合
+      document.removeEventListener('touchmove', noscroll);
+      document.removeEventListener('wheel', noscroll);
+    }
+  });
   
 	import { gsap } from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -55,6 +77,24 @@ import SectionWorks from '../components/SectionWorks.astro';
 </script>
 
 <style>
+  html {
+    header {
+      transition: .6s;
+    }
+
+    div.c-mv {
+      z-index: -1;
+    }
+  }
+  html.is-loading {
+    header {
+      transform: translateY(-100%);
+    }
+
+    div.c-mv {
+      z-index: 2;
+    }
+  }
 	.main {
 		padding-top: 100svh;
 	}
