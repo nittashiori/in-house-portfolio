@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Loading from '../components/Loading.astro';
 import MV from '../components/MV.astro';
 import SectionProfile from '../components/SectionProfile.astro';
 import SectionSkill from '../components/SectionSkill.astro';
@@ -9,6 +10,7 @@ import SectionWorks from '../components/SectionWorks.astro';
 
 <Layout title="Top">
 	<main class="main">
+    <Loading />
 		<MV />
 		<SectionProfile />
 		<SectionSkill />
@@ -24,10 +26,12 @@ import SectionWorks from '../components/SectionWorks.astro';
   }
 
   // 初回確認
-  localStorage.clear();
+  // localStorage.clear();
   const htmlElement = document.getElementsByTagName('html')
 
   document.addEventListener('DOMContentLoaded', function() {
+    const loadingElement = document.querySelector('.c-loading');
+    console.log(loadingElement);
     const visited = localStorage.getItem('visited');
     if (!visited) {
       // 初回訪問時の処理
@@ -37,11 +41,13 @@ import SectionWorks from '../components/SectionWorks.astro';
       localStorage.setItem('visited', String(true));
       setTimeout(() => {
         htmlElement[0].classList.remove("is-loading");
+        loadingElement?.classList.add('is-hidden');
         document.removeEventListener('touchmove', noscroll);
         document.removeEventListener('wheel', noscroll);
       }, 4000);
     } else {
       // 既に訪問したことがある場合
+      loadingElement?.classList.add('is-hidden');
       document.removeEventListener('touchmove', noscroll);
       document.removeEventListener('wheel', noscroll);
     }

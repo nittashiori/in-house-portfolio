@@ -19,7 +19,7 @@
       </svg>
   </div>
   <p class="typography">
-    <span class="subject" data-text="I’m a"></span>
+    <span class="subject">I’m a</span>
     <span class="job">
       <svg width="414" height="101" viewBox="0 0 414 101" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="text">
@@ -72,36 +72,46 @@
 <script>
   import { gsap } from 'gsap';
 
-  const face = document.querySelector('.face');
-  const subject = document.querySelector('.subject');
-  const text = subject?.getAttribute('data-text'); // HTMLからテキストを取得
-  let index = 0;
-
-  setTimeout(() => {
-    gsap.to(face, (
-      {
-        duration: .6,
-        y: 0,
-      }
-    ))
-  }, 800);
-
-  function type() {
-    if (index < (text?.length ?? 0)) {
+  const catchElements = document.querySelectorAll('.c-catch');
+  catchElements.forEach((catchElement) => {
+    const face = catchElement.querySelector('.face');
+    const subject = catchElement.querySelector('.subject');
+    const text = subject?.textContent;
       if (subject) {
-        subject.textContent += text?.charAt(index) ?? '';
-        if (subject?.textContent) {
-          (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
-        }
+        subject.textContent = '';
       }
-      index++;
-      setTimeout(type, 100); // 100ミリ秒ごとに次の文字を追加
-    } else {
-      subject?.classList.add('no-cursor');
-    }
-  }
+      if (subject) {
+        (subject as HTMLElement).style.visibility = 'visible';
+      }
+      let index = 0;
 
-  setTimeout(type, 1400); // アニメーションを開始
+    setTimeout(() => {
+      gsap.to(face, (
+        {
+          duration: .6,
+          y: 0,
+        }
+      ))
+    }, 800);
+
+    function type() {
+      if (index < (text?.length ?? 0)) {
+        if (subject) {
+          console.log(text?.length)
+          subject.textContent += text?.charAt(index) ?? '';
+          if (subject?.textContent) {
+            (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
+          }
+        }
+        index++;
+        setTimeout(type, 100); // 100ミリ秒ごとに次の文字を追加
+      } else {
+        subject?.classList.add('no-cursor');
+      }
+    }
+
+    setTimeout(type, 1400); // アニメーションを開始
+  })
 </script>
 
 <style>
