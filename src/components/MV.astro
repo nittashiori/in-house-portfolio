@@ -1,16 +1,8 @@
 ---
-interface Props {
-  isLoading?: boolean
-}
-
-const {
-  isLoading = false
-} = Astro.props;
-
 import Catch from "./Catch.astro"
 ---
 <div class="c-mv">
-  <Catch isLoading={isLoading} />
+  <Catch />
 </div>
 
 <style>
