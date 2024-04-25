@@ -83,7 +83,7 @@ import SectionWorks from '../components/SectionWorks.astro';
 
 <style>
   html {
-    header {
+    .c-header {
       transition: .6s;
     }
 
@@ -92,8 +92,9 @@ import SectionWorks from '../components/SectionWorks.astro';
     }
   }
   html.is-loading {
-    header {
+    .c-header {
       transform: translateY(-100%);
+      -webkit-transfrom: translateY(-100%);
     }
 
     div.c-mv {
