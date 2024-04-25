@@ -18,6 +18,13 @@ import SectionWorks from '../components/SectionWorks.astro';
 </Layout>
 
 <script>
+  // ローディング中のスクロール禁止
+  function noscroll(e: any){
+    e.preventDefault();
+  }
+  document.addEventListener('touchmove', noscroll, {passive: false});
+  document.addEventListener('wheel', noscroll, {passive: false});
+  
 	import { gsap } from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
