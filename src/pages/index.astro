@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Loading from '../components/Loading.astro';
 import MV from '../components/MV.astro';
 import SectionProfile from '../components/SectionProfile.astro';
 import SectionSkill from '../components/SectionSkill.astro';
@@ -9,6 +10,7 @@ import SectionWorks from '../components/SectionWorks.astro';
 
 <Layout title="Top">
 	<main class="main">
+    <Loading />
 		<MV />
 		<SectionProfile />
 		<SectionSkill />
@@ -18,6 +20,38 @@ import SectionWorks from '../components/SectionWorks.astro';
 </Layout>
 
 <script>
+  // ローディング中のスクロール禁止
+  function noscroll(e: any){
+    e.preventDefault();
+  }
+
+  // 初回確認
+  // localStorage.clear();
+  const htmlElement = document.getElementsByTagName('html')
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const loadingElement = document.querySelector('.c-loading');
+    const visited = localStorage.getItem('visited');
+    if (!visited) {
+      // 初回訪問時の処理
+      htmlElement[0].classList.add("is-loading");
+      document.addEventListener('touchmove', noscroll, { passive: false });
+      document.addEventListener('wheel', noscroll, { passive: false });
+      localStorage.setItem('visited', String(true));
+      setTimeout(() => {
+        htmlElement[0].classList.remove("is-loading");
+        loadingElement?.classList.add('is-hidden');
+        document.removeEventListener('touchmove', noscroll);
+        document.removeEventListener('wheel', noscroll);
+      }, 4000);
+    } else {
+      // 既に訪問したことがある場合
+      loadingElement?.classList.add('is-hidden');
+      document.removeEventListener('touchmove', noscroll);
+      document.removeEventListener('wheel', noscroll);
+    }
+  });
+  
 	import { gsap } from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
@@ -48,6 +82,25 @@ import SectionWorks from '../components/SectionWorks.astro';
 </script>
 
 <style>
+  html {
+    .c-header {
+      transition: .6s;
+    }
+
+    div.c-mv {
+      z-index: -1;
+    }
+  }
+  html.is-loading {
+    .c-header {
+      transform: translateY(-100%);
+      -webkit-transfrom: translateY(-100%);
+    }
+
+    div.c-mv {
+      z-index: 2;
+    }
+  }
 	.main {
 		padding-top: 100svh;
 	}

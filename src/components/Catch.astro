@@ -1,6 +1,13 @@
 ---
+interface Props {
+  isLoading?: boolean;
+}
+
+const {
+  isLoading = false,
+} = Astro.props;
 ---
-<div class="c-catch">
+<div class=`c-catch ${isLoading ? 'is-loading' : ''}`>
   <div class="face">
     <svg width="311" height="227" viewBox="0 0 311 227" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M50.2764 119C75.6815 119 96.2764 98.4051 96.2764 73C96.2764 47.5949 75.6815 27 50.2764 27C24.8713 27 4.27637 47.5949 4.27637 73C4.27637 98.4051 24.8713 119 50.2764 119ZM50.2764 123C77.8906 123 100.276 100.614 100.276 73C100.276 45.3858 77.8906 23 50.2764 23C22.6621 23 0.276367 45.3858 0.276367 73C0.276367 100.614 22.6621 123 50.2764 123Z" fill="black"/>
@@ -19,7 +26,7 @@
       </svg>
   </div>
   <p class="typography">
-    <span class="subject" data-text="I’m a"></span>
+    <span class="subject">I’m a</span>
     <span class="job">
       <svg width="414" height="101" viewBox="0 0 414 101" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="text">
@@ -72,54 +79,73 @@
 <script>
   import { gsap } from 'gsap';
 
-  const face = document.querySelector('.face');
-  const subject = document.querySelector('.subject');
-  const text = subject?.getAttribute('data-text'); // HTMLからテキストを取得
-  let index = 0;
+  const catchElements = document.querySelectorAll('.c-catch');
+  catchElements.forEach((catchElement) => {
+    const face = catchElement.querySelector('.face');
+    const subject = catchElement.querySelector('.subject');
+    const text = subject?.textContent;
+    let index = 0;
 
-  setTimeout(() => {
-    gsap.to(face, (
-      {
-        duration: .6,
-        y: 0,
-      }
-    ))
-  }, 800);
-
-  function type() {
-    if (index < (text?.length ?? 0)) {
+    if(catchElement.classList.contains('is-loading')) {
+      // アニメーション読み込み
       if (subject) {
-        subject.textContent += text?.charAt(index) ?? '';
-        if (subject?.textContent) {
-          (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
+        subject.textContent = '';
+      }
+      setTimeout(() => {
+        gsap.to(face, (
+          {
+            duration: .6,
+            y: 0,
+          }
+        ))
+      }, 800);
+
+        function type() {
+        if (index < (text?.length ?? 0)) {
+          if (subject) {
+            console.log(text?.length)
+            subject.textContent += text?.charAt(index) ?? '';
+            if (subject?.textContent) {
+              (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
+            }
+          }
+          index++;
+          setTimeout(type, 100); // 100ミリ秒ごとに次の文字を追加
+        } else {
+          subject?.classList.add('no-cursor');
         }
       }
-      index++;
-      setTimeout(type, 100); // 100ミリ秒ごとに次の文字を追加
-    } else {
-      subject?.classList.add('no-cursor');
-    }
-  }
 
-  setTimeout(type, 1400); // アニメーションを開始
+      setTimeout(type, 1400); // アニメーションを開始
+    } else {
+      if (subject) {
+        (subject as HTMLElement).style.visibility = 'visible';
+        if (subject?.textContent) {
+          (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
+          subject?.classList.add('no-cursor');
+        }
+      }
+    }
+  })
 </script>
 
 <style>
   .c-catch {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-m);
     margin-bottom: var(--space-xl-2);
+    padding: 0 var(--space-m);
 
     .face {
       display: grid;
       place-items: center;
-      height: 40vh;
+      height: 64vw;
       aspect-ratio: 1;
       background: var(--color-white);
       border-radius: var(--round-full);
-      transform: translateY(80px);
 
       @media (min-width: 768px) {
         width: auto;
@@ -137,6 +163,7 @@
       justify-content: center;
       flex-wrap: wrap;
       column-gap: 1em;
+      row-gap: 0.5em;
       width: 100%;
       z-index: 0;
 
@@ -144,20 +171,10 @@
         font-size: 3.2rem;
         font-family: var(--font-family-en);
         font-weight: 700;
-        overflow: hidden;
-        white-space: nowrap;
-        max-width: 0ch;
-        border-right: 3px solid var(--color-foreground-body); /* カーソル */
-        animation: blink 1s step-end infinite;
 
         @media (min-width: 768px) {
           font-size: clamp(3.2rem, 2vw + 4rem, 8rem);
         }
-      }
-
-      .no-cursor {
-        border-right: 3px solid transparent;
-        animation: none;
       }
 
       .job {
@@ -178,7 +195,6 @@
       }
 
       #text {
-        mask: url(#mask-text-wrapper);
         fill: var(--color-foreground-body);
       }
 
@@ -262,7 +278,6 @@
         }
 
         #marker {
-          mask: url(#mask-marker-wrapper);
           fill: var(--color-foreground-marker);
         }
 
@@ -276,6 +291,31 @@
           stroke-dasharray: 1000px;
           stroke-dashoffset: 1000px;
           animation: marker-line 1s 3.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+        }
+      }
+    }
+
+    &.is-loading {
+      .face {
+        transform: translateY(80px);
+      }
+      .typography {
+        .subject {
+          max-width: 0ch;
+          border-right: 3px solid var(--color-foreground-body); /* カーソル */
+          animation: blink 1s step-end infinite;
+        }
+
+        .no-cursor {
+          border-right: 3px solid transparent;
+          animation: none;
+        }
+
+        #text {
+          mask: url(#mask-text-wrapper);
+        }
+        #marker {
+          mask: url(#mask-marker-wrapper);
         }
       }
     }
