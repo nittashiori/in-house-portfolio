@@ -90,6 +90,7 @@ const {
       // アニメーション読み込み
       if (subject) {
         subject.textContent = '';
+        (subject as HTMLElement).style.visibility = 'visible';
       }
       setTimeout(() => {
         gsap.to(face, (
@@ -100,10 +101,9 @@ const {
         ))
       }, 800);
 
-        function type() {
+      function type() {
         if (index < (text?.length ?? 0)) {
           if (subject) {
-            console.log(text?.length)
             subject.textContent += text?.charAt(index) ?? '';
             if (subject?.textContent) {
               (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
@@ -302,6 +302,7 @@ const {
       .typography {
         .subject {
           max-width: 0ch;
+          visibility: hidden;
           border-right: 3px solid var(--color-foreground-body); /* カーソル */
           animation: blink 1s step-end infinite;
         }

@@ -28,6 +28,10 @@ import SectionWorks from '../components/SectionWorks.astro';
   // 初回確認
   // localStorage.clear();
   const htmlElement = document.getElementsByTagName('html')
+  const bodyElement = document.getElementsByTagName('body')
+  setTimeout(() => {
+    bodyElement[0].style.opacity = "1";
+  }, 1);
 
   document.addEventListener('DOMContentLoaded', function() {
     const loadingElement = document.querySelector('.c-loading');
@@ -83,6 +87,10 @@ import SectionWorks from '../components/SectionWorks.astro';
 
 <style>
   html {
+    body {
+      opacity: 0;
+    }
+
     .c-header {
       transition: .6s;
     }
