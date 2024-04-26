@@ -32,12 +32,9 @@ import SectionWorks from '../components/SectionWorks.astro';
   document.addEventListener('DOMContentLoaded', function() {
     const loadingElement = document.querySelector('.c-loading');
     const visited = localStorage.getItem('visited');
-    loadingElement?.classList.add('is-hidden');
-
     if (!visited) {
       // 初回訪問時の処理
       htmlElement[0].classList.add("is-loading");
-      loadingElement?.classList.remove('is-hidden');
       document.addEventListener('touchmove', noscroll, { passive: false });
       document.addEventListener('wheel', noscroll, { passive: false });
       localStorage.setItem('visited', String(true));
@@ -49,6 +46,7 @@ import SectionWorks from '../components/SectionWorks.astro';
       }, 4000);
     } else {
       // 既に訪問したことがある場合
+      loadingElement?.classList.add('is-hidden');
       document.removeEventListener('touchmove', noscroll);
       document.removeEventListener('wheel', noscroll);
     }
@@ -88,10 +86,8 @@ import SectionWorks from '../components/SectionWorks.astro';
     .c-header {
       transition: .6s;
     }
-    /* .c-loading {
-      display: none;
-    } */
-    .c-mv {
+
+    div.c-mv {
       z-index: -1;
     }
   }
@@ -101,7 +97,7 @@ import SectionWorks from '../components/SectionWorks.astro';
       -webkit-transfrom: translateY(-100%);
     }
 
-    .c-mv {
+    div.c-mv {
       z-index: 2;
     }
   }
