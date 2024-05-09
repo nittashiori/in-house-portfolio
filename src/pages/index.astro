@@ -20,6 +20,11 @@ import SectionWorks from '../components/SectionWorks.astro';
 </Layout>
 
 <script>
+  document.body.style.display = 'none'; // 最初に本文コンテンツを隠す
+  window.onload = () => {
+    document.body.style.display = 'block'; // 完全にロードされたときに内容を表示
+  };
+
   // ローディング中のスクロール禁止
   function noscroll(e: any){
     e.preventDefault();
