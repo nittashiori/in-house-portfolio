@@ -7,11 +7,9 @@ import Catch from "./Catch.astro"
 
 <script type="module">
   const loading = document.querySelector('.c-loading');
-  loading.style.opacity = 0;
-
-  setTimeout(() => {
+  document.addEventListener('DOMContentLoaded', function() {
     loading.style.opacity = 1;
-  }, 10);
+  });
 </script>
 
 <style>
@@ -25,6 +23,7 @@ import Catch from "./Catch.astro"
     left: 0;
     z-index: 9999;
     background: var(--color-background-default);
+    opacity: 0;
 
     &.is-hidden {
       display: none;
