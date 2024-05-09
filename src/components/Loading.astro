@@ -5,6 +5,15 @@ import Catch from "./Catch.astro"
   <Catch isLoading />
 </div>
 
+<script type="module">
+  const loading = document.querySelector('.c-loading');
+  loading.style.opacity = 0;
+
+  setTimeout(() => {
+    loading.style.opacity = 1;
+  }, 10);
+</script>
+
 <style>
   .c-loading {
     width: 100vw;
