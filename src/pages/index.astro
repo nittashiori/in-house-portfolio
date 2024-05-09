@@ -79,38 +79,6 @@ import SectionWorks from '../components/SectionWorks.astro';
 		onEnterBack: () => gsap.to(MV, { opacity: 0.2, duration: 0.5 }),
     markers: false,
   });
-
-  // 監視対象の要素を選択
-  const targetElement = document.querySelector('.c-catch');
-
-  // `MutationObserver` のコールバック関数
-  const callback = function(mutationsList: any, observer: any) {
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-        const target = mutation.target;
-        if (target.classList.contains('is-loading')) {
-          document.body.style.opacity = '1';
-        } else {
-          document.body.style.opacity = '0';
-        }
-      }
-    }
-  };
-
-  // オブザーバーのインスタンスを作成し、設定を指定
-  const observer = new MutationObserver(callback);
-
-  // オブザーバーの設定オプション
-  const config = {
-      attributes: true, // 属性の変更を監視
-      attributeFilter: ['class'] // 'class' 属性の変更のみ監視
-  };
-
-  // 監視を開始
-  if (targetElement) {
-    observer.observe(targetElement, config);
-  }
-
 </script>
 
 <style>
