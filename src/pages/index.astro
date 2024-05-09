@@ -29,28 +29,26 @@ import SectionWorks from '../components/SectionWorks.astro';
   localStorage.clear();
   const htmlElement = document.getElementsByTagName('html')
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const loadingElement = document.querySelector('.c-loading');
-    const visited = localStorage.getItem('visited');
-    if (!visited) {
-      // 初回訪問時の処理
-      htmlElement[0].classList.add("is-loading");
-      document.addEventListener('touchmove', noscroll, { passive: false });
-      document.addEventListener('wheel', noscroll, { passive: false });
-      localStorage.setItem('visited', String(true));
-      setTimeout(() => {
-        htmlElement[0].classList.remove("is-loading");
-        loadingElement?.classList.add('is-hidden');
-        document.removeEventListener('touchmove', noscroll);
-        document.removeEventListener('wheel', noscroll);
-      }, 3900);
-    } else {
-      // 既に訪問したことがある場合
+  const loadingElement = document.querySelector('.c-loading');
+  const visited = localStorage.getItem('visited');
+  if (!visited) {
+    // 初回訪問時の処理
+    htmlElement[0].classList.add("is-loading");
+    document.addEventListener('touchmove', noscroll, { passive: false });
+    document.addEventListener('wheel', noscroll, { passive: false });
+    localStorage.setItem('visited', String(true));
+    setTimeout(() => {
+      htmlElement[0].classList.remove("is-loading");
       loadingElement?.classList.add('is-hidden');
       document.removeEventListener('touchmove', noscroll);
       document.removeEventListener('wheel', noscroll);
-    }
-  });
+    }, 3900);
+  } else {
+    // 既に訪問したことがある場合
+    loadingElement?.classList.add('is-hidden');
+    document.removeEventListener('touchmove', noscroll);
+    document.removeEventListener('wheel', noscroll);
+  }
   
 	import { gsap } from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
