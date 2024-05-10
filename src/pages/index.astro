@@ -32,6 +32,12 @@ import SectionWorks from '../components/SectionWorks.astro';
   document.addEventListener('DOMContentLoaded', function() {
     const loadingElement = document.querySelector('.c-loading');
     const visited = localStorage.getItem('visited');
+
+    function removeScrollLock() {
+      document.removeEventListener('touchmove', noscroll);
+      document.removeEventListener('wheel', noscroll);
+    }
+    
     if (!visited) {
       // 初回訪問時の処理
       htmlElement[0].classList.add("is-loading");
@@ -43,14 +49,12 @@ import SectionWorks from '../components/SectionWorks.astro';
       }, 3700);
       setTimeout(() => {
         loadingElement?.classList.add('is-hidden');
-        document.removeEventListener('touchmove', noscroll);
-        document.removeEventListener('wheel', noscroll);
+        removeScrollLock();
       }, 3900);
     } else {
       // 既に訪問したことがある場合
       loadingElement?.classList.add('is-hidden');
-      document.removeEventListener('touchmove', noscroll);
-      document.removeEventListener('wheel', noscroll);
+      removeScrollLock();
     }
   });
   
