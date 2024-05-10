@@ -2,8 +2,17 @@
 import Catch from "./Catch.astro"
 ---
 <div class="c-loading">
-  <Catch isLoading />
+  <div class="inner">
+    <Catch isLoading />
+  </div>
 </div>
+
+<script type="module">
+  const loadingInner = document.querySelector('.c-loading .inner');
+  document.addEventListener('DOMContentLoaded', function() {
+    loadingInner.style.opacity = 1;
+  });
+</script>
 
 <style>
   .c-loading {
@@ -16,6 +25,20 @@ import Catch from "./Catch.astro"
     left: 0;
     z-index: 9999;
     background: var(--color-background-default);
+
+    &::before {
+      width: 100%;
+      height: 100%;
+      content: '';
+      background: var(--color-background-default);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .inner {
+      opacity: 0;
+    }
 
     &.is-hidden {
       display: none;

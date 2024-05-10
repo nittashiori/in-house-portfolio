@@ -26,16 +26,18 @@ import SectionWorks from '../components/SectionWorks.astro';
   }
 
   // 初回確認
-  // localStorage.clear();
+  localStorage.clear();
   const htmlElement = document.getElementsByTagName('html')
-  const bodyElement = document.getElementsByTagName('body')
-  setTimeout(() => {
-    bodyElement[0].style.opacity = "1";
-  }, 1);
 
   document.addEventListener('DOMContentLoaded', function() {
     const loadingElement = document.querySelector('.c-loading');
     const visited = localStorage.getItem('visited');
+
+    function removeScrollLock() {
+      document.removeEventListener('touchmove', noscroll);
+      document.removeEventListener('wheel', noscroll);
+    }
+    
     if (!visited) {
       // 初回訪問時の処理
       htmlElement[0].classList.add("is-loading");
@@ -44,15 +46,15 @@ import SectionWorks from '../components/SectionWorks.astro';
       localStorage.setItem('visited', String(true));
       setTimeout(() => {
         htmlElement[0].classList.remove("is-loading");
+      }, 3700);
+      setTimeout(() => {
         loadingElement?.classList.add('is-hidden');
-        document.removeEventListener('touchmove', noscroll);
-        document.removeEventListener('wheel', noscroll);
-      }, 4000);
+        removeScrollLock();
+      }, 3900);
     } else {
       // 既に訪問したことがある場合
       loadingElement?.classList.add('is-hidden');
-      document.removeEventListener('touchmove', noscroll);
-      document.removeEventListener('wheel', noscroll);
+      removeScrollLock();
     }
   });
   
@@ -86,27 +88,10 @@ import SectionWorks from '../components/SectionWorks.astro';
 </script>
 
 <style>
-  html {
-    body {
-      opacity: 0;
-    }
-
-    .c-header {
-      transition: .6s;
-    }
-
-    div.c-mv {
-      z-index: -1;
-    }
-  }
   html.is-loading {
     .c-header {
       transform: translateY(-100%);
       -webkit-transfrom: translateY(-100%);
-    }
-
-    div.c-mv {
-      z-index: 2;
     }
   }
 	.main {
