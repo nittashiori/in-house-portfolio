@@ -23,11 +23,61 @@ const safeBackground = backgroundStyles[background] || background;
   <slot />
 </section>
 
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const sections = document.querySelectorAll('.c-section');
+  sections.forEach((section) => {
+    const heading = section.querySelector('.c-section-heading-main') as HTMLElement;
+
+    const text = heading?.innerText?.replace(/ /g, '') ?? '';
+    let newHTML = '';
+
+    for (let char of text ?? '') {
+      // 文字をspanタグで囲み、クラスを追加
+      newHTML += `<span class="char">${char}</span>`;
+    }
+
+    if (heading) {
+      heading.innerHTML = newHTML;
+    }
+
+    const char = heading?.querySelectorAll('.char') as NodeListOf<HTMLElement>;
+
+    gsap.to(char, {
+      y: 0,
+      stagger: 0.05,
+      duration: 0.2,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: heading,
+        start: "top 95%",
+        end: "center 80%",
+        markers: false,
+      }
+    });
+  })
+</script>
+
 <style>
   .c-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: var(--space-xl-4) var(--space-m);
+  }
+</style>
+
+<style is:global>
+  .c-section-heading-main {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+    .char {
+      display: inline-block;
+      transform: translateY(1.5em);
+      transition: transfrom .4s;
+    }
   }
 </style>
