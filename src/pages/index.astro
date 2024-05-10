@@ -40,6 +40,8 @@ import SectionWorks from '../components/SectionWorks.astro';
       localStorage.setItem('visited', String(true));
       setTimeout(() => {
         htmlElement[0].classList.remove("is-loading");
+      }, 3700);
+      setTimeout(() => {
         loadingElement?.classList.add('is-hidden');
         document.removeEventListener('touchmove', noscroll);
         document.removeEventListener('wheel', noscroll);
