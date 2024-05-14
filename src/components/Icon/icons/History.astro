@@ -2,11 +2,12 @@
 interface Props {
   fill?: boolean;
   className?: string;
+  ariaHidden?: boolean;
 }
 
-const { fill, className = '' } = Astro.props;
+const { fill, className = '', ariaHidden = true } = Astro.props;
 ---
-<svg class={`icon ${className || ''}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class={`icon ${className || ''}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden={ariaHidden}>
   { fill ? 
     <path class="fill" d="M12 2.00001C17.523 2.00001 22 6.47701 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12H4C4.00015 13.8812 4.66326 15.7023 5.87283 17.1431C7.0824 18.5839 8.76104 19.5524 10.6138 19.8784C12.4666 20.2043 14.375 19.8669 16.0037 18.9254C17.6324 17.984 18.8772 16.4986 19.5194 14.7304C20.1616 12.9622 20.1601 11.0242 19.5152 9.25692C18.8703 7.48967 17.6233 6.00623 15.9931 5.06722C14.363 4.12821 12.4541 3.79372 10.6018 4.12251C8.74954 4.45129 7.07237 5.42233 5.865 6.86501L8 9.00001H2V3.00001L4.447 5.44601C5.38476 4.36304 6.54473 3.49471 7.84805 2.90009C9.15136 2.30546 10.5674 1.99847 12 2.00001ZM13 7.00001V11.585L16.243 14.828L14.828 16.243L11 12.413V7.00001H13Z"/>
     :

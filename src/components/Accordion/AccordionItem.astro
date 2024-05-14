@@ -7,37 +7,44 @@ interface Props {
 
 const {
   /** ID */
-  id = '',
+  id = 'js-accordion',
   /** Class */
   className = '',
   /** 初期は開いてる状態にする */
   isOpen = false
 } = Astro.props;
 ---
-<div
+<details
   {...(id ? { id: id } : {})}
   class={`c-accordion-item ${className || ''} ${isOpen ? 'is-open' : ''}`}
 >
   <slot />
-</div>
+</details>
 
 <style>
   .c-accordion-item {
+    display: block;
     width: 100%;
     border-bottom: 1px solid var(--color-border-default);
 
     .c-accordion-panel {
-      overflow: hidden;
+      /* overflow: hidden;
       transition: height 0.3s ease-out;
-      height: 0;
+      height: 0; */
+      display: grid;
+      transition: grid-template-rows .4s;
+
+      .wrap {
+        overflow: hidden;
+      }
     }
 
-    &.is-open {
+    /* &.is-open {
       .c-accordion-panel {
         overflow: visible;
         height: auto;
       }
-    }
+    } */
   }
 </style>
 

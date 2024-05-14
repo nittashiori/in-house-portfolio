@@ -22,7 +22,9 @@ const {
   aria-hidden="false"
 >
   <div class="wrap">
-    <slot/>
+    <div class="inner">
+      <slot/>
+    </div>
   </div>
 </div>
 
@@ -30,7 +32,7 @@ const {
   .c-accordion-panel {
     width: 100%;
     
-    .wrap {
+    .inner {
       padding: var(--space-2);
     }
   }
