@@ -2,18 +2,16 @@
 interface Props {
   href?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
-  direction?: 'row' | 'column' ;
   rel?: string;
 }
 
 const {
   href,
   target = '_self',
-  direction = 'row',
   rel = 'noopener noreferrer',
 } = Astro.props;
 ---
-<div class=`c-work-item ${direction}`>
+<div class="c-work-item">
   <a href={href} target={target} rel={rel}>
     <slot />
   </a>
@@ -26,10 +24,6 @@ const {
     .c-work-thumbnail,
     .c-work-item-content {
       width: 100%;
-      transition: .4s;
-    }
-
-    .c-typography {
       transition: .4s;
     }
 
@@ -46,10 +40,6 @@ const {
             .c-image {
               scale: 1.02;
             }
-          }
-
-          .c-typography {
-            color: var(--color-foreground-primary) !important;
           }
         }
       }
@@ -69,28 +59,11 @@ const {
       }
     }
 
-    &.row {
-      &:nth-child(2n) {
-        @media (min-width: 768px) {
-          > a {
-            flex-direction: row-reverse;
-          }
+    &:nth-child(2n) {
+      @media (min-width: 768px) {
+        > a {
+          flex-direction: row-reverse;
         }
-      }
-    }
-
-    &.column {
-      > a {
-        flex-direction: column;
-      }
-
-      .c-work-thumbnail,
-      .c-work-item-content {
-        width: 100%;
-      }
-
-      .c-work-item-content {
-        padding: var(--space-s) 0;
       }
     }
   }
