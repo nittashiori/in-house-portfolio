@@ -28,7 +28,9 @@ import Footer from '../components/Footer.astro';
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
+		<link rel=icon sizes=32x32 href=/favicon.ico>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | 新田詩織 社内ポートフォリオ</title>
 		<meta name="description" content={description}>
@@ -38,11 +40,12 @@ import Footer from '../components/Footer.astro';
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content={ogImage} />
-		<meta name="twitter:card" content="summary">
+		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@yourTwitterAccount">
 		<meta name="twitter:title" content=`${title} | 新田詩織 社内ポートフォリオ`>
 		<meta name="twitter:description" content={description}>
 		<meta name="twitter:image" content={ogImage}>
+		<meta content="light dark" name=color-scheme>
 		<meta name="robots" content="noindex, nofollow">
 		<script>
 			const html = document.querySelector('html');
