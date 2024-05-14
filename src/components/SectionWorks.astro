@@ -14,91 +14,154 @@ import WorkThumbnail from '../components/WorkThumbnail.astro'
       <SectionHeadingSub>制作物</SectionHeadingSub>
       <SectionHeadingMain>WORKS</SectionHeadingMain>
     </SectionHeading>
-    <Stack direction="column" gap={{ sm: "4rem", md: "6.4rem", lg: "12rem" }}>
-      <WorkItem href="https://www.loyalty.co.jp/" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image01.png',
-          src2x = '/images/work-image01@2x.png',
-          srcWebp = '/images/work-image01.webp',
-          srcWebp2x = '/images/work-image01@2x.webp',
-          alt = 'Loyalty Marketing',
-        />
-        <WorkItemContent
-          subtitle="コーポレートサイト"
-          title="ロイヤリティマーケティング"
-          description="デザイン"
-        />
-      </WorkItem>
-      <WorkItem href="https://jdleague.jp/" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image02.png',
-          src2x = '/images/work-image02@2x.png',
-          srcWebp = '/images/work-image02.webp',
-          srcWebp2x = '/images/work-image02@2x.webp',
-          alt = 'JDリーグ',
-        />
-        <WorkItemContent
-          subtitle="コーポレートサイト"
-          title="JDリーグ"
-          description="デザイン／コーディング"
-        />
-      </WorkItem>
-      <WorkItem href="https://www.art-japan.co.jp/" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image03.png',
-          src2x = '/images/work-image03@2x.png',
-          srcWebp = '/images/work-image03.webp',
-          srcWebp2x = '/images/work-image03@2x.webp',
-          alt = '株式会社アート',
-        />
-        <WorkItemContent
-          subtitle="コーポレートサイト"
-          title="株式会社アート"
-          description="コーディング／WordPress"
-        />
-      </WorkItem>
-      <WorkItem href="https://emonote.jp/" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image04.png',
-          src2x = '/images/work-image04@2x.png',
-          srcWebp = '/images/work-image04.webp',
-          srcWebp2x = '/images/work-image04@2x.webp',
-          alt = 'エモノート',
-        />
-        <WorkItemContent
-          subtitle="レビューサイト"
-          title="エモノート"
-          description="デザイン"
-        />
-      </WorkItem>
-      <WorkItem href="https://www.yamada-denkiweb.com/?utm_source=google&utm_medium=cpc&utm_campaign=brand&utm_term=00004_g_b&gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJe_A_0QY1zfoYJhsbry3C4Iup8DIMEPPzb-HDy7y1SILu2WeaSwLXxoCh78QAvD_BwE" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image05.png',
-          src2x = '/images/work-image05@2x.png',
-          srcWebp = '/images/work-image05.webp',
-          srcWebp2x = '/images/work-image05@2x.webp',
-          alt = 'ヤマダウェブコム',
-        />
-        <WorkItemContent
-          subtitle="ECサイト"
-          title="ヤマダウェブコム"
-          description="コーディング"
-        />
-      </WorkItem>
-      <WorkItem href="https://www.n-pri.jp/app/shimaumabook/" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image06.png',
-          src2x = '/images/work-image06@2x.png',
-          srcWebp = '/images/work-image06.webp',
-          srcWebp2x = '/images/work-image06@2x.webp',
-          alt = 'しまうまプリント フォトブックアプリ',
-        />
-        <WorkItemContent
-          subtitle="ランディングページ"
-          title="しまうまプリント フォトブックアプリ"
-          description="デザイン／コーディング"
-        />
-      </WorkItem>
-    </Stack>
+    <div class="list">
+      <Stack direction="row" justifyContent="flex-start" gap={{ sm: "4rem", md: "4rem", lg: "6.4rem" }}>
+        <WorkItem href="https://www.loyalty.co.jp/" target="_blank" direction="column">
+          <WorkThumbnail
+            src = '/images/work-image01.png',
+            src2x = '/images/work-image01@2x.png',
+            srcWebp = '/images/work-image01.webp',
+            srcWebp2x = '/images/work-image01@2x.webp',
+            alt = 'Loyalty Marketing',
+          />
+          <WorkItemContent
+            subtitle="コーポレートサイト"
+            title="ロイヤリティマーケティング"
+            description="デザイン"
+          />
+        </WorkItem>
+        <WorkItem href="https://jdleague.jp/" target="_blank" direction="column">
+          <WorkThumbnail
+            src = '/images/work-image02.png',
+            src2x = '/images/work-image02@2x.png',
+            srcWebp = '/images/work-image02.webp',
+            srcWebp2x = '/images/work-image02@2x.webp',
+            alt = 'JDリーグ',
+          />
+          <WorkItemContent
+            subtitle="コーポレートサイト"
+            title="JDリーグ"
+            description="デザイン／コーディング"
+          />
+        </WorkItem>
+        <WorkItem href="https://www.art-japan.co.jp/" target="_blank" direction="column">
+          <WorkThumbnail
+            src = '/images/work-image03.png',
+            src2x = '/images/work-image03@2x.png',
+            srcWebp = '/images/work-image03.webp',
+            srcWebp2x = '/images/work-image03@2x.webp',
+            alt = '株式会社アート',
+          />
+          <WorkItemContent
+            subtitle="コーポレートサイト"
+            title="株式会社アート"
+            description="コーディング／WordPress"
+          />
+        </WorkItem>
+        <WorkItem href="https://emonote.jp/" target="_blank" direction="column">
+          <WorkThumbnail
+            src = '/images/work-image04.png',
+            src2x = '/images/work-image04@2x.png',
+            srcWebp = '/images/work-image04.webp',
+            srcWebp2x = '/images/work-image04@2x.webp',
+            alt = 'エモノート',
+          />
+          <WorkItemContent
+            subtitle="レビューサイト"
+            title="エモノート"
+            description="デザイン"
+          />
+        </WorkItem>
+        <WorkItem href="https://www.yamada-denkiweb.com/?utm_source=google&utm_medium=cpc&utm_campaign=brand&utm_term=00004_g_b&gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJe_A_0QY1zfoYJhsbry3C4Iup8DIMEPPzb-HDy7y1SILu2WeaSwLXxoCh78QAvD_BwE" target="_blank" direction="column">
+          <WorkThumbnail
+            src = '/images/work-image05.png',
+            src2x = '/images/work-image05@2x.png',
+            srcWebp = '/images/work-image05.webp',
+            srcWebp2x = '/images/work-image05@2x.webp',
+            alt = 'ヤマダウェブコム',
+          />
+          <WorkItemContent
+            subtitle="ECサイト"
+            title="ヤマダウェブコム"
+            description="コーディング"
+          />
+        </WorkItem>
+        <WorkItem href="https://www.n-pri.jp/app/shimaumabook/" target="_blank" direction="column">
+          <WorkThumbnail
+            src = '/images/work-image06.png',
+            src2x = '/images/work-image06@2x.png',
+            srcWebp = '/images/work-image06.webp',
+            srcWebp2x = '/images/work-image06@2x.webp',
+            alt = 'しまうまプリント フォトブックアプリ',
+          />
+          <WorkItemContent
+            subtitle="ランディングページ"
+            title="しまうまプリント フォトブックアプリ"
+            description="デザイン／コーディング"
+          />
+        </WorkItem>
+      </Stack>
+    </div>
   </Stack>
 </Section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const section = document.querySelector('.c-section-works');
+  const list = document.querySelector('.c-section-works .list');
+  const stack = document.querySelector('.c-section-works .list .c-stack');
+  let stackHeight = stack?.clientHeight;
+  if (list) {
+    const list = document.querySelector('.c-section-works .list') as HTMLElement;
+    list.style.height = `${stackHeight}px`;
+  }
+  window.addEventListener('resize', () => {
+    stackHeight = listEl.clientHeight;
+    list.style.height = `${stackHeight}px`;
+  });
+
+  gsap.to(stack, {
+  x: () => -(stack.clientWidth - list.clientWidth),
+  ease: 'none',
+  scrollTrigger: {
+    trigger: section,
+    start: 'top top',
+    end: () => `+=${stack.clientWidth - list.clientWidth}`,
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+  }
+})
+</script>
+
+<style is:global>
+  .c-section-works {
+    overflow: hidden;
+
+    .list {
+      width: 100%;
+      min-height: 64vh;
+      position: relative;
+
+      > .c-stack {
+        width: auto;
+        flex-direction: row;
+        position: absolute;
+      }
+
+      .c-work-item {
+        width: 88vw;
+      }
+
+      @media (min-width: 768px) {
+        .c-work-item {
+          width: 28vw;
+        }
+      }
+    }
+  }
+</style>
