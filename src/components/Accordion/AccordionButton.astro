@@ -19,16 +19,15 @@ const {
 
 import Icon from '../Icon/Icon.astro';
 ---
-<button
+<summary
   {...(id ? { id: id } : {})}
   class={`c-accordion-button text-body-m ${className || ''}`}
-  type="button"
   aria-expanded={ariaExpanded ? 'true' : 'false'}
   aria-controls={ariaControls}
 >
 <slot />
 <Icon className="arrow" name="arrow-down-s" />
-</button>
+</summary>
 
 <style>
   .c-accordion-button {
@@ -39,6 +38,11 @@ import Icon from '../Icon/Icon.astro';
     gap: 0.5em;
     padding: var(--space-2) var(--space-8) var(--space-2) var(--space-2);
     position: relative;
+    cursor: pointer;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
 
     @media (hover: hover) {
       &:hover {

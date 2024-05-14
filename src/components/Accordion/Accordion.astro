@@ -24,49 +24,49 @@ const {
 
 <script type="module">
   document.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll('.c-accordion-item');
+    const details = document.querySelectorAll('.c-accordion-item');
 
-    elements.forEach(element => {
-      const button = element.querySelector('.c-accordion-button');
-      const panel = element.querySelector('.c-accordion-panel');
-
-      if(element.classList.contains('is-open')) {
-        button.classList.add('is-active');
-        button.setAttribute('aria-expanded', 'true');
-        panel.style.height = panel.scrollHeight + 'px';
-      } else {
-        button.setAttribute('aria-expanded', 'false');
-        panel.setAttribute('aria-hidden', 'true');
+    details.forEach(detail => {
+      const summary = detail.querySelector('.c-accordion-button');
+      const panel = detail.querySelector('.c-accordion-panel');
+      let isTransitioning = false // 連打防止フラグ
+      
+      const onOpen = () => {
+        if(detail.open || isTransitioning) {
+          return;
+        }
+        console.log(summary)
+        isTransitioning = true;
+        panel.style.gridTemplateRows = '0fr';
+        detail.setAttribute('open', '');
+        requestAnimationFrame(() => {
+          panel.style.gridTemplateRows = '1fr';
+        })
+        panel.addEventListener('transitionend', () => {
+          isTransitioning = false;
+        }, { once: true });
       }
 
-      button.addEventListener('click', function() {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-
-        this.classList.toggle('is-active');
-        this.setAttribute('aria-expanded', !expanded);
-        panel.setAttribute('aria-hidden', expanded);
-        
-        if(element.classList.contains('is-open')) {
-          element.classList.remove('is-open');
+      const onClose = () => {
+        if(!detail.open || isTransitioning) {
+          return;
         }
-
-        if (!expanded) {
-          panel.style.height = panel.scrollHeight + 'px';
-        } else {
-          panel.style.height = panel.scrollHeight + 'px';
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              panel.style.height = '0';
-            });
-          });
-        }
-
+        isTransitioning = true;
+        panel.style.gridTemplateRows = '0fr';
         panel.addEventListener('transitionend', () => {
-          if (!expanded) {
-            panel.style.height = 'auto';
-          }
-        }, { once: true });
-      });
+          detail.removeAttribute('open');
+          isTransitioning = false;
+        }, { once: true })
+      }
+
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (detail.open) {
+          onClose()
+        } else {
+          onOpen()
+        }
+      })
     });
   });
 </script>
