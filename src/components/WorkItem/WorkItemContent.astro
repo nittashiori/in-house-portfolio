@@ -16,9 +16,9 @@ import Typography from "../Typography.astro"
 import Divider from "../Divider.astro"
 ---
 <div class="c-work-item-content">
-  <Stack direction="column" gap="8px">
+  <Stack as="hgroup" direction="column" gap="8px">
     <Typography size="label-xs" color="description">{subtitle}</Typography>
-    <Typography size="body-l" weight="bold">{title}</Typography>
+    <Typography as="h3" size="body-l" weight="bold">{title}</Typography>
   </Stack>
   <Divider />
   <Typography size="body-s">{description}</Typography>
