@@ -8,9 +8,14 @@ import Catch from "./Catch.astro"
 </div>
 
 <script type="module">
+  const loading = document.querySelector('.c-loading');
   const loadingInner = document.querySelector('.c-loading .inner');
   document.addEventListener('DOMContentLoaded', function() {
     loadingInner.style.opacity = 1;
+
+    setTimeout(() => {
+      loading.style.zIndex = "999";
+    }, 1000);
   });
 </script>
 
