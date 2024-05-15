@@ -139,17 +139,6 @@ import Icon from '../components/Icon/Icon.astro'
       },
     }
   } ).mount();
-
-  // スライド内のリンクにフォーカスを当てる処理
-  const slides = document.querySelectorAll('.splide__slide a');
-  slides.forEach(slide => {
-    slide.addEventListener('focus', () => {
-      console.log(slide)
-      // フォーカス時にそのスライドを表示
-      const index = Array.from(slides).indexOf(slide);
-      splide.go(index);
-    });
-  });
 </script>
 
 <style>
