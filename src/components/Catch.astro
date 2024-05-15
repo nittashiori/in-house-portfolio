@@ -93,58 +93,55 @@ const {
 
 <script>
   import { gsap } from 'gsap';
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if(!prefersReducedMotion) {
-    const catchElements = document.querySelectorAll('.c-catch');
-    catchElements.forEach((catchElement) => {
-      const face = catchElement.querySelector('.face');
-      const subject = catchElement.querySelector('.subject');
-      const text = subject?.textContent;
-      let index = 0;
+  const catchElements = document.querySelectorAll('.c-catch');
+  catchElements.forEach((catchElement) => {
+    const face = catchElement.querySelector('.face');
+    const subject = catchElement.querySelector('.subject');
+    const text = subject?.textContent;
+    let index = 0;
 
-      if(catchElement.classList.contains('is-loading')) {
-        // アニメーション読み込み
-        if (subject) {
-          subject.textContent = '';
-          (subject as HTMLElement).style.visibility = 'visible';
-        }
-        setTimeout(() => {
-          gsap.to(face, (
-            {
-              duration: .6,
-              y: 0,
-            }
-          ))
-        }, 800);
-
-        function type() {
-          if (index < (text?.length ?? 0)) {
-            if (subject) {
-              subject.textContent += text?.charAt(index) ?? '';
-              if (subject?.textContent) {
-                (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
-              }
-            }
-            index++;
-            setTimeout(type, 100); // 100ミリ秒ごとに次の文字を追加
-          } else {
-            subject?.classList.add('no-cursor');
+    if(catchElement.classList.contains('is-loading')) {
+      // アニメーション読み込み
+      if (subject) {
+        subject.textContent = '';
+        (subject as HTMLElement).style.visibility = 'visible';
+      }
+      setTimeout(() => {
+        gsap.to(face, (
+          {
+            duration: .6,
+            y: 0,
           }
-        }
+        ))
+      }, 800);
 
-        setTimeout(type, 1400); // アニメーションを開始
-      } else {
-        if (subject) {
-          (subject as HTMLElement).style.visibility = 'visible';
-          if (subject?.textContent) {
-            (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
-            subject?.classList.add('no-cursor');
+      function type() {
+        if (index < (text?.length ?? 0)) {
+          if (subject) {
+            subject.textContent += text?.charAt(index) ?? '';
+            if (subject?.textContent) {
+              (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
+            }
           }
+          index++;
+          setTimeout(type, 100); // 100ミリ秒ごとに次の文字を追加
+        } else {
+          subject?.classList.add('no-cursor');
         }
       }
-    })
-  }
+
+      setTimeout(type, 1400); // アニメーションを開始
+    } else {
+      if (subject) {
+        (subject as HTMLElement).style.visibility = 'visible';
+        if (subject?.textContent) {
+          (subject as HTMLElement).style.maxWidth = `${subject.textContent.length}ch`;
+          subject?.classList.add('no-cursor');
+        }
+      }
+    }
+  })
 </script>
 
 <style>
