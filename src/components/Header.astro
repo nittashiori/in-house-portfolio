@@ -12,6 +12,10 @@ import Hamburger from './Hamburger.astro';
 <script type="module">
   const navigation = document.querySelector('.c-navigation');
   const hamburger = document.querySelector('.c-hamburger');
+  const focusableContent = navigation.querySelectorAll('a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
+  const focusableElements = [hamburger, ...focusableContent];
+  const firstFocusableElement = focusableElements[0];
+  const lastFocusableElement = focusableContent[focusableContent.length - 1];
 
   hamburger.addEventListener('click', () => {
     toggleHamburger();
@@ -36,10 +40,35 @@ import Hamburger from './Hamburger.astro';
       navigation.classList.remove('is-expanded');
       hamburger.classList.remove('is-expanded');
       hamburger.setAttribute('aria-pressed', false);
+      document.removeEventListener('keydown', trapFocus);
     } else {
       navigation.classList.add('is-expanded');
       hamburger.classList.add('is-expanded');
       hamburger.setAttribute('aria-pressed', true);
+      hamburger.focus();
+      document.addEventListener('keydown', trapFocus);
+    }
+  }
+
+  function trapFocus(event) {
+    const isTabPressed = event.key === 'Tab' || event.keyCode === 9;
+
+    if (!isTabPressed) {
+      return;
+    }
+
+    if (event.shiftKey) {
+      // shift + tab
+      if (document.activeElement === firstFocusableElement) {
+        lastFocusableElement.focus();
+        event.preventDefault();
+      }
+    } else {
+      // tab
+      if (document.activeElement === lastFocusableElement) {
+        firstFocusableElement.focus();
+        event.preventDefault();
+      }
     }
   }
 </script>
