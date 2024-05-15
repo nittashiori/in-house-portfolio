@@ -27,38 +27,41 @@ const safeBackground = backgroundStyles[background] || background;
   import { gsap } from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const sections = document.querySelectorAll('.c-section');
-  sections.forEach((section) => {
-    const heading = section.querySelector('.c-section-heading-main') as HTMLElement;
+  if(!prefersReducedMotion) {
+    const sections = document.querySelectorAll('.c-section');
+    sections.forEach((section) => {
+      const heading = section.querySelector('.c-section-heading-main') as HTMLElement;
 
-    const text = heading?.innerText?.replace(/ /g, '') ?? '';
-    let newHTML = '';
+      const text = heading?.innerText?.replace(/ /g, '') ?? '';
+      let newHTML = '';
 
-    for (let char of text ?? '') {
-      // 文字をspanタグで囲み、クラスを追加
-      newHTML += `<span class="char">${char}</span>`;
-    }
-
-    if (heading) {
-      heading.innerHTML = newHTML;
-    }
-
-    const char = heading?.querySelectorAll('.char') as NodeListOf<HTMLElement>;
-
-    gsap.to(char, {
-      y: 0,
-      stagger: 0.05,
-      duration: 0.2,
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: heading,
-        start: "top 95%",
-        end: "center 80%",
-        markers: false,
+      for (let char of text ?? '') {
+        // 文字をspanタグで囲み、クラスを追加
+        newHTML += `<span class="char">${char}</span>`;
       }
-    });
-  })
+
+      if (heading) {
+        heading.innerHTML = newHTML;
+      }
+
+      const char = heading?.querySelectorAll('.char') as NodeListOf<HTMLElement>;
+
+      gsap.to(char, {
+        y: 0,
+        stagger: 0.05,
+        duration: 0.2,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: heading,
+          start: "top 95%",
+          end: "center 80%",
+          markers: false,
+        }
+      });
+    })
+  }
 </script>
 
 <style>

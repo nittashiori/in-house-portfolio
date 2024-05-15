@@ -8,24 +8,27 @@
 import { gsap } from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const balloons = document.querySelectorAll('.c-message-balloon');
+  if(!prefersReducedMotion) {
+    const balloons = document.querySelectorAll('.c-message-balloon');
 
-  balloons.forEach((balloon) => {
-    gsap.from(balloon, {
-      y: 100,
-      scale: 0,
-      ease: "back.out(1.7)",
-      scrollTrigger: {
-        trigger: balloon,
-        start: "top bottom",
-        end: "center 70%",
-        once: true,
-        scrub: true,
-        markers: false,
-      }
+    balloons.forEach((balloon) => {
+      gsap.from(balloon, {
+        y: 100,
+        scale: 0,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: balloon,
+          start: "top bottom",
+          end: "center 70%",
+          once: true,
+          scrub: true,
+          markers: false,
+        }
+      });
     });
-  });
+  }
 </script>
 
 <style>
