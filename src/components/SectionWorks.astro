@@ -7,6 +7,7 @@ import SectionHeadingSub from '../components/SectionHeading/SectionHeadingSub.as
 import WorkItem from '../components/WorkItem/WorkItem.astro'
 import WorkItemContent from '../components/WorkItem/WorkItemContent.astro'
 import WorkThumbnail from '../components/WorkThumbnail.astro'
+import Icon from '../components/Icon/Icon.astro'
 ---
 <Section id="works" className="c-section-works" background="muted">
   <Stack direction="column" gap={{ sm: "6.4rem", md: "8rem", lg: "8rem" }} alignItems="center" width={{ sm: "100%", md: "92%", lg: "92%" }}>
@@ -14,91 +15,187 @@ import WorkThumbnail from '../components/WorkThumbnail.astro'
       <SectionHeadingSub>制作物</SectionHeadingSub>
       <SectionHeadingMain>WORKS</SectionHeadingMain>
     </SectionHeading>
-    <Stack direction="column" gap={{ sm: "4rem", md: "6.4rem", lg: "12rem" }}>
-      <WorkItem href="https://www.loyalty.co.jp/" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image01.png',
-          src2x = '/images/work-image01@2x.png',
-          srcWebp = '/images/work-image01.webp',
-          srcWebp2x = '/images/work-image01@2x.webp',
-          alt = 'Loyalty Marketing',
-        />
-        <WorkItemContent
-          subtitle="コーポレートサイト"
-          title="ロイヤリティマーケティング"
-          description="デザイン"
-        />
-      </WorkItem>
-      <WorkItem href="https://jdleague.jp/" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image02.png',
-          src2x = '/images/work-image02@2x.png',
-          srcWebp = '/images/work-image02.webp',
-          srcWebp2x = '/images/work-image02@2x.webp',
-          alt = 'JDリーグ',
-        />
-        <WorkItemContent
-          subtitle="コーポレートサイト"
-          title="JDリーグ"
-          description="デザイン／コーディング"
-        />
-      </WorkItem>
-      <WorkItem href="https://www.art-japan.co.jp/" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image03.png',
-          src2x = '/images/work-image03@2x.png',
-          srcWebp = '/images/work-image03.webp',
-          srcWebp2x = '/images/work-image03@2x.webp',
-          alt = '株式会社アート',
-        />
-        <WorkItemContent
-          subtitle="コーポレートサイト"
-          title="株式会社アート"
-          description="コーディング／WordPress"
-        />
-      </WorkItem>
-      <WorkItem href="https://emonote.jp/" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image04.png',
-          src2x = '/images/work-image04@2x.png',
-          srcWebp = '/images/work-image04.webp',
-          srcWebp2x = '/images/work-image04@2x.webp',
-          alt = 'エモノート',
-        />
-        <WorkItemContent
-          subtitle="レビューサイト"
-          title="エモノート"
-          description="デザイン"
-        />
-      </WorkItem>
-      <WorkItem href="https://www.yamada-denkiweb.com/?utm_source=google&utm_medium=cpc&utm_campaign=brand&utm_term=00004_g_b&gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJe_A_0QY1zfoYJhsbry3C4Iup8DIMEPPzb-HDy7y1SILu2WeaSwLXxoCh78QAvD_BwE" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image05.png',
-          src2x = '/images/work-image05@2x.png',
-          srcWebp = '/images/work-image05.webp',
-          srcWebp2x = '/images/work-image05@2x.webp',
-          alt = 'ヤマダウェブコム',
-        />
-        <WorkItemContent
-          subtitle="ECサイト"
-          title="ヤマダウェブコム"
-          description="コーディング"
-        />
-      </WorkItem>
-      <WorkItem href="https://www.n-pri.jp/app/shimaumabook/" target="_blank">
-        <WorkThumbnail
-          src = '/images/work-image06.png',
-          src2x = '/images/work-image06@2x.png',
-          srcWebp = '/images/work-image06.webp',
-          srcWebp2x = '/images/work-image06@2x.webp',
-          alt = 'しまうまプリント フォトブックアプリ',
-        />
-        <WorkItemContent
-          subtitle="ランディングページ"
-          title="しまうまプリント フォトブックアプリ"
-          description="デザイン／コーディング"
-        />
-      </WorkItem>
-    </Stack>
+    <div class="splide-wrap">
+      <section class="splide" aria-label="Splideの基本的なHTML">
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev">
+            <Icon name="arrow-right-s" />
+          </button>
+          <button class="splide__arrow splide__arrow--next">
+            <Icon name="arrow-right-s" />
+          </button>
+        </div>
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <WorkItem direction="column" href="https://www.loyalty.co.jp/" target="_blank">
+                <WorkThumbnail
+                  src = '/images/work-image01.png',
+                  src2x = '/images/work-image01@2x.png',
+                  srcWebp = '/images/work-image01.webp',
+                  srcWebp2x = '/images/work-image01@2x.webp',
+                  alt = 'Loyalty Marketing',
+                />
+                <WorkItemContent
+                  subtitle="コーポレートサイト"
+                  title="ロイヤリティマーケティング"
+                  description="デザイン"
+                />
+              </WorkItem>
+            </li>
+            <li class="splide__slide">
+              <WorkItem direction="column" href="https://www.art-japan.co.jp/" target="_blank">
+                <WorkThumbnail
+                  src = '/images/work-image03.png',
+                  src2x = '/images/work-image03@2x.png',
+                  srcWebp = '/images/work-image03.webp',
+                  srcWebp2x = '/images/work-image03@2x.webp',
+                  alt = '株式会社アート',
+                />
+                <WorkItemContent
+                  subtitle="コーポレートサイト"
+                  title="株式会社アート"
+                  description="コーディング／WordPress"
+                />
+              </WorkItem>
+            </li>
+            <li class="splide__slide">
+              <WorkItem direction="column" href="https://emonote.jp/" target="_blank">
+                <WorkThumbnail
+                  src = '/images/work-image04.png',
+                  src2x = '/images/work-image04@2x.png',
+                  srcWebp = '/images/work-image04.webp',
+                  srcWebp2x = '/images/work-image04@2x.webp',
+                  alt = 'エモノート',
+                />
+                <WorkItemContent
+                  subtitle="レビューサイト"
+                  title="エモノート"
+                  description="デザイン"
+                />
+              </WorkItem>
+            </li>
+            <li class="splide__slide">
+              <WorkItem direction="column" href="https://www.yamada-denkiweb.com/?utm_source=google&utm_medium=cpc&utm_campaign=brand&utm_term=00004_g_b&gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJe_A_0QY1zfoYJhsbry3C4Iup8DIMEPPzb-HDy7y1SILu2WeaSwLXxoCh78QAvD_BwE" target="_blank">
+                <WorkThumbnail
+                  src = '/images/work-image05.png',
+                  src2x = '/images/work-image05@2x.png',
+                  srcWebp = '/images/work-image05.webp',
+                  srcWebp2x = '/images/work-image05@2x.webp',
+                  alt = 'ヤマダウェブコム',
+                />
+                <WorkItemContent
+                  subtitle="ECサイト"
+                  title="ヤマダウェブコム"
+                  description="コーディング"
+                />
+              </WorkItem>
+            </li>
+            <li class="splide__slide">
+              <WorkItem direction="column" href="https://www.n-pri.jp/app/shimaumabook/" target="_blank">
+                <WorkThumbnail
+                  src = '/images/work-image06.png',
+                  src2x = '/images/work-image06@2x.png',
+                  srcWebp = '/images/work-image06.webp',
+                  srcWebp2x = '/images/work-image06@2x.webp',
+                  alt = 'しまうまプリント フォトブックアプリ',
+                />
+                <WorkItemContent
+                  subtitle="ランディングページ"
+                  title="しまうまプリント フォトブックアプリ"
+                  description="デザイン／コーディング"
+                />
+              </WorkItem>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
   </Stack>
 </Section>
+
+<script>
+  import '@splidejs/splide/css';
+  import Splide from '@splidejs/splide';
+
+  new Splide( '.splide', {
+    type: "loop",
+    perPage: 3.5,
+    perMove: 1,
+    gap: '2.4em',
+    pagination: false,
+    slideFocus: true,
+    breakpoints: {
+      1200: {
+        perPage: 2.5,
+        gap: '1.6em',
+      },
+      768: {
+        perPage: 1.2,
+        perMove: 1,
+        gap: '1.2em',
+        arrows: false,
+        fixedWidth: 'calc(100% / 1.2)',
+      },
+    }
+  } ).mount();
+
+  // スライド内のリンクにフォーカスを当てる処理
+  const slides = document.querySelectorAll('.splide__slide a');
+  slides.forEach(slide => {
+    slide.addEventListener('focus', () => {
+      console.log(slide)
+      // フォーカス時にそのスライドを表示
+      const index = Array.from(slides).indexOf(slide);
+      splide.go(index);
+    });
+  });
+</script>
+
+<style>
+  .splide-wrap {
+    width: 95vw;
+    margin-left: 5vw;
+    position: relative;
+
+    .splide__arrows {
+      display: flex;
+      gap: 1.2rem;
+      position: absolute;
+      top: -128px;
+      right: 5vw;
+    }
+    .splide__arrow {
+      position: static;
+      width: 8rem;
+      height: 4rem;
+      background: transparent;
+      border: 1px solid var(--color-border-default);
+      color: var(--color-foreground-body);
+      border-radius: var(--round-m);
+
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-button-hover);
+        }
+      }
+    }
+
+    .splide__arrow svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: currentColor;
+    }
+
+    .splide.is-focus-in .splide__arrow:focus {
+      outline: none;
+      box-shadow: var(--shadow-focus);
+    }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .splide__arrows {
+        top: -112px;
+      }
+    }
+  }
+</style>
