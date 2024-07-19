@@ -12,10 +12,12 @@ import SectionWorks from '../components/SectionWorks.astro';
 	<main class="main">
     <Loading />
 		<MV />
-		<SectionProfile />
-		<SectionSkill />
-		<SectionConsult />
-		<SectionWorks />
+    <SectionProfile />
+    <div class="cover">
+      <SectionSkill />
+      <SectionConsult />
+      <SectionWorks />
+    </div>
 	</main>
 </Layout>
 
@@ -63,28 +65,79 @@ import SectionWorks from '../components/SectionWorks.astro';
   gsap.registerPlugin(ScrollTrigger);
 
   const MV = document.querySelector('.c-mv');
+  const sectionProfile = document.querySelector('.c-section-profile');
+  const cover = document.querySelector('.cover') as HTMLElement;
+  const sectionConsult = document.querySelector('.c-section-consult');
   const sectionWorks = document.querySelector('.c-section-works');
 
-	gsap.to(MV, {
+  gsap.to(MV, {
     opacity: 0.2,
-    ease: "power1.out",
     scrollTrigger: {
-      trigger: MV,
-      start: "center 20%",
-      end: "80% top",
+      trigger: sectionProfile,
+      start: "top bottom", 
+      end: "5% top",
       scrub: true,
       markers: false,
+      onLeave: () => {
+        gsap.to(MV, { opacity: 0.2 });
+      }
     }
   });
 
-	ScrollTrigger.create({
-    trigger: sectionWorks,
-    start: "top top",  // トリガー要素の上部がビューポートの上部に来た時
-		end: "+=100%",
-    onEnter: () => gsap.to(MV, { opacity: 1, duration: 0.5 }), // 透明度を1に戻す
-		onEnterBack: () => gsap.to(MV, { opacity: 0.2, duration: 0.5 }),
-    markers: false,
+  ScrollTrigger.create({
+    trigger: sectionProfile,
+    start: "bottom top",
+    end: "top top",
+    onEnterBack: () => {
+      gsap.to(MV, { opacity: 0.2 });
+    },
+    onLeave: () => {
+      gsap.to(MV, { opacity: 1 });
+    },
+    markers: false
   });
+
+  cover.style.backgroundColor = "var(--color-background-muted)";
+
+  gsap.fromTo(cover,
+    {
+      backgroundColor: "var(--color-background-muted)",
+    },
+    {
+      backgroundColor: "var(--color-background-primary-muted)",
+      ease: "power1.out",
+      duration: 5,
+      scrollTrigger: {
+        trigger: sectionConsult,
+        start: "20% center",
+        end: "bottom bottom",
+        scrub: true,
+        markers: false,
+        onEnter: () => cover.style.backgroundColor = "var(--color-background-primary-muted)",
+        onLeaveBack: () => cover.style.backgroundColor = "var(--color-background-muted)"
+      }
+    }
+  );
+
+  gsap.fromTo(cover,
+    {
+      backgroundColor: "var(--color-background-muted)",
+    },
+    {
+      backgroundColor: "var(--color-background-muted)",
+      ease: "power1.out",
+      duration: 5,
+      scrollTrigger: {
+        trigger: sectionWorks,
+        start: "20% center",
+        end: "bottom bottom",
+        scrub: true,
+        markers: false,
+        onEnter: () => cover.style.backgroundColor = "var(--color-background-muted)",
+        onLeaveBack: () => cover.style.backgroundColor = "var(--color-background-primary-muted)"
+      }
+    }
+  );
 </script>
 
 <style>
@@ -99,5 +152,10 @@ import SectionWorks from '../components/SectionWorks.astro';
 	}
   :global(.c-section-profile) {
 		padding-bottom: 40svh !important;
+  }
+
+  .cover {
+    background-color: var(--color-background-muted);
+    transition: background 0.3s ease;
   }
 </style>

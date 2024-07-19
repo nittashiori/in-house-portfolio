@@ -1,3 +1,9 @@
+# ellie 社内向けポートフォリオ
+
+https://ellie-in-house-portfolio.netlify.app/
+
+pw: impv_nitta
+
 # Astro Starter Kit: Basics
 
 ```sh
